@@ -8,6 +8,7 @@
     "fmt": "tslint --fix --force --project tsconfig.json && prettier --write 'src/**/*'",
     "lint": "tslint --project tsconfig.json",
     "spec": "jest",
+    "start": "parcel src/index.html",
     "style": "prettier --list-different 'src/**/*'",
     "test": "npm run lint && npm run style && npm run spec"
   },
@@ -34,6 +35,7 @@
     "codecov": "^3.0.2",
     "jest": "^22.4.3",
     "node-sass": "^4.9.0",
+    "parcel-bundler": "^1.8.1",
     "prettier": "^1.12.1",
     "react-test-renderer": "^16.3.2",
     "ts-jest": "^22.4.6",

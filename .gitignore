@@ -1,5 +1,7 @@
 # Artifacts
+.cache
 coverage
+dist
 
 # Dependencies
 node_modules
