@@ -1,5 +1,6 @@
 import * as React from "react";
+import Typography from "@material-ui/core/typography";
 
 export const Heading: React.SFC<{}> = () => {
-    return <h1>Epidemia</h1>;
+    return <Typography variant="title">Epidemia</Typography>;
 };

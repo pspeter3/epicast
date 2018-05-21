@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Heading should match the snapshot 1`] = `
-<h1>
+<h2
+  className="MuiTypography-root-1 MuiTypography-title-7"
+>
   Epidemia
-</h1>
+</h2>
 `;
