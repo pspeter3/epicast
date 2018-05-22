@@ -9,16 +9,33 @@ exports[`AppBar AppBar should match snapshot 1`] = `
 `;
 
 exports[`AppBar AppBarContainer should match snapshot 1`] = `
-<div
-  className="appbar-container"
+<section
+  className="appbar-section"
 >
   Snapshot
-</div>
+</section>
 `;
 
 exports[`AppBar AppBarIcon should match snapshot 1`] = `
 <a
   className="appbar-icon"
+  href="#"
+>
+  Snapshot
+</a>
+`;
+
+exports[`AppBar AppBarNav should match snapshot 1`] = `
+<nav
+  className="appbar-section"
+>
+  Snapshot
+</nav>
+`;
+
+exports[`AppBar AppBarTab should match snapshot 1`] = `
+<a
+  className="appbar-tab"
   href="#"
 >
   Snapshot

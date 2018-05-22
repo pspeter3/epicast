@@ -1,24 +1,28 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { AppBar, AppBarContainer, AppBarIcon, AppBarTitle } from "./theme/appbar";
+import {
+    AppBar,
+    AppBarIcon,
+    AppBarNav,
+    AppBarSection,
+    AppBarTab,
+    AppBarTitle,
+} from "./theme/appbar";
 import { SettingsIcon } from "./theme/icons";
-import { Tab, TabBar } from "./theme/tabbar";
 
 ReactDOM.render(
-    <React.Fragment>
-        <AppBar>
-            <AppBarContainer>
-                <AppBarTitle>Epidemia</AppBarTitle>
-                <AppBarIcon>
-                    <SettingsIcon />
-                </AppBarIcon>
-            </AppBarContainer>
-        </AppBar>
-        <TabBar>
-            <Tab>Dashboard</Tab>
-            <Tab>Infection</Tab>
-            <Tab>Player</Tab>
-        </TabBar>
-    </React.Fragment>,
+    <AppBar>
+        <AppBarSection>
+            <AppBarTitle>Epidemia</AppBarTitle>
+            <AppBarIcon>
+                <SettingsIcon />
+            </AppBarIcon>
+        </AppBarSection>
+        <AppBarNav>
+            <AppBarTab>Dashboard</AppBarTab>
+            <AppBarTab>Infection</AppBarTab>
+            <AppBarTab>Player</AppBarTab>
+        </AppBarNav>
+    </AppBar>,
     document.getElementById("root"),
 );

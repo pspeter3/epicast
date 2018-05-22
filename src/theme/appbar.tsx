@@ -4,8 +4,8 @@ export const AppBar: React.SFC<{}> = ({ children }) => {
     return <header className="appbar">{children}</header>;
 };
 
-export const AppBarContainer: React.SFC<{}> = ({ children }) => {
-    return <div className="appbar-container">{children}</div>;
+export const AppBarSection: React.SFC<{}> = ({ children }) => {
+    return <section className="appbar-section">{children}</section>;
 };
 
 export const AppBarTitle: React.SFC<{}> = ({ children }) => {
@@ -15,6 +15,18 @@ export const AppBarTitle: React.SFC<{}> = ({ children }) => {
 export const AppBarIcon: React.SFC<{}> = ({ children }) => {
     return (
         <a href="#" className="appbar-icon">
+            {children}
+        </a>
+    );
+};
+
+export const AppBarNav: React.SFC<{}> = ({ children }) => {
+    return <nav className="appbar-section">{children}</nav>;
+};
+
+export const AppBarTab: React.SFC<{}> = ({ children }) => {
+    return (
+        <a href="#" className="appbar-tab">
             {children}
         </a>
     );

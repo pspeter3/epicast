@@ -10,6 +10,8 @@ $spacing-large: $unit * 5;
 
 @mixin container() {
     display: flex;
+    margin: $spacing-none auto;
+    max-width: $spacing-base * 32;
 }
 
 @mixin target() {
@@ -22,7 +24,7 @@ $spacing-large: $unit * 5;
 }
 
 @mixin border-target() {
-    border-bottom: $spacing-border solid $color-primary;
+    border-bottom: $spacing-border solid $icon-inactive;
     padding: $spacing-small $spacing-base ($spacing-small - $spacing-border);
 }
 
