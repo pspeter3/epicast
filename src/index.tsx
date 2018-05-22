@@ -1,28 +1,11 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import {
-    AppBar,
-    AppBarIcon,
-    AppBarNav,
-    AppBarSection,
-    AppBarTab,
-    AppBarTitle,
-} from "./theme/appbar";
-import { SettingsIcon } from "./theme/icons";
+import { HashRouter } from "react-router-dom";
+import { App } from "./app";
 
 ReactDOM.render(
-    <AppBar>
-        <AppBarSection>
-            <AppBarTitle>Epidemia</AppBarTitle>
-            <AppBarIcon>
-                <SettingsIcon />
-            </AppBarIcon>
-        </AppBarSection>
-        <AppBarNav>
-            <AppBarTab>Dashboard</AppBarTab>
-            <AppBarTab>Infection</AppBarTab>
-            <AppBarTab>Player</AppBarTab>
-        </AppBarNav>
-    </AppBar>,
+    <HashRouter>
+        <App />
+    </HashRouter>,
     document.getElementById("root"),
 );

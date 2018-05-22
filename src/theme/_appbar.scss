@@ -22,7 +22,8 @@
     display: block;
     color: $icon-inactive;
 
-    &:hover {
+    &:hover,
+    &.active {
         color: $icon-active;
     }
 }
@@ -30,12 +31,14 @@
 .appbar-tab {
     @include expand();
     @include target();
+    @include typography-small();
     color: $text-hint;
     display: block;
     text-align: center;
     text-decoration: none;
 
-    &:hover {
+    &:hover,
+    &.active {
         @include border-target();
         color: $text-normal;
     }
