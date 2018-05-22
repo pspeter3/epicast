@@ -1,0 +1,28 @@
+@import "palette";
+@import "spacing";
+@import "typography";
+
+.appbar {
+    background: $color-primary;
+    width: 100%;
+}
+
+.appbar-container {
+    @include container();
+}
+
+.appbar-title {
+    @include expand();
+    @include target();
+    @include typography-large();
+}
+
+.appbar-icon {
+    @include target();
+    display: block;
+    color: $icon-inactive;
+
+    &:hover {
+        color: $icon-active;
+    }
+}

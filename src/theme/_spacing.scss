@@ -1,0 +1,31 @@
+$unit: 1rem / 4;
+
+$spacing-none: $unit * 0;
+$spacing-divider: $unit / 4;
+$spacing-border: $spacing-divider * 2;
+$spacing-grid: $unit * 2;
+$spacing-small: $unit * 3;
+$spacing-base: $unit * 4;
+$spacing-large: $unit * 5;
+
+@mixin container() {
+    display: flex;
+}
+
+@mixin target() {
+    padding: $spacing-small $spacing-base;
+}
+
+@mixin divider-target() {
+    border-bottom: $spacing-divider solid $divider;
+    padding: $spacing-small $spacing-base ($spacing-small - $spacing-divider);
+}
+
+@mixin border-target() {
+    border-bottom: $spacing-border solid $color-primary;
+    padding: $spacing-small $spacing-base ($spacing-small - $spacing-border);
+}
+
+@mixin expand() {
+    flex: 1;
+}

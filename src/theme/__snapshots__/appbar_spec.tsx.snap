@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppBar AppBar should match snapshot 1`] = `
+<header
+  className="appbar"
+>
+  Snapshot
+</header>
+`;
+
+exports[`AppBar AppBarContainer should match snapshot 1`] = `
+<div
+  className="appbar-container"
+>
+  Snapshot
+</div>
+`;
+
+exports[`AppBar AppBarIcon should match snapshot 1`] = `
+<a
+  className="appbar-icon"
+  href="#"
+>
+  Snapshot
+</a>
+`;
+
+exports[`AppBar AppBarTitle should match snapshot 1`] = `
+<h1
+  className="appbar-title"
+>
+  Snapshot
+</h1>
+`;
