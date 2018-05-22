@@ -1,51 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AppBar AppBar should match snapshot 1`] = `
+exports[`AppBar should have AppBar match snapshot 1`] = `
 <header
   className="appbar"
->
-  Snapshot
-</header>
+/>
 `;
 
-exports[`AppBar AppBarContainer should match snapshot 1`] = `
-<section
-  className="appbar-section"
->
-  Snapshot
-</section>
-`;
-
-exports[`AppBar AppBarIcon should match snapshot 1`] = `
+exports[`AppBar should have AppBarIcon match snapshot 1`] = `
 <a
-  className="appbar-icon"
-  href="#"
->
-  Snapshot
-</a>
+  aria-current="true"
+  className="appbar-icon active"
+  href="/"
+  onClick={[Function]}
+  style={Object {}}
+/>
 `;
 
-exports[`AppBar AppBarNav should match snapshot 1`] = `
+exports[`AppBar should have AppBarNav match snapshot 1`] = `
 <nav
   className="appbar-section"
->
-  Snapshot
-</nav>
+/>
 `;
 
-exports[`AppBar AppBarTab should match snapshot 1`] = `
+exports[`AppBar should have AppBarSection match snapshot 1`] = `
+<section
+  className="appbar-section"
+/>
+`;
+
+exports[`AppBar should have AppBarTab match snapshot 1`] = `
 <a
-  className="appbar-tab"
-  href="#"
->
-  Snapshot
-</a>
+  aria-current="true"
+  className="appbar-tab active"
+  href="/"
+  onClick={[Function]}
+  style={Object {}}
+/>
 `;
 
-exports[`AppBar AppBarTitle should match snapshot 1`] = `
+exports[`AppBar should have AppBarTitle match snapshot 1`] = `
 <h1
   className="appbar-title"
->
-  Snapshot
-</h1>
+/>
 `;

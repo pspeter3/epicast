@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Route } from "react-router-dom";
 import {
     AppBar,
     AppBarIcon,
@@ -6,12 +7,13 @@ import {
     AppBarSection,
     AppBarTab,
     AppBarTitle,
-} from "./theme/appbar";
-import { SettingsIcon } from "./theme/icons";
+} from "../theme/appbar";
+import { SettingsIcon } from "../theme/icons";
+import { Dashboard } from "./dashboard";
 
-export class App extends React.Component<{}, {}> {
-    public render() {
-        return (
+export const App: React.SFC<{}> = () => {
+    return (
+        <React.Fragment>
             <AppBar>
                 <AppBarSection>
                     <AppBarTitle>Epidemia</AppBarTitle>
@@ -25,6 +27,7 @@ export class App extends React.Component<{}, {}> {
                     <AppBarTab to="/player">Player</AppBarTab>
                 </AppBarNav>
             </AppBar>
-        );
-    }
-}
+            <Route path="/" exact component={Dashboard} />
+        </React.Fragment>
+    );
+};
