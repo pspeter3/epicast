@@ -1,5 +1,9 @@
 import * as React from "react";
 
+export const AppBar: React.SFC<{}> = ({ children }) => {
+    return <header className="appbar">{children}</header>;
+};
+
 export const Tile: React.SFC<{}> = ({ children }) => {
     return <section className="tile">{children}</section>;
 };

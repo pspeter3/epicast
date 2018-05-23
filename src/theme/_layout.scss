@@ -1,6 +1,11 @@
 @import "spacing";
 @import "typography";
 
+.appbar {
+    background: $color-primary;
+    width: 100%;
+}
+
 .tile {
     margin: $leading-normal $spacing-none;
 }

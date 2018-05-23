@@ -1,8 +1,7 @@
 import * as React from "react";
 import { Route } from "react-router-dom";
-import { AppBar } from "../theme/appbar";
 import { SettingsIcon } from "../theme/icons";
-import { Row } from "../theme/layout";
+import { AppBar, Row } from "../theme/layout";
 import { IconLink, TabLink } from "../theme/links";
 import { Title } from "../theme/typography";
 import { Dashboard } from "./dashboard";
