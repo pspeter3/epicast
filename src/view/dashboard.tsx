@@ -2,6 +2,8 @@ import * as React from "react";
 import { Meter, Percentage } from "../theme/data";
 import { Main, Row, Tile } from "../theme/layout";
 import { Header, Text } from "../theme/typography";
+import { IconButton } from "../theme/buttons";
+import { SettingsIcon } from "../theme/icons";
 
 export const Dashboard: React.SFC<{}> = () => {
     return (
@@ -18,6 +20,7 @@ export const Dashboard: React.SFC<{}> = () => {
             <Main>
                 <Row>
                     <Text>Table Goes Here</Text>
+                    <IconButton disabled><SettingsIcon/></IconButton>
                 </Row>
             </Main>
         </React.Fragment>

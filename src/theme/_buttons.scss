@@ -1,0 +1,21 @@
+@import "palette";
+@import "spacing";
+@import "typography";
+
+.icon-button {
+    @include target();
+    display: block;
+    color: $icon-inactive;
+
+    &:hover, &:focus {
+        color: $icon-active;
+    }
+
+    &:disabled {
+        color: $icon-disabled;
+
+        &:hover, &:focus {
+            color: $icon-disabled;
+        }
+    }
+}
