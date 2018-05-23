@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Typography Header should match snapshot 1`] = `
+<h2
+  className="header"
+>
+  Epidemic Percentage
+</h2>
+`;
+
+exports[`Typography SubHeader should match snapshot 1`] = `
+<h3
+  className="subheader"
+>
+  Discard Pile
+</h3>
+`;
+
+exports[`Typography Text should match snapshot 1`] = `
+<p
+  className="text"
+>
+  San Francisco
+</p>
+`;
+
+exports[`Typography Title should match snapshot 1`] = `
+<h1
+  className="title"
+>
+  Epidemia
+</h1>
+`;

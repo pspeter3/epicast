@@ -1,0 +1,48 @@
+@import "palette";
+@import "spacing";
+@import "typography";
+
+html {
+    box-sizing: border-box;
+    line-height: $leading-normal;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: $spacing-none;
+    padding: $spacing-none;
+}
+
+input,
+button {
+    background: none;
+    border: none;
+    width: auto;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    -webkit-appearance: none;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+body {
+    background: $color-background;
+    color: $text-normal;
+    font-family: $font-family-sans;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}

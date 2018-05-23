@@ -1,0 +1,29 @@
+@import "spacing";
+@import "typography";
+
+@mixin vertical-spacing() {
+    margin-bottom: $leading-normal;
+}
+
+.appbar {
+    @include vertical-spacing();
+    background: $color-primary;
+    width: 100%;
+}
+
+.main {
+    @include expand();
+    overflow-y: scroll;
+
+    & .section:last-child {
+        margin-bottom: $spacing-none;
+    }
+}
+
+.section {
+    @include vertical-spacing();
+}
+
+.row {
+    @include container();
+}

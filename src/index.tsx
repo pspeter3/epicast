@@ -1,5 +1,11 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { Heading } from "./heading";
+import { HashRouter } from "react-router-dom";
+import { App } from "./view/app";
 
-ReactDOM.render(<Heading />, document.getElementById("root"));
+ReactDOM.render(
+    <HashRouter>
+        <App />
+    </HashRouter>,
+    document.getElementById("root"),
+);

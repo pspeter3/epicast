@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard should match snapshot 1`] = `
+Array [
+  <section
+    className="section"
+  >
+    <div
+      className="row"
+    >
+      <h2
+        className="header"
+      >
+        Epidemic Probability
+      </h2>
+      <p
+        className="data-percentage"
+      >
+        63
+        %
+      </p>
+    </div>
+    <div
+      className="row"
+    >
+      <meter
+        className="data-meter active"
+        value={0.63}
+      />
+    </div>
+  </section>,
+  <main
+    className="main"
+  >
+    <div
+      className="row"
+    >
+      <p
+        className="text"
+      >
+        Table Goes Here
+      </p>
+    </div>
+  </main>,
+]
+`;
