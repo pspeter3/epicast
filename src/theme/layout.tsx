@@ -8,7 +8,6 @@ export const Main: React.SFC<{}> = ({ children }) => {
     return <main className="main">{children}</main>;
 };
 
-
 export const Section: React.SFC<{}> = ({ children }) => {
     return <section className="section">{children}</section>;
 };

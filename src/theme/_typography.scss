@@ -45,7 +45,7 @@ $leading-loose: $leading-normal * 2;
 
 .subheader {
     @include expand();
-    @include target();
+    @include target-divider();
     color: $text-hint;
     font-size: $spacing-base;
     font-weight: $font-medium;

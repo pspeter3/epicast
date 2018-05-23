@@ -24,7 +24,7 @@
 
     &:hover,
     &.active {
-        @include border-target();
+        @include target-border();
         color: $text-normal;
     }
 }

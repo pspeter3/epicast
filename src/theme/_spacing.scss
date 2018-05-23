@@ -20,12 +20,12 @@ $spacing-large: $unit * 5;
     padding: $spacing-small $spacing-base;
 }
 
-@mixin divider-target() {
-    border-bottom: $spacing-divider solid $divider;
+@mixin target-divider() {
+    border-bottom: $spacing-divider solid $color-divider;
     padding: $spacing-small $spacing-base ($spacing-small - $spacing-divider);
 }
 
-@mixin border-target() {
+@mixin target-border() {
     border-bottom: $spacing-border solid $icon-inactive;
     padding: $spacing-small $spacing-base ($spacing-small - $spacing-border);
 }
