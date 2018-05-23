@@ -1,6 +1,6 @@
 import * as React from "react";
 import { BottomButton, IconButton } from "../theme/buttons";
-import { CircleIcon, TargetIcon } from "../theme/icons";
+import { CheckCircleIcon, CircleIcon, TargetIcon } from "../theme/icons";
 import { Main, Row, Section } from "../theme/layout";
 import { Text } from "../theme/typography";
 
@@ -11,7 +11,7 @@ export const Infection: React.SFC<{}> = () => {
                 <Section>
                     <Row>
                         <IconButton>
-                            <CircleIcon />
+                            <CheckCircleIcon />
                         </IconButton>
                         <Text>Atlanta</Text>
                     </Row>

@@ -8,6 +8,7 @@ import { Title } from "../theme/typography";
 import { Dashboard } from "./dashboard";
 import { Discard } from "./discard";
 import { Infection } from "./infection";
+import { Settings } from "./settings";
 
 export const App: React.SFC<{}> = () => {
     return (
@@ -31,6 +32,7 @@ export const App: React.SFC<{}> = () => {
             <Route path="/" exact component={Dashboard} />
             <Route path="/infection" exact component={Infection} />
             <Route path="/discard" exact component={Discard} />
+            <Route path="/settings" exact component={Settings} />
         </React.Fragment>
     );
 };

@@ -22,15 +22,11 @@
     }
 }
 
-.bottom-button {
-    @include typography-small();
-    border-top: $spacing-divider solid $color-divider;
+@mixin text-button() {
     color: $text-hint;
     display: block;
     height: $leading-loose;
-    padding: ($spacing-small $spacing-divider) $spacing-base $spacing-small;
     text-align: center;
-    width: 100%;
 
     &:hover,
     &:focus {
@@ -45,4 +41,29 @@
             color: $text-disabled;
         }
     }
+}
+
+.subheader-button {
+    @include target-divider();
+    @include text-button();
+    @include typography-small();
+
+    &:hover,
+    &:focus {
+        @include target-border();
+    }
+
+    &:disabled {
+        &:hover,
+        &:focus {
+            @include target-divider();
+        }
+    }
+}
+
+.bottom-button {
+    @include text-button();
+    @include typography-small();
+    border-top: $spacing-divider solid $color-divider;
+    padding: ($spacing-small $spacing-divider) $spacing-base $spacing-small;
 }

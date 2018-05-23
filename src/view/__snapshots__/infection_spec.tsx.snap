@@ -15,7 +15,7 @@ Array [
           className="icon-button"
         >
           <svg
-            className="feather feather-circle"
+            className="feather feather-check-circle"
             fill="none"
             height="24"
             stroke="currentColor"
@@ -26,10 +26,11 @@ Array [
             width="24"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <circle
-              cx="12"
-              cy="12"
-              r="10"
+            <path
+              d="M22 11.08V12a10 10 0 1 1-5.93-9.14"
+            />
+            <polyline
+              points="22 4 12 14.01 9 11.01"
             />
           </svg>
         </button>

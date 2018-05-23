@@ -23,12 +23,6 @@ $leading-loose: $leading-normal * 2;
     text-transform: uppercase;
 }
 
-@mixin typography-strong() {
-}
-
-@mixin typography-large() {
-}
-
 .title {
     @include expand();
     @include target();
