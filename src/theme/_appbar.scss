@@ -6,36 +6,3 @@
     background: $color-primary;
     width: 100%;
 }
-
-.appbar-title {
-    @include expand();
-    @include target();
-    @include typography-large();
-}
-
-.appbar-icon {
-    @include target();
-    display: block;
-    color: $icon-inactive;
-
-    &:hover,
-    &.active {
-        color: $icon-active;
-    }
-}
-
-.appbar-tab {
-    @include expand();
-    @include target();
-    @include typography-small();
-    color: $text-hint;
-    display: block;
-    text-align: center;
-    text-decoration: none;
-
-    &:hover,
-    &.active {
-        @include border-target();
-        color: $text-normal;
-    }
-}

@@ -1,8 +1,9 @@
 import * as React from "react";
 import { Route } from "react-router-dom";
-import { AppBar, AppBarIcon, AppBarTab } from "../theme/appbar";
+import { AppBar } from "../theme/appbar";
 import { SettingsIcon } from "../theme/icons";
 import { Row } from "../theme/layout";
+import { IconLink, TabLink } from "../theme/links";
 import { Title } from "../theme/typography";
 import { Dashboard } from "./dashboard";
 
@@ -12,13 +13,13 @@ export const App: React.SFC<{}> = () => {
             <AppBar>
                 <Row>
                     <Title>Epidemia</Title>
-                    <AppBarIcon to="/settings">
+                    <IconLink to="/settings">
                         <SettingsIcon />
-                    </AppBarIcon>
+                    </IconLink>
                 </Row>
                 <Row>
-                    <AppBarTab to="/">Dashboard</AppBarTab>
-                    <AppBarTab to="/infection">Infection</AppBarTab>
+                    <TabLink to="/">Dashboard</TabLink>
+                    <TabLink to="/infection">Infection</TabLink>
                 </Row>
             </AppBar>
             <Route path="/" exact component={Dashboard} />

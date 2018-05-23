@@ -5,23 +5,3 @@ exports[`AppBar should have AppBar match snapshot 1`] = `
   className="appbar"
 />
 `;
-
-exports[`AppBar should have AppBarIcon match snapshot 1`] = `
-<a
-  aria-current="true"
-  className="appbar-icon active"
-  href="/"
-  onClick={[Function]}
-  style={Object {}}
-/>
-`;
-
-exports[`AppBar should have AppBarTab match snapshot 1`] = `
-<a
-  aria-current="true"
-  className="appbar-tab active"
-  href="/"
-  onClick={[Function]}
-  style={Object {}}
-/>
-`;

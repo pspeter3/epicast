@@ -15,7 +15,7 @@ Array [
       </h1>
       <a
         aria-current={false}
-        className="appbar-icon"
+        className="icon-link"
         href="/settings"
         onClick={[Function]}
         style={undefined}
@@ -48,7 +48,7 @@ Array [
     >
       <a
         aria-current="true"
-        className="appbar-tab active"
+        className="tab-link active"
         href="/"
         onClick={[Function]}
         style={Object {}}
@@ -57,7 +57,7 @@ Array [
       </a>
       <a
         aria-current={false}
-        className="appbar-tab"
+        className="tab-link"
         href="/infection"
         onClick={[Function]}
         style={undefined}
