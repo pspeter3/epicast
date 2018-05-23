@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`AppBar should have AppBar match snapshot 1`] = `
-<header
-  className="appbar"
-/>
-`;

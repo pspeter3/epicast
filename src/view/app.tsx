@@ -5,6 +5,7 @@ import { AppBar, Row } from "../theme/layout";
 import { IconLink, TabLink } from "../theme/links";
 import { Title } from "../theme/typography";
 import { Dashboard } from "./dashboard";
+import { Discard } from "./discard";
 import { Infection } from "./infection";
 
 export const App: React.SFC<{}> = () => {
@@ -20,10 +21,12 @@ export const App: React.SFC<{}> = () => {
                 <Row>
                     <TabLink to="/">Dashboard</TabLink>
                     <TabLink to="/infection">Infection</TabLink>
+                    <TabLink to="/discard">Discard</TabLink>
                 </Row>
             </AppBar>
             <Route path="/" exact component={Dashboard} />
             <Route path="/infection" exact component={Infection} />
+            <Route path="/discard" exact component={Discard} />
         </React.Fragment>
     );
 };

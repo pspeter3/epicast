@@ -1,0 +1,180 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Infection should match snapshot 1`] = `
+Array [
+  <main
+    className="main"
+  >
+    <section
+      className="section"
+    >
+      <div
+        className="row"
+      >
+        <button
+          className="icon-button"
+        >
+          <svg
+            className="feather feather-circle"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="10"
+            />
+          </svg>
+        </button>
+        <p
+          className="text"
+        >
+          Atlanta
+        </p>
+      </div>
+    </section>
+    <section
+      className="section"
+    >
+      <div
+        className="row"
+      >
+        <button
+          className="icon-button"
+        >
+          <svg
+            className="feather feather-circle"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="10"
+            />
+          </svg>
+        </button>
+        <p
+          className="text"
+        >
+          Washington D.C.
+        </p>
+        <button
+          className="icon-button"
+        >
+          <svg
+            className="feather feather-target"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="10"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              r="6"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              r="2"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        className="row"
+      >
+        <button
+          className="icon-button"
+        >
+          <svg
+            className="feather feather-circle"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="10"
+            />
+          </svg>
+        </button>
+        <p
+          className="text"
+        >
+          Washington D.C
+        </p>
+        <button
+          className="icon-button"
+        >
+          <svg
+            className="feather feather-target"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="10"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              r="6"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              r="2"
+            />
+          </svg>
+        </button>
+      </div>
+    </section>
+  </main>,
+  <button
+    className="bottom-button"
+  >
+    Skip Infection
+  </button>,
+]
+`;

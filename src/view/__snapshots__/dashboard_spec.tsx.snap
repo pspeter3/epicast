@@ -3,7 +3,7 @@
 exports[`Dashboard should match snapshot 1`] = `
 Array [
   <section
-    className="tile"
+    className="section"
   >
     <div
       className="row"

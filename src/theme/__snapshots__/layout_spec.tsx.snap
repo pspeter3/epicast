@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Layout AppBar should match snapshot 1`] = `
+<header
+  className="appbar"
+/>
+`;
+
 exports[`Layout Main should match snapshot 1`] = `
 <main
   className="main"
@@ -12,8 +18,8 @@ exports[`Layout Row should match snapshot 1`] = `
 />
 `;
 
-exports[`Layout Tile should match snapshot 1`] = `
+exports[`Layout Section should match snapshot 1`] = `
 <section
-  className="tile"
+  className="section"
 />
 `;

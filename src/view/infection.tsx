@@ -1,8 +1,8 @@
 import * as React from "react";
 import { BottomButton, IconButton } from "../theme/buttons";
-import { CircleIcon, XCircleIcon } from "../theme/icons";
+import { CircleIcon, TargetIcon } from "../theme/icons";
 import { Main, Row, Section } from "../theme/layout";
-import { SubHeader, Text } from "../theme/typography";
+import { Text } from "../theme/typography";
 
 export const Infection: React.SFC<{}> = () => {
     return (
@@ -10,49 +10,29 @@ export const Infection: React.SFC<{}> = () => {
             <Main>
                 <Section>
                     <Row>
-                        <SubHeader>Discard Pile</SubHeader>
-                    </Row>
-                    <Row>
-                        <Text>Atlanta</Text>
-                        <IconButton>
-                            <XCircleIcon />
-                        </IconButton>
-                    </Row>
-                    <Row>
-                        <Text>San Francisco</Text>
-                        <IconButton>
-                            <XCircleIcon />
-                        </IconButton>
-                    </Row>
-                    <Row>
-                        <Text>San Francisco</Text>
-                        <IconButton>
-                            <XCircleIcon />
-                        </IconButton>
-                    </Row>
-                </Section>
-                <Section>
-                    <Row>
-                        <SubHeader>Infection Deck</SubHeader>
-                    </Row>
-                    <Row>
-                        <Text>Atlanta</Text>
                         <IconButton>
                             <CircleIcon />
                         </IconButton>
+                        <Text>Atlanta</Text>
                     </Row>
                 </Section>
                 <Section>
                     <Row>
+                        <IconButton>
+                            <CircleIcon />
+                        </IconButton>
                         <Text>Washington D.C.</Text>
                         <IconButton>
-                            <CircleIcon />
+                            <TargetIcon />
                         </IconButton>
                     </Row>
                     <Row>
-                        <Text>Washington D.C</Text>
                         <IconButton>
                             <CircleIcon />
+                        </IconButton>
+                        <Text>Washington D.C</Text>
+                        <IconButton>
+                            <TargetIcon />
                         </IconButton>
                     </Row>
                 </Section>

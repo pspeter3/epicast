@@ -64,10 +64,19 @@ Array [
       >
         Infection
       </a>
+      <a
+        aria-current={false}
+        className="tab-link"
+        href="/discard"
+        onClick={[Function]}
+        style={undefined}
+      >
+        Discard
+      </a>
     </div>
   </header>,
   <section
-    className="tile"
+    className="section"
   >
     <div
       className="row"
