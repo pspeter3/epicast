@@ -19,11 +19,11 @@ npm install
 
 This will start a local development server with live reload enabled. The site is hosted at [http://localhost:1234](http://localhost:1234).
 
-## `npm run fmt`
+### `npm run fmt`
 
 Automatically format your code.
 
-## `npm test`
+### `npm test`
 
 Test all of your code.
 
