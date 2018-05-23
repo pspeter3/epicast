@@ -1,13 +1,14 @@
 import * as React from "react";
-import { Label, Meter, Percentage } from "../theme/data";
+import { Meter, Percentage } from "../theme/data";
 import { Main, Row, Tile } from "../theme/layout";
+import { Header, Text } from "../theme/typography";
 
 export const Dashboard: React.SFC<{}> = () => {
     return (
         <React.Fragment>
             <Tile>
                 <Row>
-                    <Label>Epidemic Probability</Label>
+                    <Header>Epidemic Probability</Header>
                     <Percentage value={0.63} />
                 </Row>
                 <Row>
@@ -16,7 +17,7 @@ export const Dashboard: React.SFC<{}> = () => {
             </Tile>
             <Main>
                 <Row>
-                    <Label>Table Goes Here</Label>
+                    <Text>Table Goes Here</Text>
                 </Row>
             </Main>
         </React.Fragment>

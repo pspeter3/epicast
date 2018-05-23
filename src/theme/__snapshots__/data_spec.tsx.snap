@@ -1,13 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Data Label should match snapshot 1`] = `
-<h2
-  className="data-label"
->
-  Data
-</h2>
-`;
-
 exports[`Data Meter should match active snapshot 1`] = `
 <meter
   className="data-meter active"
@@ -23,19 +15,19 @@ exports[`Data Meter should match snapshot 1`] = `
 `;
 
 exports[`Data Percentage should match rounded snapshot 1`] = `
-<span
+<p
   className="data-percentage"
 >
   50
   %
-</span>
+</p>
 `;
 
 exports[`Data Percentage should match snapshot 1`] = `
-<span
+<p
   className="data-percentage"
 >
   50
   %
-</span>
+</p>
 `;

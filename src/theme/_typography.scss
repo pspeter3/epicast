@@ -24,11 +24,34 @@ $leading-loose: $leading-normal * 2;
 }
 
 @mixin typography-strong() {
+}
+
+@mixin typography-large() {
+}
+
+.title {
+    @include expand();
+    @include target();
+    font-size: $spacing-large;
+    font-weight: $font-medium;
+}
+
+.header {
+    @include expand();
+    @include target();
     font-size: $spacing-base;
     font-weight: $font-medium;
 }
 
-@mixin typography-large() {
-    font-size: $spacing-large;
+.subheader {
+    @include expand();
+    @include target();
+    color: $text-hint;
+    font-size: $spacing-base;
     font-weight: $font-medium;
+}
+
+.text {
+    @include expand();
+    @include target();
 }

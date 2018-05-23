@@ -25,9 +25,3 @@ exports[`AppBar should have AppBarTab match snapshot 1`] = `
   style={Object {}}
 />
 `;
-
-exports[`AppBar should have AppBarTitle match snapshot 1`] = `
-<h1
-  className="appbar-title"
-/>
-`;

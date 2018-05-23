@@ -10,12 +10,6 @@
     }
 }
 
-.data-label {
-    @include expand();
-    @include target();
-    @include typography-strong();
-}
-
 .data-meter {
     @include meter-fill($icon-disabled);
     appearance: none;

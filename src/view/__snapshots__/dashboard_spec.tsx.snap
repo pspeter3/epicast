@@ -9,16 +9,16 @@ Array [
       className="row"
     >
       <h2
-        className="data-label"
+        className="header"
       >
         Epidemic Probability
       </h2>
-      <span
+      <p
         className="data-percentage"
       >
         63
         %
-      </span>
+      </p>
     </div>
     <div
       className="row"
@@ -35,11 +35,11 @@ Array [
     <div
       className="row"
     >
-      <h2
-        className="data-label"
+      <p
+        className="text"
       >
         Table Goes Here
-      </h2>
+      </p>
     </div>
   </main>,
 ]
