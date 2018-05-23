@@ -10,6 +10,7 @@ import {
 } from "../theme/appbar";
 import { SettingsIcon } from "../theme/icons";
 import { Dashboard } from "./dashboard";
+import { Player } from "./player";
 
 export const App: React.SFC<{}> = () => {
     return (
@@ -28,6 +29,7 @@ export const App: React.SFC<{}> = () => {
                 </AppBarNav>
             </AppBar>
             <Route path="/" exact component={Dashboard} />
+            <Route path="/player" component={Player} />
         </React.Fragment>
     );
 };

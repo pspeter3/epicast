@@ -10,7 +10,6 @@
 }
 
 .main {
-    @include container();
     @include expand();
     overflow-y: scroll;
 }
