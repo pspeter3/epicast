@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Route } from "react-router-dom";
-import { SettingsIcon } from "../theme/icons";
+import { IconButton } from "../theme/buttons";
+import { RotateCwwIcon, SettingsIcon } from "../theme/icons";
 import { AppBar, Row } from "../theme/layout";
 import { IconLink, TabLink } from "../theme/links";
 import { Title } from "../theme/typography";
@@ -14,6 +15,9 @@ export const App: React.SFC<{}> = () => {
             <AppBar>
                 <Row>
                     <Title>Epidemia</Title>
+                    <IconButton>
+                        <RotateCwwIcon />
+                    </IconButton>
                     <IconLink to="/settings">
                         <SettingsIcon />
                     </IconLink>

@@ -5,6 +5,7 @@ export const CheckCircleIcon = () => CHECK_CIRCLE;
 export const CircleIcon = () => CIRCLE;
 export const MinusCircleIcon = () => MINUS_CIRCLE;
 export const PlusCircleIcon = () => PLUS_CIRCLE;
+export const RotateCwwIcon = () => ROTATE_CCW;
 export const SettingsIcon = () => SETTINGS;
 export const TargetIcon = () => TARGET;
 export const TrashIcon = () => TRASH;
@@ -95,6 +96,23 @@ const PLUS_CIRCLE = (
         <circle cx="12" cy="12" r="10" />
         <line x1="12" y1="8" x2="12" y2="16" />
         <line x1="8" y1="12" x2="16" y2="12" />
+    </svg>
+);
+const ROTATE_CCW = (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="feather feather-rotate-ccw"
+    >
+        <polyline points="1 4 1 10 7 10" />
+        <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
     </svg>
 );
 const SETTINGS = (
