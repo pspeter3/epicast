@@ -7,10 +7,6 @@
     width: 100%;
 }
 
-.appbar-section {
-    @include container();
-}
-
 .appbar-title {
     @include expand();
     @include target();

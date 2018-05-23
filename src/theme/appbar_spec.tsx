@@ -1,13 +1,11 @@
 import * as React from "react";
 import { MemoryRouter } from "react-router";
 import { snapshot } from "../util/snapshot";
-import { AppBar, AppBarIcon, AppBarNav, AppBarSection, AppBarTab, AppBarTitle } from "./appbar";
+import { AppBar, AppBarIcon, AppBarTab, AppBarTitle } from "./appbar";
 
 describe("AppBar", () => {
     const components = {
         AppBar,
-        AppBarNav,
-        AppBarSection,
         AppBarTitle,
     };
     Object.keys(components).forEach(key => {

@@ -5,8 +5,8 @@ Array [
   <header
     className="appbar"
   >
-    <section
-      className="appbar-section"
+    <div
+      className="row"
     >
       <h1
         className="appbar-title"
@@ -42,9 +42,9 @@ Array [
           />
         </svg>
       </a>
-    </section>
-    <nav
-      className="appbar-section"
+    </div>
+    <div
+      className="row"
     >
       <a
         aria-current="true"
@@ -64,16 +64,7 @@ Array [
       >
         Infection
       </a>
-      <a
-        aria-current={false}
-        className="appbar-tab"
-        href="/player"
-        onClick={[Function]}
-        style={undefined}
-      >
-        Player
-      </a>
-    </nav>
+    </div>
   </header>,
   <section
     className="tile"
