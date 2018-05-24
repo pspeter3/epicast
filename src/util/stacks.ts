@@ -19,7 +19,15 @@ export const union = (left: Stack, right: Stack): Stack => {
 
 export const difference = (left: Stack, right: Stack): Stack => {
     return Object.keys(right).reduce((stack, key) => {
+        if (left[key] === undefined) {
+            return stack;
+        }
         const result = value(left, key) - value(right, key);
-        return result > 0 ? { ...stack, [key]: result } : stack;
+        if (result > 0) {
+            return { ...stack, [key]: result };
+        }
+        /* istanbul ignore next */
+        const { [key]: _, ...next } = stack;
+        return next;
     }, left);
 };

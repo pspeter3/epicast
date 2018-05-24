@@ -8,17 +8,9 @@ export interface Config {
     readonly cities: Stack;
 }
 
-export interface State {
+export interface Game {
     readonly turns: number;
     readonly epidemics: number;
-    readonly config: Config;
     readonly discard: Stack;
     readonly infection: Deck;
-}
-
-export type ActionName = "epidemic" | "infect" | "remove";
-
-export interface Action {
-    readonly name: ActionName;
-    readonly cities: Stack;
 }
