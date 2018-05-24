@@ -15,3 +15,10 @@ export interface State {
     readonly discard: Stack;
     readonly infection: Deck;
 }
+
+export type ActionName = "epidemic" | "infect" | "remove";
+
+export interface Action {
+    readonly name: ActionName;
+    readonly cities: Stack;
+}
