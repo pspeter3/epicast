@@ -7,9 +7,7 @@ exports[`Links IconLink should match snapshot 1`] = `
   className="icon-link"
   exact={true}
   to="/"
->
-  <Component />
-</NavLink>
+/>
 `;
 
 exports[`Links TabLink should match snapshot 1`] = `
@@ -19,7 +17,5 @@ exports[`Links TabLink should match snapshot 1`] = `
   className="tab-link"
   exact={true}
   to="/"
->
-  <Component />
-</NavLink>
+/>
 `;

@@ -1,9 +1,6 @@
 version: 2
 jobs:
   dependencies:
-    branches:
-      ignore:
-        - gh-pages
     docker:
       - image: circleci/node:9.6.1
     working_directory: ~/epidemia
@@ -19,9 +16,6 @@ jobs:
           paths:
             - ./node_modules
   lint:
-    branches:
-      ignore:
-        - gh-pages
     docker:
       - image: circleci/node:9.6.1
     working_directory: ~/epidemia
@@ -33,9 +27,6 @@ jobs:
           name: test
           command: npm run lint
   spec:
-    branches:
-      ignore:
-        - gh-pages
     docker:
       - image: circleci/node:9.6.1
     working_directory: ~/epidemia
@@ -50,9 +41,6 @@ jobs:
           name: coverage
           command: npm run coverage
   style:
-    branches:
-      ignore:
-        - gh-pages
     docker:
       - image: circleci/node:9.6.1
     working_directory: ~/epidemia
@@ -64,9 +52,6 @@ jobs:
           name: test
           command: npm run style 
   deploy:
-    branches:
-      ignore:
-        - gh-pages
     docker:
       - image: circleci/node:9.6.1
     working_directory: ~/epidemia
@@ -97,16 +82,32 @@ workflows:
   version: 2
   ci:
     jobs:
-      - dependencies
+      - dependencies:
+          filters:
+            branches:
+              ignore:
+                - gh-pages
       - lint:
           requires:
             - dependencies
+          filters:
+            branches:
+              ignore:
+                - gh-pages
       - spec:
           requires:
             - dependencies    
+          filters:
+            branches:
+              ignore:
+                - gh-pages
       - style:
           requires:
-            - dependencies  
+            - dependencies
+          filters:
+            branches:
+              ignore:
+                - gh-pages  
       - deploy:
           requires:
             - lint
