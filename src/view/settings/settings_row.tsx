@@ -6,19 +6,20 @@ import { Row } from "../../theme/layout";
 import { Text } from "../../theme/typography";
 
 export interface Props {
-    readonly name: string;
-    readonly value: number;
-    readonly onDecrement: (name: string) => void;
-    readonly onChange: (name: string, value: string) => void;
-    readonly onIncrement: (name: string) => void;
+    name: string;
+    displayName?: string;
+    value: number;
+    onDecrement: (name: string) => void;
+    onChange: (name: string, value: number) => void;
+    onIncrement: (name: string) => void;
 }
 
-export class ConfigRow extends React.PureComponent<Props, {}> {
+export class SettingsRow extends React.PureComponent<Props, {}> {
     public render() {
-        const { name, value } = this.props;
+        const { name, displayName, value } = this.props;
         return (
             <Row>
-                <Text>{name}</Text>
+                <Text>{displayName || name}</Text>
                 <IconButton onClick={this._onDecrement}>
                     <MinusCircleIcon />
                 </IconButton>
@@ -35,7 +36,7 @@ export class ConfigRow extends React.PureComponent<Props, {}> {
     };
 
     private _onChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
-        this.props.onChange(this.props.name, evt.target.value);
+        this.props.onChange(this.props.name, parseInt(evt.target.value, 10));
     };
 
     private _onIncrement = () => {

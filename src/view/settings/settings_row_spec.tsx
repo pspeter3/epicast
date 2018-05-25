@@ -3,14 +3,28 @@ import * as React from "react";
 import { IconButton } from "../../theme/buttons";
 import { NumericInput } from "../../theme/inputs";
 import { snapshot } from "../../util/snapshot";
-import { ConfigRow } from "./config_row";
+import { SettingsRow } from "./settings_row";
 
 describe("ConfigRow", () => {
     it(
-        "should match snapshot",
+        "should match snapshot with name",
         snapshot(() => (
-            <ConfigRow
+            <SettingsRow
                 name="name"
+                value={1}
+                onDecrement={jest.fn()}
+                onChange={jest.fn()}
+                onIncrement={jest.fn()}
+            />
+        )),
+    );
+
+    it(
+        "should match snapshot with displayName",
+        snapshot(() => (
+            <SettingsRow
+                name="name"
+                displayName="Display Name"
                 value={1}
                 onDecrement={jest.fn()}
                 onChange={jest.fn()}
@@ -23,7 +37,7 @@ describe("ConfigRow", () => {
         const name = "name";
         const onDecrement = jest.fn();
         const tree = shallow(
-            <ConfigRow
+            <SettingsRow
                 name={name}
                 value={1}
                 onDecrement={onDecrement}
@@ -43,7 +57,7 @@ describe("ConfigRow", () => {
         const value = 3;
         const onChange = jest.fn();
         const tree = shallow(
-            <ConfigRow
+            <SettingsRow
                 name={name}
                 value={1}
                 onDecrement={jest.fn()}
@@ -51,7 +65,7 @@ describe("ConfigRow", () => {
                 onIncrement={jest.fn()}
             />,
         );
-        tree.find(NumericInput).simulate("change", { target: { value } });
+        tree.find(NumericInput).simulate("change", { target: { value: value.toString() } });
         expect(onChange).toHaveBeenCalledWith(name, value);
     });
 
@@ -59,7 +73,7 @@ describe("ConfigRow", () => {
         const name = "name";
         const onIncrement = jest.fn();
         const tree = shallow(
-            <ConfigRow
+            <SettingsRow
                 name={name}
                 value={1}
                 onDecrement={jest.fn()}
