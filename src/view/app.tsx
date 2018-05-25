@@ -3,7 +3,7 @@ import { Redirect, Route } from "react-router-dom";
 import { Config, Game } from "../core/types";
 import { configure, remove } from "../core/updaters";
 import { IconButton } from "../theme/buttons";
-import { CornerUpLeftIcon, SettingsIcon } from "../theme/icons";
+import { CornerUpLeftIcon, EditIcon } from "../theme/icons";
 import { AppBar, Row } from "../theme/layout";
 import { IconLink, TabLink } from "../theme/links";
 import { Title } from "../theme/typography";
@@ -53,7 +53,7 @@ export class App extends React.Component<Props, State> {
                             <CornerUpLeftIcon />
                         </IconButton>
                         <IconLink to={Routes.Settings}>
-                            <SettingsIcon />
+                            <EditIcon />
                         </IconLink>
                     </Row>
                     <Row>
