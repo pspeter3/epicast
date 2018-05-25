@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Settings should match snapshot 1`] = `
+<React.Fragment>
+  <SettingsRow
+    displayName="Player Deck Size"
+    name="cards"
+    onChange={[Function]}
+    onDecrement={[Function]}
+    onIncrement={[Function]}
+    value={0}
+  />
+  <SettingsRow
+    displayName="Epidemic Count"
+    name="epidemics"
+    onChange={[Function]}
+    onDecrement={[Function]}
+    onIncrement={[Function]}
+    value={0}
+  />
+  <Component>
+    <Component>
+      Infection Deck
+    </Component>
+    <Component
+      onClick={[Function]}
+    >
+      Add City
+    </Component>
+  </Component>
+  <Component />
+  <Component
+    onClick={[Function]}
+  >
+    Save
+  </Component>
+</React.Fragment>
+`;

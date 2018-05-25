@@ -1,13 +1,11 @@
+import { shallow } from "enzyme";
 import * as React from "react";
-import TestRenderer from "react-test-renderer";
 
 export type Factory = () => React.ReactElement<any>;
 
 export const snapshot = (factory: Factory): (() => void) => {
     return () => {
-        const component = TestRenderer.create(factory());
-        const tree = component.toJSON();
-        expect(tree).toMatchSnapshot();
+        expect(shallow(factory())).toMatchSnapshot();
     };
 };
 
