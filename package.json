@@ -29,17 +29,20 @@
     "tslib": "^1.9.1"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.1.10",
+    "@types/enzyme-adapter-react-16": "^1.0.2",
     "@types/jest": "^22.2.3",
     "@types/react": "^16.3.14",
     "@types/react-dom": "^16.0.5",
     "@types/react-router-dom": "^4.2.6",
-    "@types/react-test-renderer": "^16.0.1",
     "codecov": "^3.0.2",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
     "jest": "^22.4.4",
     "node-sass": "^4.9.0",
     "parcel-bundler": "^1.8.1",
     "prettier": "^1.12.1",
-    "react-test-renderer": "^16.4.0",
     "ts-jest": "^22.4.6",
     "tslint": "^5.10.0",
     "typescript": "^2.8.3"
@@ -56,6 +59,10 @@
       "ts",
       "tsx",
       "js"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/src/util/test_bootstrap.ts",
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/enzyme-to-json/serializer"
     ],
     "testRegex": "_spec\\.(ts|tsx)$",
     "testEnvironment": "node",
