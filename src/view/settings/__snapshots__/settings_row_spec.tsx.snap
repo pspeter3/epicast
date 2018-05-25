@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ConfigRow should match snapshot with displayName 1`] = `
+exports[`SettingsRow should match snapshot with displayName 1`] = `
 <Component>
   <Component>
     Display Name
@@ -22,7 +22,7 @@ exports[`ConfigRow should match snapshot with displayName 1`] = `
 </Component>
 `;
 
-exports[`ConfigRow should match snapshot with name 1`] = `
+exports[`SettingsRow should match snapshot with name 1`] = `
 <Component>
   <Component>
     name

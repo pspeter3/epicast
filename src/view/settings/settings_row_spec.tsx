@@ -5,7 +5,7 @@ import { NumericInput } from "../../theme/inputs";
 import { snapshot } from "../../util/snapshot";
 import { SettingsRow } from "./settings_row";
 
-describe("ConfigRow", () => {
+describe("SettingsRow", () => {
     it(
         "should match snapshot with name",
         snapshot(() => (
