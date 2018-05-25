@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConfigRow should match snapshot 1`] = `
+<Component>
+  <Component>
+    name
+  </Component>
+  <Component
+    onClick={[Function]}
+  >
+    <Component />
+  </Component>
+  <Component
+    onChange={[Function]}
+    value={1}
+  />
+  <Component
+    onClick={[Function]}
+  >
+    <Component />
+  </Component>
+</Component>
+`;

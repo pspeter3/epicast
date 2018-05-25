@@ -62,7 +62,7 @@
     ],
     "setupTestFrameworkScriptFile": "<rootDir>/src/util/test_bootstrap.ts",
     "snapshotSerializers": [
-      "<rootDir>/node_modules/enzyme-to-json/serializer"
+      "enzyme-to-json/serializer"
     ],
     "testRegex": "_spec\\.(ts|tsx)$",
     "testEnvironment": "node",
