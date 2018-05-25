@@ -1,5 +1,8 @@
 version: 2
 jobs:
+  branches:
+    ignore:
+      - gh-pages
   dependencies:
     docker:
       - image: circleci/node:9.6.1
@@ -50,7 +53,33 @@ jobs:
           key: npm-{{ checksum "package-lock.json" }}
       - run:
           name: test
-          command: npm run style
+          command: npm run style 
+  deploy:
+    docker:
+      - image: circleci/node:9.6.1
+    working_directory: ~/epidemia
+    steps:
+      - checkout
+      - restore_cache:
+          key: npm-{{ checksum "package-lock.json" }}
+      - run:
+          name: user.email
+          command: git config --global user.email pspeter333@gmail.com
+      - run:
+          name: user.name
+          command: git config --global user.name $CIRCLE_PR_USERNAME
+      - run:
+          name: clone
+          command: git clone $CIRCLE_REPOSITORY_URL dist
+      - run:
+          name: clean
+          command: cd dist && git checkout gh-pages || git checkout --orphan gh-pages && git rm -rf .
+      - run:
+          name: build
+          command: npm run build
+      - run:
+          name: push
+          command: cd dist && git add -A && git commit -m "${CIRCLE_SHA1}" --allow-empty && git push origin gh-pages
 
 workflows:
   version: 2
@@ -66,3 +95,11 @@ workflows:
       - style:
           requires:
             - dependencies  
+      - deploy:
+          requires:
+            - lint
+            - spec
+            - style
+          filters:
+            branches:
+              only: master
