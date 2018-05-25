@@ -1,4 +1,4 @@
-import { difference, union, unit, value } from "./stacks";
+import { difference, size, union, unit, value } from "./stacks";
 
 const PRIMARY = "San Francisco";
 const SECONDARY = "Los Angeles";
@@ -46,6 +46,17 @@ describe("stacks", () => {
 
         it("should handle missing keys", () => {
             expect(difference({ [PRIMARY]: 1 }, { [SECONDARY]: 1 })).toEqual({ [PRIMARY]: 1 });
+        });
+    });
+
+    describe("size", () => {
+        it("should return the correct size", () => {
+            expect(
+                size({
+                    [PRIMARY]: 1,
+                    [SECONDARY]: 1,
+                }),
+            ).toBe(2);
         });
     });
 });
