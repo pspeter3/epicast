@@ -22,6 +22,7 @@ describe("reducers", () => {
     describe("configure", () => {
         it("should configure the game", () => {
             expect(init()).toEqual({
+                player: [9, 9, 9, 9, 8, 8, 8, 8],
                 turns: 0,
                 epidemics: 0,
                 discard: {},

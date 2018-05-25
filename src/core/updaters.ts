@@ -4,7 +4,14 @@ import { Config, Deck, Game } from "./types";
 export type Updater<D> = (game: Game, data: D) => Game;
 
 export const configure = (config: Config): Game => {
+    const player: number[] = [];
+    const base = Math.floor(config.cards / config.epidemics);
+    const remainder = config.cards % config.epidemics;
+    for (let i = 0; i < config.epidemics; i++) {
+        player.push(base + (i < remainder ? 2 : 1));
+    }
     return {
+        player,
         turns: 0,
         epidemics: 0,
         discard: {},

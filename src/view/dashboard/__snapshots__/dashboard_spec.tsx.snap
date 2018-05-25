@@ -8,21 +8,13 @@ exports[`Dashboard should match snapshot 1`] = `
         Epidemic Probability
       </Component>
       <Component
-        value={0.63}
+        value={0.25}
       />
     </Component>
     <Component>
       <Component
-        active={true}
-        value={0.63}
+        value={0.25}
       />
-    </Component>
-  </Component>
-  <Component>
-    <Component>
-      <Component>
-        Table Goes Here
-      </Component>
     </Component>
   </Component>
 </React.Fragment>

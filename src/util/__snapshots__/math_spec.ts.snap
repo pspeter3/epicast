@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`math combinations should throw if k is less than n 1`] = `"Invalid range: 3 >= 5"`;
+
+exports[`math factorial should throw if less than zero 1`] = `"Invalid range: -1 >= 0"`;
+
+exports[`math hypergeometric should throw if K is greater than N 1`] = `"Invalid range: 1 >= 1 >= 2"`;
+
+exports[`math hypergeometric should throw if k is greater than K 1`] = `"Invalid range: 0 >= 1 >= 0"`;
+
+exports[`math hypergeometric should throw if k is greater than n 1`] = `"Invalid range: 1 >= 2 >= 1"`;
+
+exports[`math hypergeometric should throw if n is greater than N 1`] = `"Invalid range: 1 >= 1 >= 2"`;
