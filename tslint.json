@@ -17,6 +17,11 @@
             true,
             "match-declaration-order"
         ],
+        "semicolon": [
+            true,
+            "always",
+            "ignore-bound-class-methods"
+        ],
         "variable-name": [
             true,
             "ban-keywords",
