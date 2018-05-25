@@ -2,16 +2,7 @@
 @import "spacing";
 @import "typography";
 
-@mixin meter-fill($color) {
-    &::-webkit-meter-optimum-value,
-    &::-webkit-meter-suboptimum-value,
-    &::-webkit-meter-even-less-good-value {
-        background: $color;
-    }
-}
-
 .data-meter {
-    @include meter-fill($icon-disabled);
     appearance: none;
     background: none;
     border: $spacing-none;
@@ -36,8 +27,10 @@
         background: $color-divider;
     }
 
-    &.active {
-        @include meter-fill($color-primary);
+    &::-webkit-meter-optimum-value,
+    &::-webkit-meter-suboptimum-value,
+    &::-webkit-meter-even-less-good-value {
+        background: $color-primary;
     }
 }
 

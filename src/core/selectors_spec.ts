@@ -33,7 +33,7 @@ describe("selectors", () => {
                     epidemics: 1,
                 }),
             ).toEqual([hypergeometric(7, 1, 2, 1)]);
-        })
+        });
 
         it("should handle multiple epidemics", () => {
             expect(

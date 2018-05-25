@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Route } from "react-router-dom";
+import { Redirect, Route } from "react-router-dom";
 import { Config, Game } from "../core/types";
 import { configure, remove } from "../core/updaters";
 import { IconButton } from "../theme/buttons";
@@ -8,7 +8,7 @@ import { AppBar, Row } from "../theme/layout";
 import { IconLink, TabLink } from "../theme/links";
 import { Title } from "../theme/typography";
 import { DialogService } from "../util/services";
-import { Dashboard } from "./dashboard";
+import { Dashboard } from "./dashboard/dashboard";
 import { Discard } from "./discard/discard";
 import { Infection } from "./infection";
 import { Routes } from "./routes";
@@ -37,6 +37,12 @@ export class App extends React.Component<Props, State> {
         games: [],
     } as State;
 
+    private _renderDashboard = this._protect(() => <Dashboard game={this._currentGame()} />);
+
+    private _renderDiscard = this._protect(() => (
+        <Discard discard={this._currentGame().discard} onRemove={this._onRemove} />
+    ));
+
     public render() {
         return (
             <React.Fragment>
@@ -56,17 +62,13 @@ export class App extends React.Component<Props, State> {
                         <TabLink to={Routes.Discard}>Discard</TabLink>
                     </Row>
                 </AppBar>
-                <Route path={Routes.Dashboard} exact component={Dashboard} />
+                <Route path={Routes.Dashboard} exact render={this._renderDashboard} />
                 <Route path={Routes.Infection} exact component={Infection} />
                 <Route path={Routes.Discard} exact render={this._renderDiscard} />
                 <Route path={Routes.Settings} exact render={this._renderSettings} />
             </React.Fragment>
         );
     }
-
-    private _renderDiscard = () => (
-        <Discard discard={this._currentGame().discard} onRemove={this._onRemove} />
-    );
 
     private _renderSettings = () => (
         <Settings
@@ -97,5 +99,11 @@ export class App extends React.Component<Props, State> {
         this.setState({
             games: next.length > 3 ? next.slice(next.length - 3) : next,
         });
+    }
+
+    private _protect(SFC: React.SFC<{}>): () => React.ReactElement<{}> {
+        return () => {
+            return this.state.games.length === 0 ? <Redirect to={Routes.Settings} /> : <SFC />;
+        };
     }
 }

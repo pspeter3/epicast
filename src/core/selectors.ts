@@ -1,5 +1,5 @@
 import { hypergeometric } from "../util/math";
-import { Game } from "./types";
+import { Forecast, Game } from "./types";
 
 export const epidemicForecast = (game: Game): number[] => {
     const { player } = game;
@@ -18,4 +18,11 @@ export const epidemicForecast = (game: Game): number[] => {
         result.push(hypergeometric(player[index + 1], 1, 1, 1));
     }
     return result;
+};
+
+export const gameForecast = (game: Game): Forecast => {
+    return {
+        epidemics: epidemicForecast(game).reduce((a, e) => a + e),
+        cities: [],
+    };
 };

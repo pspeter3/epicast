@@ -16,7 +16,7 @@ export interface Game {
     readonly infection: Deck;
 }
 
-export interface CityForceast {
+export interface CityForecast {
     readonly name: string;
     readonly infections: number;
     readonly epidemics: number;
@@ -24,5 +24,5 @@ export interface CityForceast {
 
 export interface Forecast {
     readonly epidemics: number;
-    readonly cities: ReadonlyArray<CityForceast>;
+    readonly cities: ReadonlyArray<CityForecast>;
 }
