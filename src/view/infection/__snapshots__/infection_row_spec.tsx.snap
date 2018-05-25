@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InfectionRow snapshots should match checked snapshot 1`] = `
+<Component>
+  <Component
+    disabled={false}
+    onClick={[Function]}
+  />
+  <Component>
+    Test
+  </Component>
+</Component>
+`;
+
+exports[`InfectionRow snapshots should match default snapshot 1`] = `
+<Component>
+  <Component
+    disabled={false}
+    onClick={[Function]}
+  />
+  <Component>
+    Test
+  </Component>
+</Component>
+`;
+
+exports[`InfectionRow snapshots should match disabled snapshot 1`] = `
+<Component>
+  <Component
+    disabled={true}
+    onClick={[Function]}
+  />
+  <Component>
+    Test
+  </Component>
+</Component>
+`;
+
+exports[`InfectionRow snapshots should match disabled snapshot with epidemic 1`] = `
+<Component>
+  <Component
+    disabled={true}
+    onClick={[Function]}
+  />
+  <Component>
+    Test
+  </Component>
+  <Component
+    onClick={[Function]}
+  >
+    <Component />
+  </Component>
+</Component>
+`;
+
+exports[`InfectionRow snapshots should match epidemic snapshot 1`] = `
+<Component>
+  <Component
+    aria-checked={false}
+    disabled={false}
+    onClick={[Function]}
+  />
+  <Component>
+    Test
+  </Component>
+  <Component
+    onClick={[Function]}
+  >
+    <Component />
+  </Component>
+</Component>
+`;

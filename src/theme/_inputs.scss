@@ -16,23 +16,3 @@
 .checkbox-input {
     display: none;
 }
-
-.checkbox-label {
-    @include target();
-    display: block;
-    color: $icon-inactive;
-
-    &:hover,
-    &:focus {
-        color: $icon-active;
-    }
-}
-
-.checkbox-input:disabled ~ .checkbox-label {
-    color: $icon-disabled;
-
-    &:hover,
-    &:focus {
-        color: $icon-disabled;
-    }
-}

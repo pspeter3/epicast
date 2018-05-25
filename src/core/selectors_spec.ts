@@ -1,6 +1,6 @@
 import { hypergeometric } from "../util/math";
-import { epidemicForecast, infectionRate } from "./selectors";
-import { Game } from "./types";
+import { epidemicForecast, infectionRate, gameForecast } from "./selectors";
+import { Game, Forecast } from "./types";
 
 describe("selectors", () => {
     describe("infectionRate", () => {
@@ -58,4 +58,19 @@ describe("selectors", () => {
             ).toEqual([1, hypergeometric(8, 1, 1, 1)]);
         });
     });
+
+    describe("gameForecast", () => {
+        it("should forecase the game", () => {
+            expect(gameForecast({
+                player: [7, 8],
+                turns: 3,
+                epidemics: 0,
+                discard: {},
+                infection: [],
+            })).toEqual({
+                epidemics: 1 + hypergeometric(8, 1, 1, 1),
+                cities: []
+            } as Forecast)
+        })
+    })
 });

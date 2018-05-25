@@ -7,7 +7,7 @@ describe("Inputs", () => {
 
     describe("Checkbox", () => {
         it("should match snapshot for unchecked", snapshot(() => <Checkbox id="test" />));
-        it("should match snapshot for checked", snapshot(() => <Checkbox id="test" checked />));
+        it("should match snapshot for checked", snapshot(() => <Checkbox id="test" aria-checked={true} />));
         it("should match snapshot for disabled", snapshot(() => <Checkbox id="test" disabled />));
     });
 });
