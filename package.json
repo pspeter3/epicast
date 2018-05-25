@@ -52,7 +52,6 @@
     "collectCoverage": true,
     "globals": {
       "ts-jest": {
-        "enableTsDiagnostics": true,
         "skipBabel": true
       }
     },
