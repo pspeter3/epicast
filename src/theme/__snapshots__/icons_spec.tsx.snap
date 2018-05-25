@@ -43,6 +43,28 @@ exports[`icons CircleIcon should match snapshot 1`] = `
 </svg>
 `;
 
+exports[`icons CornerUpLeftIcon should match snapshot 1`] = `
+<svg
+  className="feather feather-corner-up-left"
+  fill="none"
+  height="24"
+  stroke="currentColor"
+  strokeLinecap="round"
+  strokeLinejoin="round"
+  strokeWidth="2"
+  viewBox="0 0 24 24"
+  width="24"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <polyline
+    points="9 14 4 9 9 4"
+  />
+  <path
+    d="M20 20v-7a4 4 0 0 0-4-4H4"
+  />
+</svg>
+`;
+
 exports[`icons MinusCircleIcon should match snapshot 1`] = `
 <svg
   className="feather feather-minus-circle"
@@ -99,28 +121,6 @@ exports[`icons PlusCircleIcon should match snapshot 1`] = `
     x2="16"
     y1="12"
     y2="12"
-  />
-</svg>
-`;
-
-exports[`icons RotateCwwIcon should match snapshot 1`] = `
-<svg
-  className="feather feather-rotate-ccw"
-  fill="none"
-  height="24"
-  stroke="currentColor"
-  strokeLinecap="round"
-  strokeLinejoin="round"
-  strokeWidth="2"
-  viewBox="0 0 24 24"
-  width="24"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <polyline
-    points="1 4 1 10 7 10"
-  />
-  <path
-    d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"
   />
 </svg>
 `;

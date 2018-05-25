@@ -11,9 +11,7 @@ exports[`Button BottomButton should match snapshot 1`] = `
 exports[`Button IconButton should match snapshot 1`] = `
 <button
   className="icon-button"
->
-  <Component />
-</button>
+/>
 `;
 
 exports[`Button SubHeaderButton should match snapshot 1`] = `
