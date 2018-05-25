@@ -51,7 +51,7 @@ export class Settings extends React.PureComponent<Props, State> {
                 <SettingsRow
                     name="epidemics"
                     displayName="Epidemic Count"
-                    value={config.cards}
+                    value={config.epidemics}
                     onDecrement={this._onDecrementCounter}
                     onChange={this._onSetCounter}
                     onIncrement={this._onIncrementCounter}
@@ -108,7 +108,9 @@ export class Settings extends React.PureComponent<Props, State> {
 
     private _onAddCity = () => {
         const city = this.props.services.dialog.prompt("City Name");
-        this._onIncrementCity(city);
+        if (city !== null) {
+            this._onIncrementCity(city);
+        }
     };
 
     private _onDecrementCity = (city: string) => {

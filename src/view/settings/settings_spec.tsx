@@ -79,6 +79,15 @@ describe("Settings", () => {
             });
         });
 
+        it("should handle adding null", () => {
+            const props = createProps();
+            const tree = shallow(<Settings {...props} />);
+            const button = tree.find(SubHeaderButton);
+            props.services.dialog.prompt.mockReturnValue(null);
+            button.simulate("click");
+            expect(tree.state("config").cities).toEqual({});
+        });
+
         it("should decrement a city", () => {
             const props = createProps();
             const tree = shallow(<Settings {...props} />);

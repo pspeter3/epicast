@@ -36,7 +36,10 @@ export class SettingsRow extends React.PureComponent<Props, {}> {
     };
 
     private _onChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
-        this.props.onChange(this.props.name, parseInt(evt.target.value, 10));
+        const value = evt.target.value;
+        if (value) {
+            this.props.onChange(this.props.name, parseInt(evt.target.value, 10));
+        }
     };
 
     private _onIncrement = () => {

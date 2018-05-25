@@ -69,6 +69,22 @@ describe("ConfigRow", () => {
         expect(onChange).toHaveBeenCalledWith(name, value);
     });
 
+    it("should handle empthy change", () => {
+        const name = "name";
+        const onChange = jest.fn();
+        const tree = shallow(
+            <SettingsRow
+                name={name}
+                value={1}
+                onDecrement={jest.fn()}
+                onChange={onChange}
+                onIncrement={jest.fn()}
+            />,
+        );
+        tree.find(NumericInput).simulate("change", { target: { value: "" } });
+        expect(onChange).not.toHaveBeenCalled();
+    });
+
     it("should handle increment", () => {
         const name = "name";
         const onIncrement = jest.fn();
