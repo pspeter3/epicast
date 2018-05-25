@@ -16,6 +16,7 @@ describe("selectors", () => {
             ).toBe(3);
         });
     });
+
     describe("epidemicForecast", () => {
         const game: Game = {
             player: [7, 8],

@@ -1,5 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Inputs Checkbox should match snapshot for checked 1`] = `
+<React.Fragment>
+  <input
+    checked={true}
+    className="checkbox-input"
+    id="test"
+    type="checkbox"
+  />
+  <label
+    className="checkbox-label"
+    htmlFor="test"
+  >
+    <Component />
+  </label>
+</React.Fragment>
+`;
+
+exports[`Inputs Checkbox should match snapshot for disabled 1`] = `
+<React.Fragment>
+  <input
+    className="checkbox-input"
+    disabled={true}
+    id="test"
+    type="checkbox"
+  />
+  <label
+    className="checkbox-label"
+    htmlFor="test"
+  >
+    <Component />
+  </label>
+</React.Fragment>
+`;
+
+exports[`Inputs Checkbox should match snapshot for unchecked 1`] = `
+<React.Fragment>
+  <input
+    className="checkbox-input"
+    id="test"
+    type="checkbox"
+  />
+  <label
+    className="checkbox-label"
+    htmlFor="test"
+  >
+    <Component />
+  </label>
+</React.Fragment>
+`;
+
 exports[`Inputs NumericInput should match snapshot 1`] = `
 <input
   className="numeric-input"

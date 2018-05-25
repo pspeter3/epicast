@@ -5,9 +5,11 @@ exports[`Infection should match snapshot 1`] = `
   <Component>
     <Component>
       <Component>
-        <Component>
-          <Component />
-        </Component>
+        <Component
+          checked={true}
+          disabled={true}
+          id="Atlanta"
+        />
         <Component>
           Atlanta
         </Component>
