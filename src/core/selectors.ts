@@ -1,6 +1,12 @@
 import { hypergeometric } from "../util/math";
 import { Forecast, Game } from "./types";
 
+const INFECTION_SCHEDULE = [2, 2, 2, 3, 3, 4, 4, 5];
+
+export const infectionRate = (game: Game): number => {
+    return INFECTION_SCHEDULE[game.epidemics];
+};
+
 export const epidemicForecast = (game: Game): number[] => {
     const { player } = game;
     const drawn = game.turns * 2;

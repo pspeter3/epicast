@@ -1,8 +1,21 @@
 import { hypergeometric } from "../util/math";
-import { epidemicForecast } from "./selectors";
+import { epidemicForecast, infectionRate } from "./selectors";
 import { Game } from "./types";
 
 describe("selectors", () => {
+    describe("infectionRate", () => {
+        it("should return the rate", () => {
+            expect(
+                infectionRate({
+                    player: [7, 8],
+                    turns: 0,
+                    epidemics: 4,
+                    discard: {},
+                    infection: [],
+                }),
+            ).toBe(3);
+        });
+    });
     describe("epidemicForecast", () => {
         const game: Game = {
             player: [7, 8],
