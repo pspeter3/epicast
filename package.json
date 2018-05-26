@@ -4,13 +4,15 @@
   "private": true,
   "description": "Pandemic Epidemic Forecaster",
   "scripts": {
+    "build": "parcel build src/index.html --public-url /epidemia/",
     "coverage": "codecov --file=coverage/coverage-final.json",
     "fmt": "tslint --fix --force --project tsconfig.json && prettier --write 'src/**/*'",
     "lint": "tslint --project tsconfig.json",
     "spec": "jest",
     "start": "parcel src/index.html",
     "style": "prettier --list-different 'src/**/*'",
-    "test": "npm run lint && npm run style && npm run spec"
+    "test": "npm run lint && npm run style && npm run spec",
+    "typecheck": "tsc"
   },
   "repository": {
     "type": "git",
@@ -51,7 +53,6 @@
     "collectCoverage": true,
     "globals": {
       "ts-jest": {
-        "enableTsDiagnostics": true,
         "skipBabel": true
       }
     },
