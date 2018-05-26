@@ -31,3 +31,7 @@ export const difference = (left: Stack, right: Stack): Stack => {
         return next;
     }, left);
 };
+
+export const size = (stack: Stack): number => {
+    return Object.keys(stack).reduce((sum, key) => sum + stack[key], 0);
+};

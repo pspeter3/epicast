@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Redirect, Route } from "react-router-dom";
-import { Config, Game } from "../core/types";
-import { configure, remove } from "../core/updaters";
+import { Config, Deck, Game } from "../core/types";
+import { configure, epidemic, infect, remove } from "../core/updaters";
 import { IconButton } from "../theme/buttons";
 import { CornerUpLeftIcon, EditIcon } from "../theme/icons";
 import { AppBar, Row } from "../theme/layout";
@@ -10,7 +10,7 @@ import { Title } from "../theme/typography";
 import { DialogService } from "../util/services";
 import { Dashboard } from "./dashboard/dashboard";
 import { Discard } from "./discard/discard";
-import { Infection } from "./infection";
+import { Infection } from "./infection/infection";
 import { Routes } from "./routes";
 import { Settings } from "./settings/settings";
 
@@ -39,6 +39,14 @@ export class App extends React.Component<Props, State> {
 
     private _renderDashboard = this._protect(() => <Dashboard game={this._currentGame()} />);
 
+    private _renderInfection = this._protect(() => (
+        <Infection
+            deck={this._currentGame().infection}
+            onInfect={this._onInfect}
+            onEpidemic={this._onEpidemic}
+        />
+    ));
+
     private _renderDiscard = this._protect(() => (
         <Discard discard={this._currentGame().discard} onRemove={this._onRemove} />
     ));
@@ -63,7 +71,7 @@ export class App extends React.Component<Props, State> {
                     </Row>
                 </AppBar>
                 <Route path={Routes.Dashboard} exact render={this._renderDashboard} />
-                <Route path={Routes.Infection} exact component={Infection} />
+                <Route path={Routes.Infection} exact render={this._renderInfection} />
                 <Route path={Routes.Discard} exact render={this._renderDiscard} />
                 <Route path={Routes.Settings} exact render={this._renderSettings} />
             </React.Fragment>
@@ -77,6 +85,14 @@ export class App extends React.Component<Props, State> {
             services={this.props.services}
         />
     );
+
+    private _onInfect = (deck: Deck) => {
+        this._addGame(infect(this._currentGame(), deck));
+    };
+
+    private _onEpidemic = (city: string) => {
+        this._addGame(epidemic(this._currentGame(), city));
+    };
 
     private _onRemove = (city: string) => {
         this._addGame(remove(this._currentGame(), city));
