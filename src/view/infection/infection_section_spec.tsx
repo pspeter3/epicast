@@ -10,12 +10,6 @@ const SECONDARY = "Los Angeles";
 describe("InfectionSection", () => {
     describe("snapshots", () => {
         it(
-            "should match snapshot disabled middle section",
-            snapshot(() => (
-                <InfectionSection index={0} stack={{ [PRIMARY]: 2, [SECONDARY]: 1 }} checked={{}} />
-            )),
-        );
-        it(
             "should match snapshot with checked cities",
             snapshot(() => (
                 <InfectionSection
@@ -23,17 +17,6 @@ describe("InfectionSection", () => {
                     stack={{ [PRIMARY]: 2, [SECONDARY]: 1 }}
                     checked={{ [PRIMARY]: 1 }}
                     onToggle={jest.fn()}
-                />
-            )),
-        );
-        it(
-            "should match snapshot with disabled section with epidemic",
-            snapshot(() => (
-                <InfectionSection
-                    index={0}
-                    stack={{ [PRIMARY]: 2, [SECONDARY]: 1 }}
-                    checked={{}}
-                    onEpidemic={jest.fn()}
                 />
             )),
         );

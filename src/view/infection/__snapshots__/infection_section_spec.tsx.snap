@@ -1,25 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InfectionSection snapshots should match snapshot disabled middle section 1`] = `
-<Component>
-  <InfectionRow
-    checked={false}
-    city="Los Angeles"
-    key="Los Angeles0"
-  />
-  <InfectionRow
-    checked={false}
-    city="San Francisco"
-    key="San Francisco0"
-  />
-  <InfectionRow
-    checked={false}
-    city="San Francisco"
-    key="San Francisco1"
-  />
-</Component>
-`;
-
 exports[`InfectionSection snapshots should match snapshot with checked cities 1`] = `
 <Component>
   <InfectionRow
@@ -39,29 +19,6 @@ exports[`InfectionSection snapshots should match snapshot with checked cities 1`
     city="San Francisco"
     key="San Francisco1"
     onToggle={[Function]}
-  />
-</Component>
-`;
-
-exports[`InfectionSection snapshots should match snapshot with disabled section with epidemic 1`] = `
-<Component>
-  <InfectionRow
-    checked={false}
-    city="Los Angeles"
-    key="Los Angeles0"
-    onEpidemic={[MockFunction]}
-  />
-  <InfectionRow
-    checked={false}
-    city="San Francisco"
-    key="San Francisco0"
-    onEpidemic={[MockFunction]}
-  />
-  <InfectionRow
-    checked={false}
-    city="San Francisco"
-    key="San Francisco1"
-    onEpidemic={[MockFunction]}
   />
 </Component>
 `;

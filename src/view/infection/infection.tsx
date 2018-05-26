@@ -2,35 +2,26 @@ import * as React from "react";
 import { Deck } from "../../core/types";
 import { BottomButton } from "../../theme/buttons";
 import { Main } from "../../theme/layout";
-import { size } from "../../util/stacks";
+import { size, union, unit } from "../../util/stacks";
 import { InfectionSection } from "./infection_section";
 
 export interface Props {
-    rate: number;
     deck: Deck;
     onInfect: (deck: Deck) => void;
     onEpidemic: (city: string) => void;
 }
 
-export type State = Deck;
+export interface State {
+    selected: Deck;
+}
 
 export class Infection extends React.PureComponent<Props, State> {
-    public state: State = [];
+    public state: State = { selected: [] };
 
     public render() {
-        const { deck, rate, onEpidemic } = this.props;
-        const { count, activeIndex } = this.state.reduce(
-            (ctx, stack, index) => {
-                const sum = size(stack);
-                const count = ctx.count + sum;
-                return {
-                    count,
-                    activeIndex: rate - count > 0 ? deck.length - index : ctx.activeIndex,
-                };
-            },
-            { count: 0, activeIndex: deck.length - 1 },
-        );
-        const disabled = count === 0 || count === rate;
+        const { deck, onEpidemic } = this.props;
+        const { selected } = this.state;
+        const count = selected.reduce((sum, stack) => sum + size(stack), 0);
         return (
             <React.Fragment>
                 <Main>
@@ -41,8 +32,8 @@ export class Infection extends React.PureComponent<Props, State> {
                                     key={index}
                                     index={index}
                                     stack={stack}
-                                    checked={this.state[0]}
-                                    onToggle={index >= activeIndex ? this._onToggle : undefined}
+                                    checked={index >= selected.length ? {} : selected[index]}
+                                    onToggle={this._onToggle}
                                     onEpidemic={index === 0 ? onEpidemic : undefined}
                                 />,
                             );
@@ -51,7 +42,7 @@ export class Infection extends React.PureComponent<Props, State> {
                         [] as Array<React.ReactElement<{}>>,
                     )}
                 </Main>
-                <BottomButton onClick={this._onInfect} disabled={disabled}>
+                <BottomButton onClick={this._onInfect}>
                     {count === 0 ? "Skip Infection" : "Infect"}
                 </BottomButton>
             </React.Fragment>
@@ -59,10 +50,17 @@ export class Infection extends React.PureComponent<Props, State> {
     }
 
     private _onInfect = () => {
-        this.props.onInfect(this.state);
+        this.props.onInfect(this.state.selected);
     };
 
     private _onToggle = (index: number, city: string) => {
-        
+        const delta = unit(city);
+        let selected: Deck = this.state.selected.map((stack, i) => {
+            return i === index ? union(stack, delta) : stack;
+        });
+        for (let i = selected.length; i <= index; i++) {
+            selected = i === index ? selected.concat(delta) : selected.concat({});
+        }
+        this.setState({ selected });
     };
 }

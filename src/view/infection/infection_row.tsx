@@ -8,20 +8,16 @@ import { Text } from "../../theme/typography";
 export interface Props {
     city: string;
     checked?: boolean;
-    onToggle?: (city: string) => void;
+    onToggle: (city: string) => void;
     onEpidemic?: (city: string) => void;
 }
 
 export class InfectionRow extends React.PureComponent<Props, {}> {
     public render() {
-        const { city, checked, onToggle, onEpidemic } = this.props;
+        const { city, checked, onEpidemic } = this.props;
         return (
             <Row>
-                <Checkbox
-                    aria-checked={checked}
-                    disabled={onToggle === undefined}
-                    onClick={this._onToggle}
-                />
+                <Checkbox aria-checked={checked} onClick={this._onToggle} />
                 <Text>{city}</Text>
                 {onEpidemic && (
                     <IconButton onClick={this._onEpidemic}>
@@ -33,7 +29,7 @@ export class InfectionRow extends React.PureComponent<Props, {}> {
     }
 
     private _onToggle = () => {
-        this.props.onToggle!(this.props.city);
+        this.props.onToggle(this.props.city);
     };
 
     private _onEpidemic = () => {

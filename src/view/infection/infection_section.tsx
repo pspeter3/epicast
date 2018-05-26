@@ -8,13 +8,13 @@ export interface Props {
     index: number;
     stack: Stack;
     checked: Stack;
-    onToggle?: (index: number, city: string) => void;
+    onToggle: (index: number, city: string) => void;
     onEpidemic?: (city: string) => void;
 }
 
 export class InfectionSection extends React.PureComponent<Props, {}> {
     public render() {
-        const { stack, checked, onToggle, onEpidemic } = this.props;
+        const { stack, checked, onEpidemic } = this.props;
         return (
             <Section>
                 {Object.keys(stack)
@@ -28,8 +28,8 @@ export class InfectionSection extends React.PureComponent<Props, {}> {
                                     <InfectionRow
                                         key={`${city}${i}`}
                                         city={city}
-                                        checked={count < numChecked}
-                                        onToggle={onToggle ? this._onToggle : undefined}
+                                        checked={count <= numChecked}
+                                        onToggle={this._onToggle}
                                         onEpidemic={onEpidemic}
                                     />,
                                 );
@@ -43,6 +43,6 @@ export class InfectionSection extends React.PureComponent<Props, {}> {
     }
 
     private _onToggle = (city: string) => {
-        this.props.onToggle!(this.props.index, city);
+        this.props.onToggle(this.props.index, city);
     };
 }

@@ -26,11 +26,6 @@ describe("InfectionRow", () => {
                 />
             )),
         );
-        it("should match disabled snapshot", snapshot(() => <InfectionRow city="Test" />));
-        it(
-            "should match disabled snapshot with epidemic",
-            snapshot(() => <InfectionRow city="Test" onEpidemic={jest.fn()} />),
-        );
     });
 
     describe("handlers", () => {
@@ -45,7 +40,9 @@ describe("InfectionRow", () => {
         it("should trigger epidemic", () => {
             const city = "San Francisco";
             const onEpidemic = jest.fn();
-            const tree = shallow(<InfectionRow city={city} onEpidemic={onEpidemic} />);
+            const tree = shallow(
+                <InfectionRow city={city} onToggle={jest.fn()} onEpidemic={onEpidemic} />,
+            );
             tree.find(IconButton).simulate("click");
             expect(onEpidemic).toHaveBeenCalledWith(city);
         });
