@@ -23,6 +23,10 @@ This will start a local development server with live reload enabled. The site is
 
 Automatically format your code.
 
+### `npm run spec -- -u`
+
+Automatically update snapshots.
+
 ### `npm test`
 
 Test all of your code.
