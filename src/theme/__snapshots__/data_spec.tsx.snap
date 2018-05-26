@@ -14,6 +14,22 @@ exports[`Data Meter should match snapshot 1`] = `
 />
 `;
 
+exports[`Data Numeric should match rounded snapshot 1`] = `
+<p
+  className="data-numeric"
+>
+  0.50
+</p>
+`;
+
+exports[`Data Numeric should match snapshot 1`] = `
+<p
+  className="data-numeric"
+>
+  0.50
+</p>
+`;
+
 exports[`Data Percentage should match rounded snapshot 1`] = `
 <p
   className="data-percentage"
