@@ -9,7 +9,7 @@ exports[`InfectionSection snapshots should match snapshot with checked cities 1`
     onToggle={[Function]}
   />
   <InfectionRow
-    checked={false}
+    checked={true}
     city="San Francisco"
     key="San Francisco0"
     onToggle={[Function]}

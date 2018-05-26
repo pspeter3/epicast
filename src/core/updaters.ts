@@ -25,7 +25,11 @@ export const epidemic: Updater<string> = (game, city) => {
         ...game,
         epidemics: game.epidemics + 1,
         discard: {},
-        infection: game.infection.concat(union(game.discard, stack)),
+        infection: game.infection
+            .map((current, index) => {
+                return index === 0 ? difference(current, stack) : current;
+            })
+            .concat(union(game.discard, stack)),
     };
 };
 

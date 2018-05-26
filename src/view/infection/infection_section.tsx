@@ -28,7 +28,7 @@ export class InfectionSection extends React.PureComponent<Props, {}> {
                                     <InfectionRow
                                         key={`${city}${i}`}
                                         city={city}
-                                        checked={count <= numChecked}
+                                        checked={i < numChecked}
                                         onToggle={this._onToggle}
                                         onEpidemic={onEpidemic}
                                     />,

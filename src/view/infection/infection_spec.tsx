@@ -70,6 +70,7 @@ describe("Infection", () => {
                 .prop("onToggle")(0, PRIMARY);
             tree.find(BottomButton).simulate("click");
             expect(onInfect).toHaveBeenCalledWith([{ [PRIMARY]: 1 }, { [PRIMARY]: 1 }]);
+            expect(tree.state("selected")).toEqual([]);
         });
     });
 });

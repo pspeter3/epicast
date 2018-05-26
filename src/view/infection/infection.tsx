@@ -51,6 +51,7 @@ export class Infection extends React.PureComponent<Props, State> {
 
     private _onInfect = () => {
         this.props.onInfect(this.state.selected);
+        this.setState({ selected: [] });
     };
 
     private _onToggle = (index: number, city: string) => {
