@@ -75,7 +75,7 @@ jobs:
           command: git config --global user.email pspeter333@gmail.com
       - run:
           name: user.name
-          command: git config --global user.name $CIRCLE_PR_USERNAME
+          command: git config --global user.name CircleCI
       - run:
           name: clone
           command: git clone $CIRCLE_REPOSITORY_URL dist
