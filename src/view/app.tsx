@@ -66,7 +66,7 @@ export class App extends React.Component<Props, State> {
                 <AppBar>
                     <Row>
                         <Title>Epidemia</Title>
-                        <IconButton onClick={this._onUndo}>
+                        <IconButton disabled={this.state.games.length < 2} onClick={this._onUndo}>
                             <CornerUpLeftIcon />
                         </IconButton>
                         <IconLink to={Routes.Settings}>
@@ -122,11 +122,9 @@ export class App extends React.Component<Props, State> {
     };
 
     private _onUndo = () => {
-        if (this.state.games.length > 1) {
-            this.setState({
-                games: this.state.games.slice(-1),
-            });
-        }
+        this.setState({
+            games: this.state.games.slice(-1),
+        });
     };
 
     private _currentGame(): Game {
@@ -138,7 +136,7 @@ export class App extends React.Component<Props, State> {
         const next = this.state.games.concat(game);
         this.setState(
             {
-                games: next.length > 3 ? next.slice(next.length - 3) : next,
+                games: next.length > 5 ? next.slice(next.length - 3) : next,
             },
             this._onUpdate,
         );
