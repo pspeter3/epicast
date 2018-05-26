@@ -34,8 +34,14 @@
     }
 }
 
+.data-numeric,
 .data-percentage {
     @include target();
     color: $text-hint;
     font-family: $font-family-mono;
+}
+
+.data-numeric {
+    text-align: right;
+    width: 8 * $spacing-base;
 }

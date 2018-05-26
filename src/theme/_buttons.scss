@@ -49,8 +49,13 @@
     @include typography-small();
 
     &:hover,
-    &:focus {
+    &:focus,
+    &[aria-pressed="true"] {
         @include target-border();
+    }
+
+    &[aria-pressed="true"] {
+        border-bottom-color: $color-primary;
     }
 
     &:disabled {
@@ -58,6 +63,16 @@
         &:focus {
             @include target-divider();
         }
+    }
+
+    &.numeric {
+        text-align: center;
+        width: 8 * $spacing-base;
+    }
+
+    &.primary {
+        @include expand();
+        text-align: center;
     }
 }
 
