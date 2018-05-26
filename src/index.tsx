@@ -9,11 +9,12 @@ const services = {
         confirm: confirm.bind(window),
         prompt: prompt.bind(window),
     },
+    storage: localStorage,
 };
 
 ReactDOM.render(
     <HashRouter>
-        <App services={services} />
+        <App namespace="epidemia" services={services} />
     </HashRouter>,
     document.getElementById("root"),
 );

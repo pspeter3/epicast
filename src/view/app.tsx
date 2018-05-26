@@ -16,9 +16,11 @@ import { Settings } from "./settings/settings";
 
 export interface Services {
     dialog: DialogService;
+    storage: Storage;
 }
 
 export interface Props {
+    namespace: string;
     services: Services;
 }
 
@@ -28,15 +30,6 @@ export interface State {
 }
 
 export class App extends React.Component<Props, State> {
-    public state = {
-        config: {
-            cards: 0,
-            epidemics: 0,
-            cities: {},
-        },
-        games: [],
-    } as State;
-
     private _renderDashboard = this._protect(() => <Dashboard game={this._currentGame()} />);
 
     private _renderInfection = this._protect(() => (
@@ -51,13 +44,29 @@ export class App extends React.Component<Props, State> {
         <Discard discard={this._currentGame().discard} onRemove={this._onRemove} />
     ));
 
+    constructor(props: Props) {
+        super(props);
+        const item = this.props.services.storage.getItem(this.props.namespace);
+        this.state =
+            item !== null
+                ? JSON.parse(item)
+                : {
+                      config: {
+                          cards: 0,
+                          epidemics: 0,
+                          cities: {},
+                      },
+                      games: [],
+                  };
+    }
+
     public render() {
         return (
             <React.Fragment>
                 <AppBar>
                     <Row>
                         <Title>Epidemia</Title>
-                        <IconButton>
+                        <IconButton disabled={this.state.games.length > 1} onClick={this._onUndo}>
                             <CornerUpLeftIcon />
                         </IconButton>
                         <IconLink to={Routes.Settings}>
@@ -99,10 +108,25 @@ export class App extends React.Component<Props, State> {
     };
 
     private _onConfigure = (config: Config) => {
-        this.setState({
-            config,
-            games: [configure(config)],
-        });
+        this.setState(
+            {
+                config,
+                games: [configure(config)],
+            },
+            this._onUpdate,
+        );
+    };
+
+    private _onUpdate = () => {
+        this.props.services.storage.setItem(this.props.namespace, JSON.stringify(this.state));
+    };
+
+    private _onUndo = () => {
+        if (this.state.games.length > 1) {
+            this.setState({
+                games: this.state.games.slice(-1),
+            });
+        }
     };
 
     private _currentGame(): Game {
@@ -112,9 +136,12 @@ export class App extends React.Component<Props, State> {
 
     private _addGame(game: Game): void {
         const next = this.state.games.concat(game);
-        this.setState({
-            games: next.length > 3 ? next.slice(next.length - 3) : next,
-        });
+        this.setState(
+            {
+                games: next.length > 3 ? next.slice(next.length - 3) : next,
+            },
+            this._onUpdate,
+        );
     }
 
     private _protect(SFC: React.SFC<{}>): () => React.ReactElement<{}> {

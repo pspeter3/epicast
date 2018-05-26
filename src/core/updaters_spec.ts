@@ -1,4 +1,4 @@
-import { union } from "../util/stacks";
+import { difference, union } from "../util/stacks";
 import { Config, Game } from "./types";
 import { configure, epidemic, infect, remove } from "./updaters";
 
@@ -43,10 +43,15 @@ describe("reducers", () => {
                 {
                     ...initial,
                     discard,
+                    infection: [CONFIG.cities, discard],
                 },
                 PRIMARY,
             );
-            expect(next.infection).toEqual([CONFIG.cities, union(discard, discard)]);
+            expect(next.infection).toEqual([
+                difference(CONFIG.cities, discard),
+                discard,
+                union(discard, discard),
+            ]);
             expect(next.discard).toEqual({});
         });
     });
