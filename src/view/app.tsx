@@ -66,7 +66,7 @@ export class App extends React.Component<Props, State> {
                 <AppBar>
                     <Row>
                         <Title>Epidemia</Title>
-                        <IconButton>
+                        <IconButton disabled={this.state.games.length > 1} onClick={this._onUndo}>
                             <CornerUpLeftIcon />
                         </IconButton>
                         <IconLink to={Routes.Settings}>

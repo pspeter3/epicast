@@ -1,4 +1,4 @@
-import { difference, union, unit } from "../util/stacks";
+import { difference, union } from "../util/stacks";
 import { Config, Game } from "./types";
 import { configure, epidemic, infect, remove } from "./updaters";
 
