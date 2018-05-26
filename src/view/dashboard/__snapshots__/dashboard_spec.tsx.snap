@@ -17,5 +17,29 @@ exports[`Dashboard should match snapshot 1`] = `
       />
     </Component>
   </Component>
+  <Component>
+    <Component
+      aria-pressed={false}
+      key="name"
+      onClick={[Function]}
+    >
+      name
+    </Component>
+    <Component
+      aria-pressed={true}
+      key="infections"
+      onClick={[Function]}
+    >
+      infections
+    </Component>
+    <Component
+      aria-pressed={false}
+      key="epidemics"
+      onClick={[Function]}
+    >
+      epidemics
+    </Component>
+  </Component>
+  <Component />
 </React.Fragment>
 `;

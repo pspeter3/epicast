@@ -45,19 +45,27 @@ export class Dashboard extends React.PureComponent<Props, State> {
                 </Section>
                 <Row>
                     {SORT_KEYS.map((sort, index) => {
-                        const props = {
-                            "aria-pressed": sort === this.state.sort,
-                            key: sort,
-                            onClick: () => {
-                                this.setState({
-                                    sort,
-                                });
-                            },
+                        const onClick = () => {
+                            this.setState({
+                                sort,
+                            });
                         };
                         return index === 0 ? (
-                            <PrimarySubHeaderButton {...props}>{sort}</PrimarySubHeaderButton>
+                            <PrimarySubHeaderButton
+                                key={sort}
+                                aria-pressed={sort === this.state.sort}
+                                onClick={onClick}
+                            >
+                                {sort}
+                            </PrimarySubHeaderButton>
                         ) : (
-                            <NumericSubHeaderButton {...props}>{sort}</NumericSubHeaderButton>
+                            <NumericSubHeaderButton
+                                key={sort}
+                                aria-pressed={sort === this.state.sort}
+                                onClick={onClick}
+                            >
+                                {sort}
+                            </NumericSubHeaderButton>
                         );
                     })}
                 </Row>
