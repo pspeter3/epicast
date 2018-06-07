@@ -1,5 +1,13 @@
 version: 2
 jobs:
+  noop:
+    docker:
+      - image: circleci/node:9.6.1
+    working_directory: ~/epidemia
+    steps:
+      - run:
+          name: noop
+          command: echo "noop"
   dependencies:
     docker:
       - image: circleci/node:9.6.1
@@ -93,6 +101,10 @@ workflows:
   version: 2
   ci:
     jobs:
+      - noop:
+          filters:
+            branches:
+              only: gh-pages
       - dependencies:
           filters:
             branches:
