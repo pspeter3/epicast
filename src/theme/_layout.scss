@@ -9,12 +9,12 @@
     @include vertical-spacing();
     background: $color-primary;
     width: 100%;
+    position: absolute;
+    top: 0;
 }
 
 .main {
-    @include expand();
-    overflow-y: scroll;
-
+    margin-top: 5 * $leading-normal;
     & .section:last-child {
         margin-bottom: $spacing-none;
     }

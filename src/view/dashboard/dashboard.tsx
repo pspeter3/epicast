@@ -33,7 +33,7 @@ export class Dashboard extends React.PureComponent<Props, State> {
         const { forecast } = this.state;
         const { epidemics } = forecast;
         return (
-            <React.Fragment>
+            <Main>
                 <Section>
                     <Row>
                         <Header>Epidemic Probability</Header>
@@ -69,18 +69,16 @@ export class Dashboard extends React.PureComponent<Props, State> {
                         );
                     })}
                 </Row>
-                <Main>
-                    {Array.from(this.state.forecast.cities)
-                        .sort(this._onSort)
-                        .map(city => (
-                            <Row key={city.name}>
-                                <Text>{city.name}</Text>
-                                <Numeric value={city.infections} />
-                                <Numeric value={city.epidemics} />
-                            </Row>
-                        ))}
-                </Main>
-            </React.Fragment>
+                {Array.from(this.state.forecast.cities)
+                    .sort(this._onSort)
+                    .map(city => (
+                        <Row key={city.name}>
+                            <Text>{city.name}</Text>
+                            <Numeric value={city.infections} />
+                            <Numeric value={city.epidemics} />
+                        </Row>
+                    ))}
+            </Main>
         );
     }
 

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Redirect } from "react-router";
 import { Config } from "../../core/types";
-import { BottomButton, SubHeaderButton } from "../../theme/buttons";
+import { PrimaryButton, SubHeaderButton } from "../../theme/buttons";
 import { Main, Row } from "../../theme/layout";
 import { SubHeader } from "../../theme/typography";
 import { DialogService } from "../../util/services";
@@ -39,7 +39,7 @@ export class Settings extends React.PureComponent<Props, State> {
             return <Redirect to={Routes.Dashboard} />;
         }
         return (
-            <React.Fragment>
+            <Main>
                 <SettingsRow
                     name="cards"
                     displayName="Player Deck Size"
@@ -60,22 +60,20 @@ export class Settings extends React.PureComponent<Props, State> {
                     <SubHeader>Infection Deck</SubHeader>
                     <SubHeaderButton onClick={this._onAddCity}>Add City</SubHeaderButton>
                 </Row>
-                <Main>
-                    {Object.keys(cities).map(city => {
-                        return (
-                            <SettingsRow
-                                key={city}
-                                name={city}
-                                value={cities[city]}
-                                onDecrement={this._onDecrementCity}
-                                onChange={this._onSetCity}
-                                onIncrement={this._onIncrementCity}
-                            />
-                        );
-                    })}
-                </Main>
-                <BottomButton onClick={this._onSave}>Save</BottomButton>
-            </React.Fragment>
+                {Object.keys(cities).map(city => {
+                    return (
+                        <SettingsRow
+                            key={city}
+                            name={city}
+                            value={cities[city]}
+                            onDecrement={this._onDecrementCity}
+                            onChange={this._onSetCity}
+                            onIncrement={this._onIncrementCity}
+                        />
+                    );
+                })}
+                <PrimaryButton onClick={this._onSave}>Save</PrimaryButton>
+            </Main>
         );
     }
 

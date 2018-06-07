@@ -20,6 +20,6 @@ export const PrimarySubHeaderButton: React.SFC<
     return <button className="subheader-button primary" type="button" {...props} />;
 };
 
-export const BottomButton: React.SFC<React.ButtonHTMLAttributes<HTMLButtonElement>> = props => {
-    return <button className="bottom-button" type="button" {...props} />;
+export const PrimaryButton: React.SFC<React.ButtonHTMLAttributes<HTMLButtonElement>> = props => {
+    return <button className="primary-button" type="button" {...props} />;
 };

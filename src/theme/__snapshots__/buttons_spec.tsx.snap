@@ -1,19 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button BottomButton should match snapshot 1`] = `
-<button
-  className="bottom-button"
-  type="button"
->
-  Save
-</button>
-`;
-
 exports[`Button IconButton should match snapshot 1`] = `
 <button
   className="icon-button"
   type="button"
 />
+`;
+
+exports[`Button PrimaryButton should match snapshot 1`] = `
+<button
+  className="primary-button"
+  type="button"
+>
+  Save
+</button>
 `;
 
 exports[`Button SubHeaderButton should match snapshot 1`] = `

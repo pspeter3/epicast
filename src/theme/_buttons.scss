@@ -76,9 +76,11 @@
     }
 }
 
-.bottom-button {
+.primary-button {
+    @include container();
     @include text-button();
     @include typography-small();
-    border-top: $spacing-divider solid $color-divider;
-    padding: ($spacing-small $spacing-divider) $spacing-base $spacing-small;
+    border: $spacing-divider solid $color-divider;
+    border-radius: $spacing-unit;
+    padding: ($spacing-small - $spacing-divider) ($spacing-base - $spacing-divider);
 }

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Deck } from "../../core/types";
-import { BottomButton } from "../../theme/buttons";
+import { PrimaryButton } from "../../theme/buttons";
 import { Main } from "../../theme/layout";
 import { size, union, unit } from "../../util/stacks";
 import { InfectionSection } from "./infection_section";
@@ -23,29 +23,27 @@ export class Infection extends React.PureComponent<Props, State> {
         const { selected } = this.state;
         const count = selected.reduce((sum, stack) => sum + size(stack), 0);
         return (
-            <React.Fragment>
-                <Main>
-                    {deck.reduceRight(
-                        (children, stack, index) => {
-                            children.push(
-                                <InfectionSection
-                                    key={index}
-                                    index={index}
-                                    stack={stack}
-                                    checked={index >= selected.length ? {} : selected[index]}
-                                    onToggle={this._onToggle}
-                                    onEpidemic={index === 0 ? onEpidemic : undefined}
-                                />,
-                            );
-                            return children;
-                        },
-                        [] as Array<React.ReactElement<{}>>,
-                    )}
-                </Main>
-                <BottomButton onClick={this._onInfect}>
+            <Main>
+                {deck.reduceRight(
+                    (children, stack, index) => {
+                        children.push(
+                            <InfectionSection
+                                key={index}
+                                index={index}
+                                stack={stack}
+                                checked={index >= selected.length ? {} : selected[index]}
+                                onToggle={this._onToggle}
+                                onEpidemic={index === 0 ? onEpidemic : undefined}
+                            />,
+                        );
+                        return children;
+                    },
+                    [] as Array<React.ReactElement<{}>>,
+                )}
+                <PrimaryButton onClick={this._onInfect}>
                     {count === 0 ? "Skip Infection" : "Infect"}
-                </BottomButton>
-            </React.Fragment>
+                </PrimaryButton>
+            </Main>
         );
     }
 

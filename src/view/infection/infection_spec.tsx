@@ -1,6 +1,6 @@
 import { shallow } from "enzyme";
 import * as React from "react";
-import { BottomButton } from "../../theme/buttons";
+import { PrimaryButton } from "../../theme/buttons";
 import { snapshot } from "../../util/snapshot";
 import { Infection } from "./infection";
 import { InfectionSection } from "./infection_section";
@@ -47,7 +47,7 @@ describe("Infection", () => {
                     onEpidemic={jest.fn()}
                 />,
             );
-            tree.find(BottomButton).simulate("click");
+            tree.find(PrimaryButton).simulate("click");
             expect(onInfect).toHaveBeenCalledWith([]);
         });
 
@@ -68,7 +68,7 @@ describe("Infection", () => {
                 .find(InfectionSection)
                 .last()
                 .prop("onToggle")(0, PRIMARY);
-            tree.find(BottomButton).simulate("click");
+            tree.find(PrimaryButton).simulate("click");
             expect(onInfect).toHaveBeenCalledWith([{ [PRIMARY]: 1 }, { [PRIMARY]: 1 }]);
             expect(tree.state("selected")).toEqual([]);
         });
