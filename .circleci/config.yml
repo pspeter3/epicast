@@ -87,7 +87,7 @@ jobs:
           command: npm run build
       - run:
           name: config
-          command: mkdir -p dist/.circleci && cp .circleci/deploy.yml dist/.circleci
+          command: mkdir -p dist/.circleci && cp .circleci/deploy.yml dist/.circleci/config.yml
       - run:
           name: push
           command: cd dist && git add -A && git commit -m "${CIRCLE_SHA1}" --allow-empty && git push origin gh-pages
