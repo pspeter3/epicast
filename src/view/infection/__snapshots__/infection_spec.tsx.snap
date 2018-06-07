@@ -1,73 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Infection snapshots should match selected snapshot 1`] = `
-<React.Fragment>
-  <Component>
-    <InfectionSection
-      checked={Object {}}
-      index={1}
-      key="1"
-      onToggle={[Function]}
-      stack={
-        Object {
-          "Los Angeles": 2,
-          "San Francisco": 2,
-        }
+<Component>
+  <InfectionSection
+    checked={Object {}}
+    index={1}
+    key="1"
+    onToggle={[Function]}
+    stack={
+      Object {
+        "Los Angeles": 2,
+        "San Francisco": 2,
       }
-    />
-    <InfectionSection
-      checked={Object {}}
-      index={0}
-      key="0"
-      onEpidemic={[MockFunction]}
-      onToggle={[Function]}
-      stack={
-        Object {
-          "San Francisco": 1,
-        }
+    }
+  />
+  <InfectionSection
+    checked={Object {}}
+    index={0}
+    key="0"
+    onEpidemic={[MockFunction]}
+    onToggle={[Function]}
+    stack={
+      Object {
+        "San Francisco": 1,
       }
-    />
-  </Component>
+    }
+  />
   <Component
     onClick={[Function]}
   >
     Skip Infection
   </Component>
-</React.Fragment>
+</Component>
 `;
 
 exports[`Infection snapshots should match snapshot 1`] = `
-<React.Fragment>
-  <Component>
-    <InfectionSection
-      checked={Object {}}
-      index={1}
-      key="1"
-      onToggle={[Function]}
-      stack={
-        Object {
-          "Los Angeles": 2,
-          "San Francisco": 2,
-        }
+<Component>
+  <InfectionSection
+    checked={Object {}}
+    index={1}
+    key="1"
+    onToggle={[Function]}
+    stack={
+      Object {
+        "Los Angeles": 2,
+        "San Francisco": 2,
       }
-    />
-    <InfectionSection
-      checked={Object {}}
-      index={0}
-      key="0"
-      onEpidemic={[MockFunction]}
-      onToggle={[Function]}
-      stack={
-        Object {
-          "San Francisco": 1,
-        }
+    }
+  />
+  <InfectionSection
+    checked={Object {}}
+    index={0}
+    key="0"
+    onEpidemic={[MockFunction]}
+    onToggle={[Function]}
+    stack={
+      Object {
+        "San Francisco": 1,
       }
-    />
-  </Component>
+    }
+  />
   <Component
     onClick={[Function]}
   >
     Skip Infection
   </Component>
-</React.Fragment>
+</Component>
 `;

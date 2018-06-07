@@ -1,6 +1,6 @@
 import { shallow } from "enzyme";
 import * as React from "react";
-import { BottomButton, SubHeaderButton } from "../../theme/buttons";
+import { PrimaryButton, SubHeaderButton } from "../../theme/buttons";
 import { snapshot } from "../../util/snapshot";
 import { Settings } from "./settings";
 
@@ -164,7 +164,7 @@ describe("Settings", () => {
             it("should reject if cards are zero", () => {
                 const props = createProps();
                 const tree = shallow(<Settings {...props} />);
-                tree.find(BottomButton).simulate("click");
+                tree.find(PrimaryButton).simulate("click");
                 expect(props.services.dialog.alert).toHaveBeenCalledWith("Invalid State");
                 expect(props.onConfigure).not.toHaveBeenCalled();
             });
@@ -178,7 +178,7 @@ describe("Settings", () => {
                         cards: 1,
                     },
                 });
-                tree.find(BottomButton).simulate("click");
+                tree.find(PrimaryButton).simulate("click");
                 expect(props.services.dialog.alert).toHaveBeenCalledWith("Invalid State");
                 expect(props.onConfigure).not.toHaveBeenCalled();
             });
@@ -193,7 +193,7 @@ describe("Settings", () => {
                         epidemics: 2,
                     },
                 });
-                tree.find(BottomButton).simulate("click");
+                tree.find(PrimaryButton).simulate("click");
                 expect(props.services.dialog.alert).toHaveBeenCalledWith("Invalid State");
                 expect(props.onConfigure).not.toHaveBeenCalled();
             });
@@ -208,7 +208,7 @@ describe("Settings", () => {
                         epidemics: 2,
                     },
                 });
-                tree.find(BottomButton).simulate("click");
+                tree.find(PrimaryButton).simulate("click");
                 expect(props.services.dialog.alert).toHaveBeenCalledWith("Invalid State");
                 expect(props.onConfigure).not.toHaveBeenCalled();
             });
@@ -227,7 +227,7 @@ describe("Settings", () => {
                 },
             });
             props.services.dialog.confirm.mockReturnValue(false);
-            tree.find(BottomButton).simulate("click");
+            tree.find(PrimaryButton).simulate("click");
             expect(props.services.dialog.confirm).toHaveBeenCalledWith("Reset Game State?");
             expect(props.onConfigure).not.toHaveBeenCalled();
         });
@@ -245,7 +245,7 @@ describe("Settings", () => {
                 },
             });
             props.services.dialog.confirm.mockReturnValue(true);
-            tree.find(BottomButton).simulate("click");
+            tree.find(PrimaryButton).simulate("click");
             expect(props.services.dialog.confirm).toHaveBeenCalledWith("Reset Game State?");
             expect(props.onConfigure).toHaveBeenCalledWith(tree.state("config"));
         });

@@ -1,9 +1,9 @@
 import * as React from "react";
 import { snapshotSuite } from "../util/snapshot";
-import { BottomButton, IconButton, SubHeaderButton } from "./buttons";
+import { IconButton, PrimaryButton, SubHeaderButton } from "./buttons";
 
 describe("Button", () => {
     snapshotSuite("IconButton", () => <IconButton />);
-    snapshotSuite("BottomButton", () => <BottomButton>Save</BottomButton>);
+    snapshotSuite("PrimaryButton", () => <PrimaryButton>Save</PrimaryButton>);
     snapshotSuite("SubHeaderButton", () => <SubHeaderButton>Add</SubHeaderButton>);
 });
