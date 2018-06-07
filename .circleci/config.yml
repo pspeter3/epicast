@@ -1,13 +1,5 @@
 version: 2
 jobs:
-  noop:
-    docker:
-      - image: circleci/node:9.6.1
-    working_directory: ~/epidemia
-    steps:
-      - run:
-          name: noop
-          command: echo "noop"
   dependencies:
     docker:
       - image: circleci/node:9.6.1
@@ -94,6 +86,9 @@ jobs:
           name: build
           command: npm run build
       - run:
+          name: config
+          command: mkdir -p dist/.circleci && cp .circleci/deploy.yml dist/.circleci
+      - run:
           name: push
           command: cd dist && git add -A && git commit -m "${CIRCLE_SHA1}" --allow-empty && git push origin gh-pages
 
@@ -101,43 +96,19 @@ workflows:
   version: 2
   ci:
     jobs:
-      - noop:
-          filters:
-            branches:
-              only: gh-pages
-      - dependencies:
-          filters:
-            branches:
-              ignore:
-                - gh-pages
+      - dependencies
       - lint:
           requires:
             - dependencies
-          filters:
-            branches:
-              ignore:
-                - gh-pages
       - spec:
           requires:
-            - dependencies    
-          filters:
-            branches:
-              ignore:
-                - gh-pages
+            - dependencies
       - style:
           requires:
             - dependencies
-          filters:
-            branches:
-              ignore:
-                - gh-pages
       - typecheck:
           requires:
             - dependencies
-          filters:
-            branches:
-              ignore:
-                - gh-pages 
       - deploy:
           requires:
             - lint

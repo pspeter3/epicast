@@ -1,0 +1,15 @@
+version: 2
+jobs:
+  noop:
+    docker:
+      - image: circleci/node:9.6.1
+    working_directory: ~/epidemia
+    steps:
+      - run:
+          name: noop
+          command: echo "noop"
+workflows:
+  version: 2
+  noop:
+    jobs:
+      - noop
