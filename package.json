@@ -27,7 +27,6 @@
   "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-router-dom": "^4.3.1",
     "tslib": "^1.9.3"
   },
   "devDependencies": {
@@ -36,13 +35,11 @@
     "@types/jest": "^23.1.5",
     "@types/react": "^16.4.6",
     "@types/react-dom": "^16.0.6",
-    "@types/react-router-dom": "^4.2.7",
     "codecov": "^3.0.2",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.4",
     "jest": "^23.4.0",
-    "node-sass": "^4.9.2",
     "parcel-bundler": "^1.9.6",
     "prettier": "^1.13.7",
     "ts-jest": "^23.0.0",
