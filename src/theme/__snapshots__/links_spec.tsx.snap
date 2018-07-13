@@ -3,7 +3,7 @@
 exports[`Links IconLink should match snapshot 1`] = `
 <NavLink
   activeClassName="active"
-  ariaCurrent="true"
+  aria-current="page"
   className="icon-link"
   exact={true}
   to="/"
@@ -13,7 +13,7 @@ exports[`Links IconLink should match snapshot 1`] = `
 exports[`Links TabLink should match snapshot 1`] = `
 <NavLink
   activeClassName="active"
-  ariaCurrent="true"
+  aria-current="page"
   className="tab-link"
   exact={true}
   to="/"

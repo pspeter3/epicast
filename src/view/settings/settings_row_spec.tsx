@@ -45,8 +45,7 @@ describe("SettingsRow", () => {
                 onIncrement={jest.fn()}
             />,
         );
-        tree
-            .find(IconButton)
+        tree.find(IconButton)
             .first()
             .simulate("click");
         expect(onDecrement).toHaveBeenCalledWith(name);
@@ -97,8 +96,7 @@ describe("SettingsRow", () => {
                 onIncrement={onIncrement}
             />,
         );
-        tree
-            .find(IconButton)
+        tree.find(IconButton)
             .last()
             .simulate("click");
         expect(onIncrement).toHaveBeenCalledWith(name);
