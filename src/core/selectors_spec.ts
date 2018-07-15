@@ -2,6 +2,9 @@ import { hypergeometric } from "../util/math";
 import { epidemicForecast, gameForecast, infectionRate } from "./selectors";
 import { Forecast, Game } from "./types";
 
+const PRIMARY = "San Francisco";
+const SECONDARY = "Los Angeles";
+
 describe("selectors", () => {
     describe("infectionRate", () => {
         it("should return the rate", () => {
@@ -60,18 +63,129 @@ describe("selectors", () => {
     });
 
     describe("gameForecast", () => {
-        it("should forecase the game", () => {
+        it("should forecast multiple epidemics", () => {
             expect(
                 gameForecast({
                     player: [7, 8],
                     turns: 3,
                     epidemics: 0,
                     discard: {},
-                    infection: [],
+                    infection: [
+                        {
+                            [PRIMARY]: 3,
+                            [SECONDARY]: 2,
+                        },
+                    ],
                 }),
             ).toEqual({
                 epidemics: 1 + hypergeometric(8, 1, 1, 1),
-                cities: [],
+                cities: [
+                    {
+                        name: PRIMARY,
+                        infections: hypergeometric(5, 3, 2, 2) + hypergeometric(5, 3, 2, 1),
+                        epidemics:
+                            3 / 5 +
+                            (hypergeometric(8, 1, 1, 1) * 3) / 4 +
+                            (hypergeometric(8, 1, 1, 1) * 2) / 4,
+                    },
+                    {
+                        name: SECONDARY,
+                        infections: hypergeometric(5, 2, 2, 2) + hypergeometric(5, 2, 2, 1),
+                        epidemics:
+                            2 / 5 +
+                            (hypergeometric(8, 1, 1, 1) * 2) / 4 +
+                            (hypergeometric(8, 1, 1, 1) * 1) / 4,
+                    },
+                ],
+            } as Forecast);
+        });
+
+        it("should handle single cities in the infection deck", () => {
+            expect(
+                gameForecast({
+                    player: [8],
+                    turns: 0,
+                    epidemics: 0,
+                    discard: {},
+                    infection: [
+                        {
+                            [PRIMARY]: 3,
+                        },
+                    ],
+                }),
+            ).toEqual({
+                epidemics: hypergeometric(8, 1, 2, 1),
+                cities: [
+                    {
+                        name: PRIMARY,
+                        infections: 2,
+                        epidemics: hypergeometric(8, 1, 2, 1),
+                    },
+                ],
+            } as Forecast);
+        });
+
+        it("should handle multiple cities in the infection deck", () => {
+            expect(
+                gameForecast({
+                    player: [8],
+                    turns: 0,
+                    epidemics: 0,
+                    discard: {},
+                    infection: [
+                        {
+                            [PRIMARY]: 3,
+                            [SECONDARY]: 2,
+                        },
+                    ],
+                }),
+            ).toEqual({
+                epidemics: hypergeometric(8, 1, 2, 1),
+                cities: [
+                    {
+                        name: PRIMARY,
+                        infections: hypergeometric(5, 3, 2, 2) + hypergeometric(5, 3, 2, 1),
+                        epidemics: (hypergeometric(8, 1, 2, 1) * 3) / 5,
+                    },
+                    {
+                        name: SECONDARY,
+                        infections: hypergeometric(5, 2, 2, 2) + hypergeometric(5, 2, 2, 1),
+                        epidemics: (hypergeometric(8, 1, 2, 1) * 2) / 5,
+                    },
+                ],
+            } as Forecast);
+        });
+
+        it("should handle multiple stacks in the infection deck", () => {
+            expect(
+                gameForecast({
+                    player: [8],
+                    turns: 0,
+                    epidemics: 0,
+                    discard: {},
+                    infection: [
+                        {
+                            [PRIMARY]: 1,
+                        },
+                        {
+                            [SECONDARY]: 1,
+                        },
+                    ],
+                }),
+            ).toEqual({
+                epidemics: hypergeometric(8, 1, 2, 1),
+                cities: [
+                    {
+                        name: PRIMARY,
+                        infections: 1,
+                        epidemics: hypergeometric(8, 1, 2, 1),
+                    },
+                    {
+                        name: SECONDARY,
+                        infections: 1,
+                        epidemics: 0,
+                    },
+                ],
             } as Forecast);
         });
     });

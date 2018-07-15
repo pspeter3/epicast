@@ -21,5 +21,5 @@ export const hypergeometric = (N: number, K: number, n: number, k: number): numb
     if (k < min || k > max) {
         throw new Error(`Invalid range: ${max} >= ${k} >= ${min}`);
     }
-    return combinations(K, k) * combinations(N - K, n - k) / combinations(N, n);
+    return (combinations(K, k) * combinations(N - K, n - k)) / combinations(N, n);
 };
