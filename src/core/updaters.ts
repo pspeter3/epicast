@@ -1,5 +1,6 @@
-import { difference, union, unit } from "../util/stacks";
-import { Config, Deck, Game } from "./types";
+import { total } from "../util/decks";
+import { difference, size, union, unit } from "../util/stacks";
+import { Config, Deck, Game, Stack } from "./types";
 
 export type Updater<D> = (game: Game, data: D) => Game;
 
@@ -33,20 +34,28 @@ export const epidemic: Updater<string> = (game, city) => {
     };
 };
 
-export const infect: Updater<Deck> = (game, deck) => {
-    const delta = game.infection.length - deck.length;
+export const infect: Updater<Stack> = (game, cities) => {
+    const overflow = total(game.infection) < size(cities);
+    const discard = overflow ? cities : union(game.discard, cities);
+    const deck = overflow ? [game.discard].concat(game.infection) : game.infection;
+    const { infection } = deck.reduceRight(
+        (ctx, stack) => {
+            const next = difference(stack, ctx.cities);
+            return {
+                cities: difference(ctx.cities, stack),
+                infection:
+                    size(next) > 0
+                        ? [difference(stack, ctx.cities)].concat(ctx.infection)
+                        : ctx.infection,
+            };
+        },
+        { cities, infection: [] as Deck },
+    );
     return {
         ...game,
         turns: game.turns + 1,
-        discard: deck.reduce((stack, cities) => union(stack, cities), game.discard),
-        infection: game.infection.reduce(
-            (stacks, stack, index) => {
-                const pos = index - delta;
-                const result = pos >= 0 ? difference(stack, deck[pos]) : stack;
-                return Object.keys(result).length > 0 ? stacks.concat(result) : stacks;
-            },
-            [] as Deck,
-        ),
+        discard,
+        infection,
     };
 };
 

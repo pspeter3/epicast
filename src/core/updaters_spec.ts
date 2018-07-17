@@ -59,7 +59,7 @@ describe("reducers", () => {
     describe("infect", () => {
         it("should add cities to the discard pile", () => {
             const cities = { [PRIMARY]: 1, [SECONDARY]: 1 };
-            const next = infect(init(), [cities]);
+            const next = infect(init(), cities);
             expect(next.discard).toEqual(cities);
         });
 
@@ -72,7 +72,7 @@ describe("reducers", () => {
                     ...initial,
                     discard,
                 },
-                [cities],
+                cities,
             );
             expect(next.discard).toEqual(union(discard, cities));
         });
@@ -84,9 +84,22 @@ describe("reducers", () => {
                     ...initial,
                     infection: initial.infection.concat([{ [PRIMARY]: 2 }, { [SECONDARY]: 1 }]),
                 },
-                [{ [PRIMARY]: 1 }, { [SECONDARY]: 1 }],
+                { [PRIMARY]: 1, [SECONDARY]: 1 },
             );
             expect(next.infection).toEqual([CONFIG.cities, { [PRIMARY]: 1 }]);
+        });
+
+        it("should handle overflow", () => {
+            const initial = init();
+            const next = infect(
+                {
+                    ...initial,
+                    discard: { [PRIMARY]: 2, [SECONDARY]: 1 },
+                },
+                { [PRIMARY]: 3, [SECONDARY]: 3 },
+            );
+            expect(next.discard).toEqual({ [PRIMARY]: 3, [SECONDARY]: 3 });
+            expect(next.infection).toEqual([{ [PRIMARY]: 1 }]);
         });
     });
 
