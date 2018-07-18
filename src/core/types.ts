@@ -26,3 +26,8 @@ export interface Forecast {
     readonly epidemics: number;
     readonly cities: ReadonlyArray<CityForecast>;
 }
+
+export interface State {
+    readonly config: Config;
+    readonly games: ReadonlyArray<Game>;
+}

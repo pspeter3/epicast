@@ -1,3 +1,4 @@
+import { total, unique } from "../util/decks";
 import { hypergeometric } from "../util/math";
 import { size, union, value } from "../util/stacks";
 import { CityForecast, Deck, Forecast, Game, Stack } from "./types";
@@ -27,22 +28,6 @@ export const epidemicForecast = (game: Game): number[] => {
     return result;
 };
 
-const deckSize = (deck: Deck): number => deck.reduce((count, stack) => count + size(stack), 0);
-
-const uniqueCards = (deck: Deck): string[] => {
-    return Object.keys(
-        deck.reduce(
-            (set, stack) => {
-                return Object.keys(stack).reduce((collection, key) => {
-                    collection[key] = null;
-                    return collection;
-                }, set);
-            },
-            {} as Record<string, null>,
-        ),
-    );
-};
-
 const expectedInfections = (deck: Deck, rate: number): Stack => {
     return deck.reduceRight(
         (ctx, stack) => {
@@ -53,12 +38,12 @@ const expectedInfections = (deck: Deck, rate: number): Stack => {
                     : Object.keys(stack).reduce(
                           (ev, name) => {
                               let val = 0;
-                              const total = value(stack, name);
-                              if (total === count) {
+                              const options = value(stack, name);
+                              if (options === count) {
                                   return union(ev, { [name]: ctx.rate });
                               }
-                              for (let i = 1; i <= Math.min(total, ctx.rate); i++) {
-                                  val += hypergeometric(count, total, ctx.rate, i);
+                              for (let i = 1; i <= Math.min(options, ctx.rate); i++) {
+                                  val += hypergeometric(count, options, ctx.rate, i);
                               }
                               return union(ev, { [name]: val });
                           },
@@ -73,11 +58,11 @@ const expectedInfections = (deck: Deck, rate: number): Stack => {
 const expectedEpidemics = (deck: Deck, risk: number[]): Stack => {
     return deck.reduce(
         (ctx, stack) => {
-            if (ctx.total >= risk.length) {
+            if (ctx.rate >= risk.length) {
                 return ctx;
             }
             const options = size(stack);
-            const total = ctx.total + options;
+            const rate = ctx.rate + options;
             const expected = Object.keys(stack).reduce((ev, name) => {
                 const count = value(stack, name);
                 const limit = Math.min(risk.length - 1, count);
@@ -90,20 +75,20 @@ const expectedEpidemics = (deck: Deck, risk: number[]): Stack => {
                 }
                 return ev;
             }, ctx.expected);
-            return { expected, total };
+            return { expected, rate };
         },
-        { expected: {} as Record<string, number>, total: 0 },
+        { expected: {} as Record<string, number>, rate: 0 },
     ).expected;
 };
 
 export const gameForecast = (game: Game): Forecast => {
     const risk = epidemicForecast(game);
     const rate = infectionRate(game);
-    const cards = deckSize(game.infection);
+    const cards = total(game.infection);
     const deck = cards > rate ? game.infection : game.infection.concat([game.discard]);
     const infections = expectedInfections(deck, rate);
     const epidemics = expectedEpidemics(deck, risk);
-    const cities = uniqueCards(deck).map(name => {
+    const cities = unique(deck).map(name => {
         return {
             name,
             infections: value(infections, name),
