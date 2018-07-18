@@ -1,6 +1,6 @@
 import { total } from "../util/decks";
 import { difference, size, union, unit } from "../util/stacks";
-import { Config, Deck, Game, Stack } from "./types";
+import { Config, Deck, Game, Stack, State } from "./types";
 
 export type Updater<D> = (game: Game, data: D) => Game;
 
@@ -64,5 +64,28 @@ export const remove: Updater<string> = (game, city) => {
     return {
         ...game,
         discard: difference(game.discard, stack),
+    };
+};
+
+export const reset = (config: Config): State => {
+    return {
+        config,
+        games: [configure(config)],
+    };
+};
+
+export const update = (state: State, game: Game): State => {
+    const next = state.games.concat([game]);
+    const games = next.length >= 5 ? next.slice(1) : next;
+    return {
+        ...state,
+        games,
+    };
+};
+
+export const undo = (state: State): State => {
+    return {
+        ...state,
+        games: state.games.slice(0, -1),
     };
 };

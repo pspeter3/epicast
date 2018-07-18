@@ -1,6 +1,6 @@
 import { difference, union } from "../util/stacks";
 import { Config, Game } from "./types";
-import { configure, epidemic, infect, remove } from "./updaters";
+import { configure, epidemic, infect, remove, reset, undo, update } from "./updaters";
 
 const PRIMARY = "San Francisco";
 const SECONDARY = "Los Angeles";
@@ -115,6 +115,39 @@ describe("reducers", () => {
                 PRIMARY,
             );
             expect(next.discard).toEqual({});
+        });
+    });
+
+    describe("reset", () => {
+        it("should create a new state", () => {
+            expect(reset(CONFIG)).toEqual({
+                config: CONFIG,
+                games: [configure(CONFIG)],
+            });
+        });
+    });
+
+    describe("update", () => {
+        it("should add a game", () => {
+            expect(update(reset(CONFIG), epidemic(configure(CONFIG), PRIMARY))).toEqual({
+                config: CONFIG,
+                games: [configure(CONFIG), epidemic(configure(CONFIG), PRIMARY)],
+            });
+        });
+
+        it("should not exceed 4 games", () => {
+            let state = reset(CONFIG);
+            for (let i = 0; i < 5; i++) {
+                state = update(state, epidemic(configure(CONFIG), PRIMARY));
+            }
+            expect(state.games).toHaveLength(4);
+        });
+    });
+
+    describe("undo", () => {
+        it("should remove the last game", () => {
+            const state = reset(CONFIG);
+            expect(undo(update(state, epidemic(configure(CONFIG), PRIMARY)))).toEqual(state);
         });
     });
 });
