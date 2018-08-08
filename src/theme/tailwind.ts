@@ -173,6 +173,7 @@ export const enum BorderStyle {
 }
 
 export const enum BorderRadius {
+    None = "rounded-none",
     Small = "rounded-sm",
     SmallLeft = "rounded-l-sm",
     SmallRight = "rounded-r-sm",
