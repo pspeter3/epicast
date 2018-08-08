@@ -3,6 +3,7 @@ import { classNames } from "./css";
 import {
     BorderSize,
     BorderStyle,
+    FontFamily,
     FontWeight,
     Padding,
     Sizing,
@@ -12,7 +13,6 @@ import {
     TextDecoration,
     TextSize,
     Tracking,
-    FontFamily,
 } from "./tailwind";
 
 export interface Props<K extends string> {

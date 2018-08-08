@@ -1,7 +1,14 @@
 export const enum Sizing {
     H6 = "h-6",
+    H10 = "h-10",
     H12 = "h-12",
+    W12 = "w-12",
     WFull = "w-full",
+}
+
+export const enum Margin {
+    Y1 = "my-1",
+    X3 = "mx-3",
 }
 
 export const enum Padding {
@@ -147,7 +154,11 @@ export const enum BoxShadow {
 }
 
 export const enum BorderSize {
+    A1 = "border",
+    T1 = "border-t",
     B1 = "border-b",
+    L1 = "border-l",
+    R1 = "border-r",
 }
 
 export const enum BorderStyle {
@@ -159,6 +170,8 @@ export const enum BorderStyle {
 
 export const enum BorderRadius {
     Small = "rounded-sm",
+    SmallLeft = "rounded-l-sm",
+    SmallRight = "rounded-r-sm",
     Full = "rounded-full",
 }
 
