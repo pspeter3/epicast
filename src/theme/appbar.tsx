@@ -35,6 +35,7 @@ export class Appbar extends React.PureComponent<Props, {}> {
 
     public static Header: React.SFC<React.HTMLProps<HTMLElement>> = props => (
         <header
+            {...props}
             className={classNames(
                 Positioning.Absolute,
                 Pin.Top,
@@ -47,12 +48,12 @@ export class Appbar extends React.PureComponent<Props, {}> {
                 Padding.A1,
                 props.className,
             )}
-            {...props}
         />
     );
 
     public static Title: React.SFC<React.HTMLProps<HTMLAnchorElement>> = props => (
         <a
+            {...props}
             className={classNames(
                 TextColor.Black,
                 TextDecoration.NoUnderline,
@@ -66,16 +67,16 @@ export class Appbar extends React.PureComponent<Props, {}> {
                 focusClass(BackgroundColor.Dark),
                 props.className,
             )}
-            {...props}
         />
     );
 
     public static Navigation: React.SFC<React.HTMLProps<HTMLElement>> = props => (
-        <nav className={classNames(Display.Flex, Sizing.H12, props.className)} {...props} />
+        <nav {...props} className={classNames(Display.Flex, Sizing.H12, props.className)} />
     );
 
     public static Action: React.SFC<React.HTMLProps<HTMLAnchorElement>> = props => (
         <a
+            {...props}
             className={classNames(
                 TextColor.Black,
                 Padding.A3,
@@ -84,7 +85,6 @@ export class Appbar extends React.PureComponent<Props, {}> {
                 focusClass(BackgroundColor.Dark),
                 props.className,
             )}
-            {...props}
         />
     );
 
