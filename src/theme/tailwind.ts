@@ -14,6 +14,8 @@ export const enum Margin {
 export const enum Padding {
     A1 = "p-1",
     A3 = "p-3",
+    Y1 = "py-1",
+    X1 = "px-1",
     X3 = "px-3",
     X4 = "px-4",
 }
@@ -31,6 +33,7 @@ export const enum TextColor {
 }
 
 export const enum BackgroundColor {
+    White = "bg-white",
     Lightest = "bg-indigo-lightest",
     Lighter = "bg-indigo-lighter",
     Light = "bg-indigo-light",
@@ -145,7 +148,7 @@ export const enum JustifyContent {
 }
 
 export const enum BoxShadow {
-    Shadow = "shadow",
+    Small = "shadow",
     Medium = "shadow-md",
     Large = "shadow-lg",
     Inner = "shadow-inner",
@@ -155,6 +158,7 @@ export const enum BoxShadow {
 
 export const enum BorderSize {
     A1 = "border",
+    A2 = "border-2",
     T1 = "border-t",
     B1 = "border-b",
     L1 = "border-l",
@@ -173,6 +177,10 @@ export const enum BorderRadius {
     SmallLeft = "rounded-l-sm",
     SmallRight = "rounded-r-sm",
     Full = "rounded-full",
+}
+
+export const enum BorderColor {
+    Base = "border-indigo",
 }
 
 export const enum Outline {
