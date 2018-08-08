@@ -1,16 +1,28 @@
 export const enum Sizing {
     H6 = "h-6",
+    H10 = "h-10",
     H12 = "h-12",
+    W12 = "w-12",
+    WFull = "w-full",
+}
+
+export const enum Margin {
+    Y1 = "my-1",
+    X3 = "mx-3",
 }
 
 export const enum Padding {
     A1 = "p-1",
     A3 = "p-3",
+    Y1 = "py-1",
+    X1 = "px-1",
     X3 = "px-3",
+    X4 = "px-4",
 }
 
 export const enum TextColor {
     Black = "text-black",
+    Grey = "text-grey-darker",
     Lightest = "text-indigo-lightest",
     Lighter = "text-indigo-lighter",
     Light = "text-indigo-light",
@@ -21,6 +33,7 @@ export const enum TextColor {
 }
 
 export const enum BackgroundColor {
+    White = "bg-white",
     Lightest = "bg-indigo-lightest",
     Lighter = "bg-indigo-lighter",
     Light = "bg-indigo-light",
@@ -56,6 +69,12 @@ export const enum TextSize {
     X5Large = "text-5xl",
 }
 
+export const enum FontFamily {
+    Sans = "font-sans",
+    Serif = "font-serif",
+    Mono = "font-mono",
+}
+
 export const enum FontWeight {
     Hairline = "font-hairline",
     Thin = "font-thin",
@@ -72,6 +91,13 @@ export const enum Tracking {
     Tight = "tracking-tight",
     Normal = "tracking-normal",
     Wide = "tracking-wide",
+}
+
+export const enum TextAlign {
+    Left = "text-left",
+    Center = "text-center",
+    Right = "text-right",
+    Justify = "text-justify",
 }
 
 export const enum Positioning {
@@ -122,7 +148,7 @@ export const enum JustifyContent {
 }
 
 export const enum BoxShadow {
-    Shadow = "shadow",
+    Small = "shadow",
     Medium = "shadow-md",
     Large = "shadow-lg",
     Inner = "shadow-inner",
@@ -130,11 +156,38 @@ export const enum BoxShadow {
     None = "shadow-none",
 }
 
+export const enum BorderSize {
+    A1 = "border",
+    A2 = "border-2",
+    T1 = "border-t",
+    B1 = "border-b",
+    L1 = "border-l",
+    R1 = "border-r",
+}
+
+export const enum BorderStyle {
+    Solid = "border-solid",
+    Dashed = "border-dashed",
+    Dotted = "border-dotted",
+    None = "border-none",
+}
+
 export const enum BorderRadius {
     Small = "rounded-sm",
+    SmallLeft = "rounded-l-sm",
+    SmallRight = "rounded-r-sm",
     Full = "rounded-full",
+}
+
+export const enum BorderColor {
+    Base = "border-indigo",
 }
 
 export const enum Outline {
     None = "outline-none",
+}
+
+export const enum TableBorder {
+    Collapse = "border-collapse",
+    Separate = "border-separate",
 }
