@@ -19,7 +19,6 @@ import {
     Outline,
     Padding,
     Sizing,
-    TextAlign,
     TextColor,
     TextDecoration,
     TextSize,
