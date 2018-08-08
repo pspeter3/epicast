@@ -46,7 +46,7 @@ class KitchenSink extends React.PureComponent<{}, { value: number }> {
                         { icon: SaveIcon, href: "#/save" },
                     ]}
                 />
-                <DataTable<"name" | "infections" | "epidemics">
+                <DataTable
                     headers={{ name: false, infections: true, epidemics: true }}
                     defaultSort="infections"
                     data={[

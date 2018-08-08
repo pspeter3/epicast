@@ -15,17 +15,17 @@ import {
     Tracking,
 } from "./tailwind";
 
-export interface Props<K extends string> {
-    headers: Record<K, boolean>;
-    defaultSort: K;
-    data: Array<Record<K, string | number>>;
+export interface Props {
+    headers: Record<string, boolean>;
+    defaultSort: string;
+    data: Array<Record<string, string | number>>;
 }
 
-export interface State<K extends string> {
-    sort: K;
+export interface State {
+    sort: string;
 }
 
-export class DataTable<K extends string> extends React.PureComponent<Props<K>, State<K>> {
+export class DataTable extends React.PureComponent<Props, State> {
     public static displayName = "DataTable";
 
     public static Table: React.SFC<React.HTMLProps<HTMLTableElement>> = props => (
