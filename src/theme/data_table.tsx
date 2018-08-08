@@ -67,7 +67,7 @@ export class DataTable extends React.PureComponent<Props, State> {
     public render() {
         const { headers, data } = this.props;
         const { sort } = this.state;
-        const keys = Object.keys(headers) as K[];
+        const keys = Object.keys(headers);
         return (
             <DataTable.Table>
                 <thead>
@@ -88,18 +88,13 @@ export class DataTable extends React.PureComponent<Props, State> {
                 </thead>
                 <tbody>
                     {data
-                        .sort(
-                            (
-                                left: Record<K, string | number>,
-                                right: Record<K, string | number>,
-                            ): number => {
-                                const isNumeric = headers[sort];
-                                const a = left[sort];
-                                const b = right[sort];
-                                const inOrder = a < b;
-                                return isNumeric ? (inOrder ? 1 : -1) : inOrder ? -1 : 1;
-                            },
-                        )
+                        .sort((left, right) => {
+                            const isNumeric = headers[sort];
+                            const a = left[sort];
+                            const b = right[sort];
+                            const inOrder = a < b;
+                            return isNumeric ? (inOrder ? 1 : -1) : inOrder ? -1 : 1;
+                        })
                         .map(record => (
                             <DataTable.Row key={record[sort]}>
                                 {keys.map(key => (
