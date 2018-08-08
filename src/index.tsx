@@ -14,6 +14,7 @@ import {
     BorderStyle,
     BoxShadow,
     Display,
+    FontFamily,
     FontWeight,
     JustifyContent,
     Outline,
@@ -84,29 +85,50 @@ class KitchenSink extends React.PureComponent<{}, { value: number }> {
                     </button>
                 </div>
                 <div className={classNames(Padding.Y1, Padding.X3)}>
-                    <select
-                        className={classNames(
-                            Sizing.H10,
-                            Sizing.WFull,
-                            BorderRadius.Small,
-                            BorderStyle.Solid,
-                            BorderSize.A1,
-                            BackgroundColor.White,
-                            TextSize.Small,
-                            FontWeight.Medium,
-                            TextColor.Grey,
-                            TextDecoration.Uppercase,
-                            Tracking.Wide,
-                            focusClass(Outline.None),
-                            focusClass(BackgroundColor.Lightest),
-                        )}
-                    >
-                        <option selected={true} disabled={true}>
-                            Epidemic
-                        </option>
-                        <option value="San Francisco">San Francisco</option>
-                        <option value="Los Angeles">Los Angeles</option>
-                    </select>
+                    <div className={classNames(Display.Flex)}>
+                        <div
+                            className={classNames(
+                                Display.Flex,
+                                AlignItems.Center,
+                                JustifyContent.Center,
+                                TextColor.Grey,
+                                FontFamily.Mono,
+                                Sizing.H10,
+                                Sizing.W12,
+                                TextSize.XSmall,
+                                BorderRadius.SmallLeft,
+                                BorderSize.T1,
+                                BorderSize.L1,
+                                BorderSize.B1,
+                            )}
+                        >
+                            40%
+                        </div>
+                        <select
+                            className={classNames(
+                                Sizing.H10,
+                                Sizing.WFull,
+                                BorderRadius.None,
+                                BorderRadius.SmallRight,
+                                BorderStyle.Solid,
+                                BorderSize.A1,
+                                BackgroundColor.White,
+                                TextSize.Small,
+                                FontWeight.Medium,
+                                TextColor.Grey,
+                                TextDecoration.Uppercase,
+                                Tracking.Wide,
+                                focusClass(Outline.None),
+                                focusClass(BackgroundColor.Lightest),
+                            )}
+                        >
+                            <option selected={true} disabled={true}>
+                                Epidemic
+                            </option>
+                            <option value="San Francisco">San Francisco</option>
+                            <option value="Los Angeles">Los Angeles</option>
+                        </select>
+                    </div>
                 </div>
             </>
         );
