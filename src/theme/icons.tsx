@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const CORNER_UP_LEFT = (
+export const UndoIcon = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -17,7 +17,7 @@ const CORNER_UP_LEFT = (
     </svg>
 );
 
-const EDIT = (
+export const EditIcon = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -34,7 +34,7 @@ const EDIT = (
     </svg>
 );
 
-const MINUS = (
+export const MinusIcon = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -50,7 +50,7 @@ const MINUS = (
     </svg>
 );
 
-const PLUS = (
+export const PlusIcon = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -67,7 +67,7 @@ const PLUS = (
     </svg>
 );
 
-const SAVE = (
+export const SaveIcon = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -85,12 +85,37 @@ const SAVE = (
     </svg>
 );
 
-export const Undo: React.SFC<{}> = () => CORNER_UP_LEFT;
+export const AlertIcon = (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+    >
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+        <line x1="12" y1="9" x2="12" y2="13" />
+        <line x1="12" y1="17" x2="12" y2="17" />
+    </svg>
+);
 
-export const Edit: React.SFC<{}> = () => EDIT;
-
-export const Minus: React.SFC<{}> = () => MINUS;
-
-export const Plus: React.SFC<{}> = () => PLUS;
-
-export const Save: React.SFC<{}> = () => SAVE;
+export const CodeIcon = (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+    >
+        <polyline points="16 18 22 12 16 6" />
+        <polyline points="8 6 2 12 8 18" />
+    </svg>
+);

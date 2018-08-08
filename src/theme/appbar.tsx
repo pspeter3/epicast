@@ -19,59 +19,98 @@ import {
     Tracking,
 } from "./tailwind";
 
-export interface AppbarStructure
-    extends React.StatelessComponent<React.HTMLAttributes<HTMLElement>> {
-    Title: React.SFC<React.HTMLAttributes<HTMLAnchorElement>>;
+export interface ActionProps {
+    icon: React.ReactElement<any>;
+    href: string;
+    onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 }
 
-export const Appbar: React.SFC<React.HTMLProps<HTMLElement>> = props => (
-    <header
-        className={classNames(
-            Positioning.Absolute,
-            Pin.Top,
-            Pin.Horizontal,
-            Display.Flex,
-            AlignItems.Center,
-            JustifyContent.Between,
-            BoxShadow.Medium,
-            BackgroundColor.Base,
-            Padding.A1,
-            props.className,
-        )}
-        {...props}
-    />
-);
+export interface Props {
+    title: string;
+    actions: ActionProps[];
+}
 
-export const Headline: React.SFC<React.HTMLProps<HTMLAnchorElement>> = props => (
-    <a
-        className={classNames(
-            TextColor.Black,
-            TextDecoration.NoUnderline,
-            TextSize.XLarge,
-            FontWeight.Medium,
-            Tracking.Wide,
-            Padding.X3,
-            Sizing.H6,
-            props.className,
-        )}
-        {...props}
-    />
-);
+export class Appbar extends React.PureComponent<Props, {}> {
+    public static displayName = "Appbar";
 
-export const Actions: React.SFC<React.HTMLProps<HTMLElement>> = props => (
-    <nav className={classNames(Display.Flex, Sizing.H12, props.className)} {...props} />
-);
+    public static Header: React.SFC<React.HTMLProps<HTMLElement>> = props => (
+        <header
+            className={classNames(
+                Positioning.Absolute,
+                Pin.Top,
+                Pin.Horizontal,
+                Display.Flex,
+                AlignItems.Center,
+                JustifyContent.Between,
+                BoxShadow.Medium,
+                BackgroundColor.Base,
+                Padding.A1,
+                props.className,
+            )}
+            {...props}
+        />
+    );
 
-export const Action: React.SFC<React.HTMLProps<HTMLAnchorElement>> = props => (
-    <a
-        className={classNames(
-            TextColor.Black,
-            Padding.A3,
-            BorderRadius.Full,
-            focusClass(Outline.None),
-            focusClass(BackgroundColor.Dark),
-            props.className,
-        )}
-        {...props}
-    />
-);
+    public static Title: React.SFC<React.HTMLProps<HTMLAnchorElement>> = props => (
+        <a
+            className={classNames(
+                TextColor.Black,
+                TextDecoration.NoUnderline,
+                TextSize.XLarge,
+                FontWeight.Medium,
+                Tracking.Wide,
+                Padding.A3,
+                Sizing.H12,
+                BorderRadius.Small,
+                focusClass(Outline.None),
+                focusClass(BackgroundColor.Dark),
+                props.className,
+            )}
+            {...props}
+        />
+    );
+
+    public static Navigation: React.SFC<React.HTMLProps<HTMLElement>> = props => (
+        <nav className={classNames(Display.Flex, Sizing.H12, props.className)} {...props} />
+    );
+
+    public static Action: React.SFC<React.HTMLProps<HTMLAnchorElement>> = props => (
+        <a
+            className={classNames(
+                TextColor.Black,
+                Padding.A3,
+                BorderRadius.Full,
+                focusClass(Outline.None),
+                focusClass(BackgroundColor.Dark),
+                props.className,
+            )}
+            {...props}
+        />
+    );
+
+    public render() {
+        const { title, actions } = this.props;
+
+        return (
+            <Appbar.Header>
+                <Appbar.Title href="#/">{title}</Appbar.Title>
+                <Appbar.Navigation>
+                    {actions.map(action => (
+                        <Appbar.Action
+                            key={action.href}
+                            href={action.href}
+                            onClick={action.onClick}
+                        >
+                            {action.icon}
+                        </Appbar.Action>
+                    ))}
+                </Appbar.Navigation>
+            </Appbar.Header>
+        );
+    }
+}
+
+Appbar.Header.displayName = "Appbar.Header";
+Appbar.Title.displayName = "Appbar.Title";
+Appbar.Navigation.displayName = "Appbar.Navigation";
+Appbar.Action.displayName = "Appbar.Action";

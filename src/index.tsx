@@ -1,19 +1,18 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { Action, Actions, Appbar, Headline } from "./theme/appbar";
-import { Edit, Undo } from "./theme/icons";
+import { Appbar } from "./theme/appbar";
+import { AlertIcon, CodeIcon, EditIcon, SaveIcon, UndoIcon } from "./theme/icons";
 
 ReactDOM.render(
-    <Appbar>
-        <Headline href="#">Epidemia</Headline>
-        <Actions>
-            <Action role="button">
-                <Undo />
-            </Action>
-            <Action href="#edit">
-                <Edit />
-            </Action>
-        </Actions>
-    </Appbar>,
+    <Appbar
+        title="Epidemia"
+        actions={[
+            { icon: UndoIcon, href: "#/undo" },
+            { icon: AlertIcon, href: "#/infect" },
+            { icon: CodeIcon, href: "#/debug" },
+            { icon: EditIcon, href: "#/settings" },
+            { icon: SaveIcon, href: "#/save" },
+        ]}
+    />,
     document.getElementById("root"),
 );
