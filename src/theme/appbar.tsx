@@ -1,5 +1,4 @@
 import * as React from "react";
-import { ReactWrapper } from "../../node_modules/@types/enzyme";
 import { classNames, focusClass } from "./css";
 import {
     AlignItems,
