@@ -1,4 +1,4 @@
-export function classNames(...classes: string[]): string {
+export function classNames(...classes: Array<string | undefined>): string {
     return classes.join(" ");
 }
 
