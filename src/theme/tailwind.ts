@@ -2,12 +2,13 @@ export const enum Sizing {
     H6 = "h-6",
     H10 = "h-10",
     H12 = "h-12",
+    W10 = "w-10",
     W12 = "w-12",
     WFull = "w-full",
 }
 
 export const enum Margin {
-    B6 = "mb-6",
+    T6 = "mt-6",
     Y1 = "my-1",
     X3 = "mx-3",
 }
@@ -17,6 +18,7 @@ export const enum Padding {
     A3 = "p-3",
     Y1 = "py-1",
     X1 = "px-1",
+    X2 = "px-2",
     X3 = "px-3",
     X4 = "px-4",
 }
