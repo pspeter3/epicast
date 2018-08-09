@@ -70,7 +70,6 @@ export class DataTable<K extends string> extends React.PureComponent<Props<K>, S
         const { sort } = this.state;
         const keys = Object.keys(headers) as K[];
         const id = keys[0];
-        let max: number | undefined;
         return (
             <DataTable.Table>
                 <thead>
