@@ -1,5 +1,5 @@
 export const enum Routes {
-    Dashboard = "#/dashboard",
+    Dashboard = "#/",
     Infect = "#/infect",
     Settings = "#/settings",
     Debug = "#/debug",

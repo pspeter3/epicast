@@ -25,7 +25,12 @@ export class Infect extends React.PureComponent<Props, Stack> {
             icon: SaveIcon,
             href: Routes.Dashboard,
             onClick: evt => {
-                if (!this.props.onInfect(this.state)) {
+                const stack = Object.keys(this.state).reduce(
+                    (data, city) =>
+                        this.state[city] > 0 ? { ...data, [city]: this.state[city] } : data,
+                    {} as Stack,
+                );
+                if (!this.props.onInfect(stack)) {
                     evt.preventDefault();
                 }
             },
@@ -36,11 +41,11 @@ export class Infect extends React.PureComponent<Props, Stack> {
         return (
             <>
                 <Appbar actions={this._actions} />
-                <form className={classNames(Padding.X1)}>
+                <main className={classNames(Padding.X1)}>
                     {Object.keys(this.state).map(city => (
                         <CityRow city={city} value={this.state[city]} onChange={this._onChange} />
                     ))}
-                </form>
+                </main>
             </>
         );
     }
