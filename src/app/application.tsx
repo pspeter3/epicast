@@ -1,7 +1,8 @@
 import * as React from "react";
 import { State } from "../core/types";
 import { StorageService } from "../util/services";
-import { Debug } from './debug';
+import { Dashboard } from "./dashboard";
+import { Debug } from "./debug";
 
 export interface Services {
     storage: StorageService;
@@ -19,11 +20,12 @@ export class Application extends React.PureComponent<Props, State> {
     public state = this._initialState();
 
     public render() {
-        const { games } = this.state;
+        const { config, games } = this.state;
         if (games.length === 0) {
             return null;
         }
-        return <Debug state={this.state}/>;
+        const game = games[games.length - 1];
+        return <Dashboard game={game} onEpidemic={(_: string) => {}} onUndo={() => {}} />;
     }
 
     private _initialState(): State {
