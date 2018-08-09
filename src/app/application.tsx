@@ -2,7 +2,7 @@ import * as React from "react";
 import { infectionRate } from "../core/selectors";
 import { Config, Game, Stack, State } from "../core/types";
 import { configure, epidemic, infect, undo, update } from "../core/updaters";
-import { DialogService, StorageService } from "../util/services";
+import { DialogService, StorageService, RouteService } from "../util/services";
 import { size } from "../util/stacks";
 import { Dashboard } from "./dashboard";
 import { Debug } from "./debug";
@@ -12,6 +12,7 @@ import { Settings } from "./settings";
 
 export interface Services {
     dialog: DialogService;
+    route: RouteService;
     storage: StorageService;
 }
 
@@ -94,6 +95,7 @@ export class Application extends React.PureComponent<Props, State> {
 
     private _onEpidemic = (city: string) => {
         this.setState(update(this.state, epidemic(Application._currentGame(this.state), city)));
+        this.props.services.route.routeTo(Routes.Infect);
     };
 
     private _onInfect = (cities: Stack): boolean => {
