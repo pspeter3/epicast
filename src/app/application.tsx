@@ -1,6 +1,7 @@
 import * as React from "react";
 import { State } from "../core/types";
 import { StorageService } from "../util/services";
+import { Debug } from './debug';
 
 export interface Services {
     storage: StorageService;
@@ -22,7 +23,7 @@ export class Application extends React.PureComponent<Props, State> {
         if (games.length === 0) {
             return null;
         }
-        return <pre>{JSON.stringify(this.state, undefined, 2)}</pre>;
+        return <Debug state={this.state}/>;
     }
 
     private _initialState(): State {

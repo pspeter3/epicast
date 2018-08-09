@@ -37,7 +37,7 @@ export class Appbar extends React.PureComponent<Props, {}> {
         <header
             {...props}
             className={classNames(
-                Positioning.Absolute,
+                Positioning.Fixed,
                 Pin.Top,
                 Pin.Horizontal,
                 Display.Flex,
