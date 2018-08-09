@@ -4,6 +4,7 @@ export const enum Sizing {
     H12 = "h-12",
     W10 = "w-10",
     W12 = "w-12",
+    W24 = "w-24",
     WFull = "w-full",
 }
 

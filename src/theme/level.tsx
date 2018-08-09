@@ -1,5 +1,4 @@
 import * as React from "react";
-import { render } from "../../node_modules/@types/enzyme";
 import { classNames } from "./css";
 import {
     Display,
@@ -43,6 +42,7 @@ export class Level extends React.PureComponent<Props, {}> {
                 FlexDirection.Col,
                 JustifyContent.Around,
                 Sizing.H12,
+                Sizing.W24,
                 props.className,
             )}
         />
@@ -52,6 +52,7 @@ export class Level extends React.PureComponent<Props, {}> {
         <span
             {...props}
             className={classNames(
+                Sizing.WFull,
                 TextAlign.Center,
                 TextColor.Grey,
                 TextDecoration.Uppercase,
@@ -67,6 +68,7 @@ export class Level extends React.PureComponent<Props, {}> {
             {...props}
             className={classNames(
                 FontFamily.Mono,
+                Sizing.WFull,
                 TextAlign.Center,
                 TextColor.Black,
                 TextSize.XLarge,
@@ -82,10 +84,10 @@ export class Level extends React.PureComponent<Props, {}> {
             <Level.Section className={className}>
                 {tiles.map(tile => (
                     <Level.Tile>
-                        <Level.Caption>{tile.caption}</Level.Caption>
                         <Level.Value>
                             {tile.isPercent === true ? `${Math.round(100 * tile.value)}%` : tile.value}
                         </Level.Value>
+                        <Level.Caption>{tile.caption}</Level.Caption>
                     </Level.Tile>
                 ))}
             </Level.Section>
