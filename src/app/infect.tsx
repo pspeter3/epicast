@@ -5,7 +5,7 @@ import { classNames } from "../theme/css";
 import { SaveIcon } from "../theme/icons";
 import { Padding } from "../theme/tailwind";
 import { unique } from "../util/decks";
-import { InfectionRow } from "./infection_row";
+import { CityRow } from "./city_row";
 import { Routes } from "./routes";
 
 export interface Props {
@@ -38,11 +38,7 @@ export class Infect extends React.PureComponent<Props, Stack> {
                 <Appbar actions={this._actions} />
                 <form className={classNames(Padding.X1)}>
                     {Object.keys(this.state).map(city => (
-                        <InfectionRow
-                            city={city}
-                            value={this.state[city]}
-                            onChange={this._onChange}
-                        />
+                        <CityRow city={city} value={this.state[city]} onChange={this._onChange} />
                     ))}
                 </form>
             </>
