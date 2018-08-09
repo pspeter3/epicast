@@ -89,7 +89,7 @@ export class Appbar extends React.PureComponent<Props, {}> {
     );
 
     public render() {
-        const { title, actions } = this.props;
+        const { actions } = this.props;
 
         return (
             <Appbar.Header>
