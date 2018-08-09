@@ -51,6 +51,10 @@ export class Application extends React.PureComponent<Props, State> {
         return <Dashboard game={game} onEpidemic={this._onEpidemic} onUndo={this._onUndo} />;
     }
 
+    public componentDidUpdate() {
+        this.props.services.storage.setItem(this.props.namespace, JSON.stringify(this.state));
+    }
+
     private _initialState(): State {
         const data = this.props.services.storage.getItem(this.props.namespace);
         return data !== null
