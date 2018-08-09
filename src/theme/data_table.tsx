@@ -133,10 +133,10 @@ export class DataTable<K extends string> extends React.PureComponent<Props<K>, S
         const { sort } = this.state;
         if (headers[sort]) {
             const value = record[sort] as number;
-            if (value > 1) {
+            if (value >= 1) {
                 return BackgroundColor.Danger;
             }
-            if (value > 0.5) {
+            if (value >= 0.5) {
                 return BackgroundColor.Warning;
             }
         }
