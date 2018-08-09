@@ -30,7 +30,7 @@ describe("selectors", () => {
         };
 
         it("should predict the correct amount without epidemic", () => {
-            expect(epidemicForecast(game)).toEqual([hypergeometric(7, 1, 2, 1)]);
+            expect(epidemicForecast(game)).toEqual({ safe: 0, risk: [hypergeometric(7, 1, 2, 1)] });
         });
 
         it("should predict the correct amount with epidemic", () => {
@@ -39,7 +39,7 @@ describe("selectors", () => {
                     ...game,
                     epidemics: 1,
                 }),
-            ).toEqual([0]);
+            ).toEqual({ safe: 3, risk: [0] });
         });
 
         it("should predict the second stack", () => {
@@ -49,7 +49,7 @@ describe("selectors", () => {
                     turns: 4,
                     epidemics: 1,
                 }),
-            ).toEqual([hypergeometric(7, 1, 2, 1)]);
+            ).toEqual({ safe: 0, risk: [hypergeometric(7, 1, 2, 1)] });
         });
 
         it("should handle multiple epidemics", () => {
@@ -58,7 +58,7 @@ describe("selectors", () => {
                     ...game,
                     turns: 3,
                 }),
-            ).toEqual([1, hypergeometric(8, 1, 1, 1)]);
+            ).toEqual({ safe: 0, risk: [1, hypergeometric(8, 1, 1, 1)] });
         });
     });
 
@@ -78,6 +78,8 @@ describe("selectors", () => {
                     ],
                 }),
             ).toEqual({
+                remaining: 9,
+                safe: 0,
                 epidemics: 1 + hypergeometric(8, 1, 1, 1),
                 cities: [
                     {
@@ -114,6 +116,8 @@ describe("selectors", () => {
                     ],
                 }),
             ).toEqual({
+                remaining: 8,
+                safe: 0,
                 epidemics: hypergeometric(8, 1, 2, 1),
                 cities: [
                     {
@@ -140,6 +144,8 @@ describe("selectors", () => {
                     ],
                 }),
             ).toEqual({
+                remaining: 8,
+                safe: 0,
                 epidemics: hypergeometric(8, 1, 2, 1),
                 cities: [
                     {
@@ -173,6 +179,8 @@ describe("selectors", () => {
                     ],
                 }),
             ).toEqual({
+                remaining: 8,
+                safe: 0,
                 epidemics: hypergeometric(8, 1, 2, 1),
                 cities: [
                     {

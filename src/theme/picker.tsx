@@ -1,5 +1,4 @@
 import * as React from "react";
-import { render } from "../../node_modules/@types/react-dom";
 import { classNames, focusClass } from "./css";
 import {
     AlignItems,
@@ -11,7 +10,6 @@ import {
     Display,
     FontWeight,
     JustifyContent,
-    Margin,
     Outline,
     Padding,
     Sizing,

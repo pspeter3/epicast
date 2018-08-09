@@ -9,9 +9,12 @@ export const enum Sizing {
 }
 
 export const enum Margin {
+    B2 = "mb-2",
     B6 = "mb-6",
+    T2 = "mt-2",
     T6 = "mt-6",
     Y1 = "my-1",
+    X1 = "mx-1",
     X3 = "mx-3",
 }
 
@@ -39,6 +42,7 @@ export const enum TextColor {
 
 export const enum BackgroundColor {
     White = "bg-white",
+    Secondary = "bg-teal",
     Lightest = "bg-indigo-lightest",
     Lighter = "bg-indigo-lighter",
     Light = "bg-indigo-light",

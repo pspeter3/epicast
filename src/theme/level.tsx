@@ -30,7 +30,7 @@ export class Level extends React.PureComponent<Props, {}> {
     public static Section: React.SFC<React.HTMLProps<HTMLElement>> = props => (
         <section
             {...props}
-            className={classNames(Display.Flex, JustifyContent.Around, props.className)}
+            className={classNames(Display.Flex, JustifyContent.Between, props.className)}
         />
     );
 
@@ -85,7 +85,9 @@ export class Level extends React.PureComponent<Props, {}> {
                 {tiles.map(tile => (
                     <Level.Tile>
                         <Level.Value>
-                            {tile.isPercent === true ? `${Math.round(100 * tile.value)}%` : tile.value}
+                            {tile.isPercent === true
+                                ? `${Math.round(100 * tile.value)}%`
+                                : tile.value}
                         </Level.Value>
                         <Level.Caption>{tile.caption}</Level.Caption>
                     </Level.Tile>

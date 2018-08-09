@@ -2,6 +2,7 @@ import * as React from "react";
 import { gameForecast } from "../core/selectors";
 import { Game } from "../core/types";
 import { ActionProps, Appbar } from "../theme/appbar";
+import { Banner } from "../theme/banner";
 import { DataTable } from "../theme/data_table";
 import { AlertIcon, CrosshairIcon, EditIcon, UndoIcon, XIcon } from "../theme/icons";
 import { Level } from "../theme/level";
@@ -38,18 +39,19 @@ export class Dashboard extends React.PureComponent<Props, {}> {
         const forecast = gameForecast(game);
         const discards = Object.keys(game.discard).sort();
         const epidemics = Object.keys(game.infection[0]).sort();
-        const player = game.player.reduce((a, e) => a + e) - game.turns * 2;
+        const isSafe = forecast.safe === 0;
         return (
             <>
                 <Appbar actions={this._actions} />
                 <Level
                     tiles={[
                         { caption: "Turn", value: game.turns + 1 },
-                        { caption: "Player Deck", value: player },
+                        { caption: "Player Deck", value: forecast.remaining },
                         { caption: "Epidemic", value: forecast.epidemics, isPercent: true },
                     ]}
-                    className={Margin.B6}
+                    className={Margin.B2}
                 />
+                {isSafe ? <Banner>No epidemics for at least {forecast.safe} turns</Banner> : null}
                 <DataTable<Headers>
                     headers={{ name: false, infections: true, epidemics: true }}
                     defaultSort="infections"
@@ -59,7 +61,7 @@ export class Dashboard extends React.PureComponent<Props, {}> {
                     icon={CrosshairIcon}
                     label="Epidemic"
                     options={epidemics}
-                    disabled={forecast.epidemics === 0}
+                    disabled={isSafe}
                     className={Margin.T6}
                     onChange={onEpidemic}
                 />
