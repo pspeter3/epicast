@@ -116,6 +116,7 @@ export class Settings extends React.PureComponent<Props, Config> {
                         <Settings.Legend>Cities</Settings.Legend>
                         {Object.keys(this.state.cities).map(city => (
                             <CityRow
+                                key={city}
                                 city={city}
                                 value={this.state.cities[city]}
                                 onChange={this._onChange}

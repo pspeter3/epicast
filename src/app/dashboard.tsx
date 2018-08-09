@@ -39,7 +39,7 @@ export class Dashboard extends React.PureComponent<Props, {}> {
         const forecast = gameForecast(game);
         const discards = Object.keys(game.discard).sort();
         const epidemics = Object.keys(game.infection[0]).sort();
-        const isSafe = forecast.safe === 0;
+        const isSafe = forecast.safe !== 0;
         return (
             <>
                 <Appbar actions={this._actions} />

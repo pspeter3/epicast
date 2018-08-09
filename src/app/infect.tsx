@@ -43,7 +43,12 @@ export class Infect extends React.PureComponent<Props, Stack> {
                 <Appbar actions={this._actions} />
                 <main className={classNames(Padding.X1)}>
                     {Object.keys(this.state).map(city => (
-                        <CityRow city={city} value={this.state[city]} onChange={this._onChange} />
+                        <CityRow
+                            key={city}
+                            city={city}
+                            value={this.state[city]}
+                            onChange={this._onChange}
+                        />
                     ))}
                 </main>
             </>

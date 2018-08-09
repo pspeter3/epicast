@@ -83,7 +83,7 @@ export class Level extends React.PureComponent<Props, {}> {
         return (
             <Level.Section className={className}>
                 {tiles.map(tile => (
-                    <Level.Tile>
+                    <Level.Tile key={tile.caption}>
                         <Level.Value>
                             {tile.isPercent === true
                                 ? `${Math.round(100 * tile.value)}%`
