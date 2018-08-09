@@ -1,8 +1,10 @@
 import * as React from "react";
-import { State } from "../core/types";
+import { Game, State } from "../core/types";
+import { epidemic, undo, update } from "../core/updaters";
 import { StorageService } from "../util/services";
 import { Dashboard } from "./dashboard";
 import { Debug } from "./debug";
+import { Routes } from "./routes";
 
 export interface Services {
     storage: StorageService;
@@ -17,15 +19,23 @@ export interface Props {
 export class Application extends React.PureComponent<Props, State> {
     public static displayName = "Application";
 
+    private static _currentGame(state: State): Game {
+        return state.games[state.games.length - 1];
+    }
+
     public state = this._initialState();
 
     public render() {
-        const { config, games } = this.state;
-        if (games.length === 0) {
+        const { location } = this.props;
+        if (this.state.games.length === 0) {
             return null;
         }
-        const game = games[games.length - 1];
-        return <Dashboard game={game} onEpidemic={(_: string) => {}} onUndo={() => {}} />;
+        const game = Application._currentGame(this.state);
+        switch (location) {
+            case Routes.Debug:
+                return <Debug state={this.state} />;
+        }
+        return <Dashboard game={game} onEpidemic={this._onEpidemic} onUndo={this._onUndo} />;
     }
 
     private _initialState(): State {
@@ -41,4 +51,12 @@ export class Application extends React.PureComponent<Props, State> {
                   games: [],
               };
     }
+
+    private _onEpidemic = (city: string) => {
+        this.setState(state => update(state, epidemic(Application._currentGame(state), city)));
+    };
+
+    private _onUndo = () => {
+        this.setState(undo);
+    };
 }

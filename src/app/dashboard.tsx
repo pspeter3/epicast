@@ -116,7 +116,7 @@ export class Dashboard extends React.PureComponent<Props, {}> {
                     <Dashboard.Percentage>
                         {Math.round(forecast.epidemics * 100)}%
                     </Dashboard.Percentage>
-                    <Dashboard.Dropdown value={Dashboard._DEFAULT_VALUE} onChange={this._onChange}>
+                    <Dashboard.Dropdown value={Dashboard._DEFAULT_VALUE} onChange={this._onChange} disabled={forecast.epidemics === 0}>
                         <option disabled={true} value={Dashboard._DEFAULT_VALUE}>
                             {Dashboard._DEFAULT_VALUE}
                         </option>
@@ -142,3 +142,7 @@ export class Dashboard extends React.PureComponent<Props, {}> {
         this.props.onEpidemic(evt.target.value);
     };
 }
+
+Dashboard.Section.displayName = "Dashboard.Section";
+Dashboard.Percentage.displayName = "Dashboard.Percentage";
+Dashboard.Dropdown.displayName = "Dashboard.Dropdown";
