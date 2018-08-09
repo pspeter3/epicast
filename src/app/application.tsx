@@ -2,7 +2,7 @@ import * as React from "react";
 import { infectionRate } from "../core/selectors";
 import { Config, Game, Stack, State } from "../core/types";
 import { configure, epidemic, infect, undo, update } from "../core/updaters";
-import { DialogService, StorageService, RouteService } from "../util/services";
+import { DialogService, RouteService, StorageService } from "../util/services";
 import { size } from "../util/stacks";
 import { Dashboard } from "./dashboard";
 import { Debug } from "./debug";
