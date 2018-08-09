@@ -111,12 +111,16 @@ export class Dashboard extends React.PureComponent<Props, {}> {
         const options = Object.keys(game.infection[0]).sort();
         return (
             <>
-                <Appbar title="Epidemia" actions={this._actions} />
+                <Appbar actions={this._actions} />
                 <Dashboard.Section>
                     <Dashboard.Percentage>
                         {Math.round(forecast.epidemics * 100)}%
                     </Dashboard.Percentage>
-                    <Dashboard.Dropdown value={Dashboard._DEFAULT_VALUE} onChange={this._onChange} disabled={forecast.epidemics === 0}>
+                    <Dashboard.Dropdown
+                        value={Dashboard._DEFAULT_VALUE}
+                        onChange={this._onChange}
+                        disabled={forecast.epidemics === 0}
+                    >
                         <option disabled={true} value={Dashboard._DEFAULT_VALUE}>
                             {Dashboard._DEFAULT_VALUE}
                         </option>

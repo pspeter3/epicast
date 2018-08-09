@@ -1,12 +1,16 @@
 import * as React from "react";
-import { Game, State } from "../core/types";
-import { epidemic, undo, update } from "../core/updaters";
-import { StorageService } from "../util/services";
+import { infectionRate } from "../core/selectors";
+import { Game, Stack, State } from "../core/types";
+import { epidemic, infect, undo, update } from "../core/updaters";
+import { DialogService, StorageService } from "../util/services";
+import { size } from "../util/stacks";
 import { Dashboard } from "./dashboard";
 import { Debug } from "./debug";
+import { Infect } from "./infect";
 import { Routes } from "./routes";
 
 export interface Services {
+    dialog: DialogService;
     storage: StorageService;
 }
 
@@ -32,6 +36,8 @@ export class Application extends React.PureComponent<Props, State> {
         }
         const game = Application._currentGame(this.state);
         switch (location) {
+            case Routes.Infect:
+                return <Infect infection={game.infection} onInfect={this._onInfect} />;
             case Routes.Debug:
                 return <Debug state={this.state} />;
         }
@@ -53,10 +59,29 @@ export class Application extends React.PureComponent<Props, State> {
     }
 
     private _onEpidemic = (city: string) => {
-        this.setState(state => update(state, epidemic(Application._currentGame(state), city)));
+        this.setState(update(this.state, epidemic(Application._currentGame(this.state), city)));
+    };
+
+    private _onInfect = (cities: Stack): boolean => {
+        const game = Application._currentGame(this.state);
+        const rate = infectionRate(game);
+        const cards = size(cities);
+        if (cards !== 0 && cards !== infectionRate(game)) {
+            this.props.services.dialog.alert(
+                `Cannot infect with ${cards} ${
+                    cards === 1 ? "city" : "cities"
+                }. Infection rate is ${rate}.`,
+            );
+            return false;
+        }
+        this.setState(update(this.state, infect(game, cities)));
+        return true;
     };
 
     private _onUndo = () => {
+        if (this.state.games.length < 2) {
+            return this.props.services.dialog.alert("Cannot undo any more actions.");
+        }
         this.setState(undo);
     };
 }

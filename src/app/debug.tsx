@@ -6,7 +6,7 @@ import { Padding, TextColor } from "../theme/tailwind";
 
 export const Debug: React.SFC<{ state: State }> = ({ state }) => (
     <>
-        <Appbar title="Epidemia" actions={[]} />
+        <Appbar actions={[]} />
         <pre className={classNames(Padding.X4, TextColor.Grey)}>
             {JSON.stringify(state, undefined, 2).replace(/[",]/g, "")}
         </pre>
