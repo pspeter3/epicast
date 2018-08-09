@@ -1,6 +1,7 @@
 import * as React from "react";
 import { classNames } from "./css";
 import {
+    BackgroundColor,
     BorderSize,
     BorderStyle,
     FontFamily,
@@ -69,6 +70,7 @@ export class DataTable<K extends string> extends React.PureComponent<Props<K>, S
         const { sort } = this.state;
         const keys = Object.keys(headers) as K[];
         const id = keys[0];
+        let max: number | undefined;
         return (
             <DataTable.Table>
                 <thead>
@@ -105,23 +107,31 @@ export class DataTable<K extends string> extends React.PureComponent<Props<K>, S
                                 return isNumeric ? (inOrder ? 1 : -1) : inOrder ? -1 : 1;
                             },
                         )
-                        .map(record => (
-                            <DataTable.Row key={record[id]}>
-                                {keys.map(key => (
-                                    <DataTable.Cell
-                                        key={key}
-                                        className={classNames(
-                                            headers[key] ? TextAlign.Right : TextAlign.Left,
-                                            headers[key] ? FontFamily.Mono : FontFamily.Sans,
-                                        )}
-                                    >
-                                        {headers[key]
-                                            ? (record[key] as number).toFixed(2)
-                                            : record[key]}
-                                    </DataTable.Cell>
-                                ))}
-                            </DataTable.Row>
-                        ))}
+                        .map(record => {
+                            if (headers[sort] && typeof max === "undefined") {
+                                max = record[sort] as number;
+                            }
+                            return (
+                                <DataTable.Row
+                                    key={record[id]}
+                                    className={record[sort] === max ? BackgroundColor.Warning : ""}
+                                >
+                                    {keys.map(key => (
+                                        <DataTable.Cell
+                                            key={key}
+                                            className={classNames(
+                                                headers[key] ? TextAlign.Right : TextAlign.Left,
+                                                headers[key] ? FontFamily.Mono : FontFamily.Sans,
+                                            )}
+                                        >
+                                            {headers[key]
+                                                ? (record[key] as number).toFixed(2)
+                                                : record[key]}
+                                        </DataTable.Cell>
+                                    ))}
+                                </DataTable.Row>
+                            );
+                        })}
                 </tbody>
             </DataTable.Table>
         );
