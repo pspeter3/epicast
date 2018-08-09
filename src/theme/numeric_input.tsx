@@ -66,6 +66,7 @@ export class NumericInput extends React.PureComponent<Props, State> {
                 BorderSize.A1,
                 focusClass(Outline.None),
             )}
+            type="number"
         />
     );
 
