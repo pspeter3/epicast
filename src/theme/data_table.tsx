@@ -107,14 +107,10 @@ export class DataTable<K extends string> extends React.PureComponent<Props<K>, S
                                 return isNumeric ? (inOrder ? 1 : -1) : inOrder ? -1 : 1;
                             },
                         )
-                        .map(record => {
-                            if (headers[sort] && typeof max === "undefined") {
-                                max = record[sort] as number;
-                            }
-                            return (
+                        .map(record => (
                                 <DataTable.Row
                                     key={record[id]}
-                                    className={record[sort] === max ? BackgroundColor.Warning : ""}
+                                    className={this._background(record)}
                                 >
                                     {keys.map(key => (
                                         <DataTable.Cell
@@ -130,11 +126,26 @@ export class DataTable<K extends string> extends React.PureComponent<Props<K>, S
                                         </DataTable.Cell>
                                     ))}
                                 </DataTable.Row>
-                            );
-                        })}
+                            )
+                    )}
                 </tbody>
             </DataTable.Table>
         );
+    }
+
+    private _background(record: Record<K, string | number>): string {
+        const { headers } = this.props; 
+        const { sort } = this.state;
+        if (headers[sort]) {
+            const value = record[sort] as number;
+            if (value > 1) {
+                return BackgroundColor.Danger;
+            }
+            if (value > 0.5) {
+                return BackgroundColor.Warning;
+            }
+        }
+        return BackgroundColor.White;
     }
 }
 

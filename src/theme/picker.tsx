@@ -62,7 +62,6 @@ export class Picker extends React.PureComponent<Props, {}> {
             {...props}
             className={classNames(
                 Appearance.None,
-                BackgroundColor.White,
                 BorderRadius.None,
                 BorderRadius.SmallRight,
                 BorderSize.A1,
@@ -77,16 +76,18 @@ export class Picker extends React.PureComponent<Props, {}> {
                 Tracking.Wide,
                 focusClass(BackgroundColor.Lightest),
                 focusClass(Outline.None),
+                props.className,
             )}
         />
     );
 
     public render() {
         const { icon, label, options, disabled, className } = this.props;
+        const bg = disabled === true ? BackgroundColor.Disabled : BackgroundColor.White;
         return (
             <Picker.Field className={className}>
-                <Picker.Prefix>{icon}</Picker.Prefix>
-                <Picker.Dropdown value={label} disabled={disabled} onChange={this._onChange}>
+                <Picker.Prefix className={bg}>{icon}</Picker.Prefix>
+                <Picker.Dropdown className={bg} value={label} disabled={disabled} onChange={this._onChange}>
                     <option disabled={true} value={label}>
                         {label}
                     </option>

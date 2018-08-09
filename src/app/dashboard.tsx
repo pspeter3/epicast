@@ -68,7 +68,7 @@ export class Dashboard extends React.PureComponent<Props, {}> {
                 />
                 <Picker
                     icon={XIcon}
-                    label="Discard"
+                    label="Remove"
                     options={discards}
                     disabled={discards.length === 0}
                     onChange={onRemove}

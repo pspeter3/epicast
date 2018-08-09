@@ -42,8 +42,10 @@ export const enum TextColor {
 
 export const enum BackgroundColor {
     White = "bg-white",
-    Secondary = "bg-teal",
+    Secondary = "bg-blue-lighter",
+    Danger = "bg-red-lightest",
     Warning = "bg-orange-lightest",
+    Disabled = "bg-grey-lighter",
     Lightest = "bg-indigo-lightest",
     Lighter = "bg-indigo-lighter",
     Light = "bg-indigo-light",

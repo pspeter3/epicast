@@ -62,7 +62,12 @@ export class Infect extends React.PureComponent<Props, Stack> {
     private _initialState(): Stack {
         const forecast = gameForecast(this.props.game);
         const cities: CityForecast[] = forecast.cities as any;
-        return cities.sort((left, right) => right.infections - left.infections).reduce(
+        return cities.sort((left, right) => {
+            if (right.infections === left.infections) {
+                return left.name < right.name ? -1 : 1;
+            }
+            return right.infections - left.infections
+        }).reduce(
             (stack, city) => {
                 return {
                     ...stack,
