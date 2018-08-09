@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import { Application } from "./app/application";
 import { Router } from "./app/router";
 import { DialogService, RouterService, RouteService } from "./util/services";
 
@@ -29,6 +30,8 @@ const storage = window.localStorage;
 const services = { dialog, route, router, storage };
 
 ReactDOM.render(
-    <Router services={services}>{location => <pre>{location}</pre>}</Router>,
+    <Router services={services}>
+        {location => <Application location={location} namespace="epidemia" services={services} />}
+    </Router>,
     document.getElementById("root"),
 );
