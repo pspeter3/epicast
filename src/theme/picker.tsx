@@ -10,6 +10,7 @@ import {
     BorderStyle,
     Display,
     FontWeight,
+    JustifyContent,
     Margin,
     Outline,
     Padding,
@@ -18,7 +19,6 @@ import {
     TextDecoration,
     TextSize,
     Tracking,
-    JustifyContent,
 } from "./tailwind";
 
 export interface Props {

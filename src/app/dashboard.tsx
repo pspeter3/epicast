@@ -4,6 +4,7 @@ import { Game } from "../core/types";
 import { ActionProps, Appbar } from "../theme/appbar";
 import { DataTable } from "../theme/data_table";
 import { AlertIcon, CrosshairIcon, EditIcon, UndoIcon, XIcon } from "../theme/icons";
+import { Level } from "../theme/level";
 import { Picker } from "../theme/picker";
 import { Margin } from "../theme/tailwind";
 import { Routes } from "./routes";
@@ -37,9 +38,18 @@ export class Dashboard extends React.PureComponent<Props, {}> {
         const forecast = gameForecast(game);
         const discards = Object.keys(game.discard).sort();
         const epidemics = Object.keys(game.infection[0]).sort();
+        const player = game.player.reduce((a, e) => a + e) - game.turns * 2;
         return (
             <>
                 <Appbar actions={this._actions} />
+                <Level
+                    tiles={[
+                        { caption: "Turn", value: game.turns + 1 },
+                        { caption: "Player Deck", value: player },
+                        { caption: "Epidemic", value: forecast.epidemics, isPercent: true },
+                    ]}
+                    className={Margin.B6}
+                />
                 <DataTable<Headers>
                     headers={{ name: false, infections: true, epidemics: true }}
                     defaultSort="infections"

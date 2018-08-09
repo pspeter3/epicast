@@ -8,6 +8,7 @@ export const enum Sizing {
 }
 
 export const enum Margin {
+    B6 = "mb-6",
     T6 = "mt-6",
     Y1 = "my-1",
     X3 = "mx-3",
@@ -148,6 +149,13 @@ export const enum JustifyContent {
     End = "justify-end",
     Between = "justify-between",
     Around = "justify-around",
+}
+
+export const enum FlexDirection {
+    Row = "flex-row",
+    RowReverse = "flex-row-reverse",
+    Col = "flex-col",
+    ColReverse = "flex-col-reverse",
 }
 
 export const enum BoxShadow {
