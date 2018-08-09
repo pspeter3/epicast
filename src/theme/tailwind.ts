@@ -2,13 +2,19 @@ export const enum Sizing {
     H6 = "h-6",
     H10 = "h-10",
     H12 = "h-12",
+    W10 = "w-10",
     W12 = "w-12",
+    W24 = "w-24",
     WFull = "w-full",
 }
 
 export const enum Margin {
+    B2 = "mb-2",
     B6 = "mb-6",
+    T2 = "mt-2",
+    T6 = "mt-6",
     Y1 = "my-1",
+    X1 = "mx-1",
     X3 = "mx-3",
 }
 
@@ -17,6 +23,7 @@ export const enum Padding {
     A3 = "p-3",
     Y1 = "py-1",
     X1 = "px-1",
+    X2 = "px-2",
     X3 = "px-3",
     X4 = "px-4",
 }
@@ -35,6 +42,8 @@ export const enum TextColor {
 
 export const enum BackgroundColor {
     White = "bg-white",
+    Secondary = "bg-teal",
+    Warning = "bg-orange-lightest",
     Lightest = "bg-indigo-lightest",
     Lighter = "bg-indigo-lighter",
     Light = "bg-indigo-light",
@@ -146,6 +155,13 @@ export const enum JustifyContent {
     End = "justify-end",
     Between = "justify-between",
     Around = "justify-around",
+}
+
+export const enum FlexDirection {
+    Row = "flex-row",
+    RowReverse = "flex-row-reverse",
+    Col = "flex-col",
+    ColReverse = "flex-col-reverse",
 }
 
 export const enum BoxShadow {

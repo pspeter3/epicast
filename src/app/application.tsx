@@ -1,7 +1,7 @@
 import * as React from "react";
 import { infectionRate } from "../core/selectors";
 import { Config, Game, Stack, State } from "../core/types";
-import { configure, epidemic, infect, undo, update } from "../core/updaters";
+import { configure, epidemic, infect, remove, undo, update } from "../core/updaters";
 import { DialogService, RouteService, StorageService } from "../util/services";
 import { size } from "../util/stacks";
 import { Dashboard } from "./dashboard";
@@ -45,11 +45,18 @@ export class Application extends React.PureComponent<Props, State> {
         const game = Application._currentGame(this.state);
         switch (location) {
             case Routes.Infect:
-                return <Infect infection={game.infection} onInfect={this._onInfect} />;
+                return <Infect game={game} onInfect={this._onInfect} />;
             case Routes.Debug:
                 return <Debug state={this.state} />;
         }
-        return <Dashboard game={game} onEpidemic={this._onEpidemic} onUndo={this._onUndo} />;
+        return (
+            <Dashboard
+                game={game}
+                onEpidemic={this._onEpidemic}
+                onRemove={this._onRemove}
+                onUndo={this._onUndo}
+            />
+        );
     }
 
     public componentDidUpdate() {
@@ -96,6 +103,10 @@ export class Application extends React.PureComponent<Props, State> {
     private _onEpidemic = (city: string) => {
         this.setState(update(this.state, epidemic(Application._currentGame(this.state), city)));
         this.props.services.route.routeTo(Routes.Infect);
+    };
+
+    private _onRemove = (city: string) => {
+        this.setState(update(this.state, remove(Application._currentGame(this.state), city)));
     };
 
     private _onInfect = (cities: Stack): boolean => {

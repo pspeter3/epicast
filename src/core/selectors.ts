@@ -9,7 +9,7 @@ export const infectionRate = (game: Game): number => {
     return INFECTION_SCHEDULE[game.epidemics];
 };
 
-export const epidemicForecast = (game: Game): number[] => {
+export const epidemicForecast = (game: Game): { safe: number; risk: number[] } => {
     const { player } = game;
     const drawn = game.turns * 2;
     const { index, sum } = player.reduce(
@@ -25,7 +25,10 @@ export const epidemicForecast = (game: Game): number[] => {
     if (remaining === 1 && index !== player.length - 1) {
         result.push(hypergeometric(player[index + 1], 1, 1, 1));
     }
-    return result;
+    return {
+        safe: index === game.epidemics ? 0 : Math.floor(remaining / 2),
+        risk: result,
+    };
 };
 
 const expectedInfections = (deck: Deck, rate: number): Stack => {
@@ -82,7 +85,7 @@ const expectedEpidemics = (deck: Deck, risk: number[]): Stack => {
 };
 
 export const gameForecast = (game: Game): Forecast => {
-    const risk = epidemicForecast(game);
+    const { safe, risk } = epidemicForecast(game);
     const rate = infectionRate(game);
     const cards = total(game.infection);
     const deck = cards > rate ? game.infection : game.infection.concat([game.discard]);
@@ -96,6 +99,8 @@ export const gameForecast = (game: Game): Forecast => {
         } as CityForecast;
     });
     return {
+        remaining: game.player.reduce((a, e) => a + e) - game.turns * 2,
+        safe,
         epidemics: risk.reduce((a, e) => a + e),
         cities,
     };

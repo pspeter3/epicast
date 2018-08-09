@@ -23,6 +23,8 @@ export interface CityForecast {
 }
 
 export interface Forecast {
+    readonly remaining: number;
+    readonly safe: number;
     readonly epidemics: number;
     readonly cities: ReadonlyArray<CityForecast>;
 }
