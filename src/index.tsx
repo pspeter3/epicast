@@ -1,142 +1,34 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { Appbar } from "./theme/appbar";
-import { classNames, focusClass } from "./theme/css";
-import { DataTable } from "./theme/data_table";
-import { AlertIcon, CodeIcon, EditIcon, SaveIcon, UndoIcon } from "./theme/icons";
-import { NumericInput } from "./theme/numeric_input";
-import {
-    AlignItems,
-    BackgroundColor,
-    BorderColor,
-    BorderRadius,
-    BorderSize,
-    BorderStyle,
-    BoxShadow,
-    Display,
-    FontFamily,
-    FontWeight,
-    JustifyContent,
-    Outline,
-    Padding,
-    Sizing,
-    TextColor,
-    TextDecoration,
-    TextSize,
-    Tracking,
-} from "./theme/tailwind";
+import { Router } from "./app/router";
+import { DialogService, RouterService, RouteService } from "./util/services";
 
-class KitchenSink extends React.PureComponent<{}, { value: number }> {
-    public static displayName = "KitchenSink";
+const dialog: DialogService = {
+    alert: window.alert.bind(window),
+    confirm: window.confirm.bind(window),
+    prompt: window.prompt.bind(window),
+};
 
-    public state = {
-        value: 1,
-    };
+const router: RouterService = {
+    onRouteChange: callback => {
+        const cb = () => {
+            callback(window.location.hash);
+        };
+        window.addEventListener("hashchange", cb);
+        return () => window.removeEventListener("hashchange", cb);
+    },
+    route: () => window.location.hash,
+};
 
-    public render() {
-        return (
-            <>
-                <Appbar
-                    title="Epidemia"
-                    actions={[
-                        { icon: UndoIcon, href: "#/undo" },
-                        { icon: AlertIcon, href: "#/infect" },
-                        { icon: CodeIcon, href: "#/debug" },
-                        { icon: EditIcon, href: "#/settings" },
-                        { icon: SaveIcon, href: "#/save" },
-                    ]}
-                />
-                <DataTable<"name" | "infections" | "epidemics">
-                    headers={{ name: false, infections: true, epidemics: true }}
-                    defaultSort="infections"
-                    data={[
-                        { name: "San Francisco", infections: 0.502, epidemics: 0.23 },
-                        { name: "Los Angeles", infections: 0.32, epidemics: 0.37 },
-                    ]}
-                />
-                <div className={classNames(Display.Flex, JustifyContent.Between, Padding.X1)}>
-                    <label className={classNames(Padding.A3)}>Example</label>
-                    <NumericInput value={this.state.value} onChange={this._onChange} />
-                </div>
-                <div className={classNames(Padding.Y1, Padding.X3)}>
-                    <button
-                        className={classNames(
-                            Sizing.H10,
-                            Sizing.WFull,
-                            Display.InlineFlex,
-                            AlignItems.Center,
-                            JustifyContent.Center,
-                            BorderRadius.Small,
-                            BorderStyle.Solid,
-                            BorderSize.A2,
-                            BorderColor.Base,
-                            TextSize.Small,
-                            FontWeight.Medium,
-                            TextColor.Base,
-                            TextDecoration.Uppercase,
-                            Tracking.Wide,
-                            BoxShadow.Small,
-                            focusClass(Outline.None),
-                            focusClass(BackgroundColor.Lightest),
-                            focusClass(BoxShadow.Large),
-                        )}
-                    >
-                        Test
-                    </button>
-                </div>
-                <div className={classNames(Padding.Y1, Padding.X3)}>
-                    <div className={classNames(Display.Flex)}>
-                        <div
-                            className={classNames(
-                                Display.Flex,
-                                AlignItems.Center,
-                                JustifyContent.Center,
-                                TextColor.Grey,
-                                FontFamily.Mono,
-                                Sizing.H10,
-                                Sizing.W12,
-                                TextSize.XSmall,
-                                BorderRadius.SmallLeft,
-                                BorderSize.T1,
-                                BorderSize.L1,
-                                BorderSize.B1,
-                            )}
-                        >
-                            40%
-                        </div>
-                        <select
-                            className={classNames(
-                                Sizing.H10,
-                                Sizing.WFull,
-                                BorderRadius.None,
-                                BorderRadius.SmallRight,
-                                BorderStyle.Solid,
-                                BorderSize.A1,
-                                BackgroundColor.White,
-                                TextSize.Small,
-                                FontWeight.Medium,
-                                TextColor.Grey,
-                                TextDecoration.Uppercase,
-                                Tracking.Wide,
-                                focusClass(Outline.None),
-                                focusClass(BackgroundColor.Lightest),
-                            )}
-                        >
-                            <option selected={true} disabled={true}>
-                                Epidemic
-                            </option>
-                            <option value="San Francisco">San Francisco</option>
-                            <option value="Los Angeles">Los Angeles</option>
-                        </select>
-                    </div>
-                </div>
-            </>
-        );
-    }
+const route: RouteService = {
+    routeTo: (location: string) => (window.location.hash = location),
+};
 
-    private _onChange = (value: number): void => {
-        this.setState({ value });
-    };
-}
+const storage = window.localStorage;
 
-ReactDOM.render(<KitchenSink />, document.getElementById("root"));
+const services = { dialog, route, router, storage };
+
+ReactDOM.render(
+    <Router services={services}>{location => <pre>{location}</pre>}</Router>,
+    document.getElementById("root"),
+);
