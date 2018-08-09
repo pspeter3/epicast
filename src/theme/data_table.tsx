@@ -108,33 +108,29 @@ export class DataTable<K extends string> extends React.PureComponent<Props<K>, S
                             },
                         )
                         .map(record => (
-                                <DataTable.Row
-                                    key={record[id]}
-                                    className={this._background(record)}
-                                >
-                                    {keys.map(key => (
-                                        <DataTable.Cell
-                                            key={key}
-                                            className={classNames(
-                                                headers[key] ? TextAlign.Right : TextAlign.Left,
-                                                headers[key] ? FontFamily.Mono : FontFamily.Sans,
-                                            )}
-                                        >
-                                            {headers[key]
-                                                ? (record[key] as number).toFixed(2)
-                                                : record[key]}
-                                        </DataTable.Cell>
-                                    ))}
-                                </DataTable.Row>
-                            )
-                    )}
+                            <DataTable.Row key={record[id]} className={this._background(record)}>
+                                {keys.map(key => (
+                                    <DataTable.Cell
+                                        key={key}
+                                        className={classNames(
+                                            headers[key] ? TextAlign.Right : TextAlign.Left,
+                                            headers[key] ? FontFamily.Mono : FontFamily.Sans,
+                                        )}
+                                    >
+                                        {headers[key]
+                                            ? (record[key] as number).toFixed(2)
+                                            : record[key]}
+                                    </DataTable.Cell>
+                                ))}
+                            </DataTable.Row>
+                        ))}
                 </tbody>
             </DataTable.Table>
         );
     }
 
     private _background(record: Record<K, string | number>): string {
-        const { headers } = this.props; 
+        const { headers } = this.props;
         const { sort } = this.state;
         if (headers[sort]) {
             const value = record[sort] as number;

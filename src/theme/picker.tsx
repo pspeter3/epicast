@@ -87,7 +87,12 @@ export class Picker extends React.PureComponent<Props, {}> {
         return (
             <Picker.Field className={className}>
                 <Picker.Prefix className={bg}>{icon}</Picker.Prefix>
-                <Picker.Dropdown className={bg} value={label} disabled={disabled} onChange={this._onChange}>
+                <Picker.Dropdown
+                    className={bg}
+                    value={label}
+                    disabled={disabled}
+                    onChange={this._onChange}
+                >
                     <option disabled={true} value={label}>
                         {label}
                     </option>
