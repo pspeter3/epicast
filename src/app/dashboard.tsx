@@ -13,6 +13,7 @@ import { Routes } from "./routes";
 export interface Props {
     game: Game;
     onEpidemic: (city: string) => void;
+    onRemove: (city: string) => void;
     onUndo: () => void;
 }
 
@@ -35,7 +36,7 @@ export class Dashboard extends React.PureComponent<Props, {}> {
     ];
 
     public render() {
-        const { game, onEpidemic } = this.props;
+        const { game, onEpidemic, onRemove } = this.props;
         const forecast = gameForecast(game);
         const discards = Object.keys(game.discard).sort();
         const epidemics = Object.keys(game.infection[0]).sort();
@@ -70,7 +71,7 @@ export class Dashboard extends React.PureComponent<Props, {}> {
                     label="Discard"
                     options={discards}
                     disabled={discards.length === 0}
-                    onChange={() => {}}
+                    onChange={onRemove}
                 />
             </>
         );

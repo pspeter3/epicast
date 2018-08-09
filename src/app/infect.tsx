@@ -1,12 +1,12 @@
 import * as React from "react";
-import { Game, Stack, CityForecast } from "../core/types";
+import { gameForecast } from "../core/selectors";
+import { CityForecast, Game, Stack } from "../core/types";
 import { ActionProps, Appbar } from "../theme/appbar";
 import { classNames } from "../theme/css";
 import { SaveIcon } from "../theme/icons";
 import { Padding } from "../theme/tailwind";
 import { CityRow } from "./city_row";
 import { Routes } from "./routes";
-import { gameForecast } from '../core/selectors';
 
 export interface Props {
     game: Game;
@@ -62,11 +62,14 @@ export class Infect extends React.PureComponent<Props, Stack> {
     private _initialState(): Stack {
         const forecast = gameForecast(this.props.game);
         const cities: CityForecast[] = forecast.cities as any;
-        return cities.sort((left, right) => right.infections - left.infections).reduce((stack, city) => {
-            return {
-                ...stack,
-                [city.name]: 0
-            }
-        }, {} as Stack);
+        return cities.sort((left, right) => right.infections - left.infections).reduce(
+            (stack, city) => {
+                return {
+                    ...stack,
+                    [city.name]: 0,
+                };
+            },
+            {} as Stack,
+        );
     }
 }
