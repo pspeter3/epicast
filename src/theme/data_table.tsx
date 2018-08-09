@@ -94,9 +94,13 @@ export class DataTable<K extends string> extends React.PureComponent<Props<K>, S
                                 left: Record<K, string | number>,
                                 right: Record<K, string | number>,
                             ): number => {
-                                const isNumeric = headers[sort];
-                                const a = left[sort];
-                                const b = right[sort];
+                                let a = left[sort];
+                                let b = right[sort];
+                                const isNumeric = headers[sort] && a !== b;
+                                if (a === b) {
+                                    a = left[id];
+                                    b = right[id];
+                                }
                                 const inOrder = a < b;
                                 return isNumeric ? (inOrder ? 1 : -1) : inOrder ? -1 : 1;
                             },
