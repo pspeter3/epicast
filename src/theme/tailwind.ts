@@ -7,6 +7,7 @@ export const enum Sizing {
 }
 
 export const enum Margin {
+    B6 = "mb-6",
     Y1 = "my-1",
     X3 = "mx-3",
 }
@@ -186,6 +187,10 @@ export const enum BorderColor {
 
 export const enum Outline {
     None = "outline-none",
+}
+
+export const enum Appearance {
+    None = "appearance-none",
 }
 
 export const enum TableBorder {

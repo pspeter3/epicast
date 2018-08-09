@@ -68,6 +68,7 @@ export class DataTable<K extends string> extends React.PureComponent<Props<K>, S
         const { headers, data } = this.props;
         const { sort } = this.state;
         const keys = Object.keys(headers) as K[];
+        const id = keys[0];
         return (
             <DataTable.Table>
                 <thead>
@@ -101,7 +102,7 @@ export class DataTable<K extends string> extends React.PureComponent<Props<K>, S
                             },
                         )
                         .map(record => (
-                            <DataTable.Row key={record[sort]}>
+                            <DataTable.Row key={record[id]}>
                                 {keys.map(key => (
                                     <DataTable.Cell
                                         key={key}
@@ -110,7 +111,9 @@ export class DataTable<K extends string> extends React.PureComponent<Props<K>, S
                                             headers[key] ? FontFamily.Mono : FontFamily.Sans,
                                         )}
                                     >
-                                        {record[key]}
+                                        {headers[key]
+                                            ? (record[key] as number).toFixed(2)
+                                            : record[key]}
                                     </DataTable.Cell>
                                 ))}
                             </DataTable.Row>

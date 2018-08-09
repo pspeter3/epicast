@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Routes } from "../app/routes";
 import { classNames, focusClass } from "./css";
 import {
     AlignItems,
@@ -26,7 +27,6 @@ export interface ActionProps {
 }
 
 export interface Props {
-    title: string;
     actions: ActionProps[];
 }
 
@@ -37,7 +37,7 @@ export class Appbar extends React.PureComponent<Props, {}> {
         <header
             {...props}
             className={classNames(
-                Positioning.Absolute,
+                Positioning.Fixed,
                 Pin.Top,
                 Pin.Horizontal,
                 Display.Flex,
@@ -89,11 +89,11 @@ export class Appbar extends React.PureComponent<Props, {}> {
     );
 
     public render() {
-        const { title, actions } = this.props;
+        const { actions } = this.props;
 
         return (
             <Appbar.Header>
-                <Appbar.Title href="#/">{title}</Appbar.Title>
+                <Appbar.Title href={Routes.Dashboard}>Epidemia</Appbar.Title>
                 <Appbar.Navigation>
                     {actions.map(action => (
                         <Appbar.Action
