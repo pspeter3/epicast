@@ -109,12 +109,14 @@ export class NumericInput extends React.PureComponent<Props, State> {
         }
     };
 
-    private _onDecrement = () => {
+    private _onDecrement: React.MouseEventHandler<HTMLButtonElement> = evt => {
+        evt.preventDefault();
         this._clearEmpty();
         this.props.onChange(this.props.value - 1);
     };
 
-    private _onIncrement = () => {
+    private _onIncrement: React.MouseEventHandler<HTMLButtonElement> = evt => {
+        evt.preventDefault();
         this._clearEmpty();
         this.props.onChange(this.props.value + 1);
     };

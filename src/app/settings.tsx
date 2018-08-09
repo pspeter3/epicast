@@ -144,10 +144,11 @@ export class Settings extends React.PureComponent<Props, Config> {
         });
     };
 
-    private _onAddCity = () => {
+    private _onAddCity: React.MouseEventHandler<HTMLButtonElement> = evt => {
+        evt.preventDefault();
         const city = this.props.services.dialog.prompt("City name");
         if (city === null) {
-            return this.props.services.dialog.alert("Cannot set empty city name");
+            return;
         }
         this.setState({
             ...this.state,
