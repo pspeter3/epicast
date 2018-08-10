@@ -92,7 +92,7 @@ export class Application extends React.PureComponent<Props, State> {
         if (size(config.cities) === 0) {
             return this._alert(`Cannot create a game with no infection cards.`);
         }
-        const response = this.props.services.dialog.confirm("Reset game state?");
+        const response = this.props.services.dialog.confirm("Start new game?");
         if (!response) {
             return response;
         }
