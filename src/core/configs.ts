@@ -1,7 +1,7 @@
 import { Config } from "./types";
 
 export const StandardConfig: Config = {
-    cards: 59,
+    cards: 53,
     epidemics: 6,
     cities: {
         Algiers: 1,
