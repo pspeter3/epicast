@@ -112,6 +112,13 @@ export const enum TextAlign {
     Justify = "text-justify",
 }
 
+export const enum Leading {
+    None = "leading-none",
+    Tight = "leading-tight",
+    Normal = "leading-normal",
+    Loose = "leading-loose",
+}
+
 export const enum Positioning {
     Static = "static",
     Fixed = "fixed",

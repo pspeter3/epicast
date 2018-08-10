@@ -4,7 +4,7 @@ import { Game } from "../core/types";
 import { ActionProps, Appbar } from "../theme/appbar";
 import { Banner } from "../theme/banner";
 import { DataTable } from "../theme/data_table";
-import { AlertIcon, CrosshairIcon, EditIcon, UndoIcon, XIcon } from "../theme/icons";
+import { AlertIcon, BuoyIcon, CrosshairIcon, EditIcon, UndoIcon, XIcon } from "../theme/icons";
 import { Level } from "../theme/level";
 import { Picker } from "../theme/picker";
 import { Margin } from "../theme/tailwind";
@@ -21,6 +21,11 @@ type Headers = "name" | "infections" | "epidemics";
 
 export class Dashboard extends React.PureComponent<Props, {}> {
     public static displayName = "Dashboard";
+
+    private _action: ActionProps = {
+        icon: BuoyIcon,
+        href: Routes.Dashboard,
+    };
 
     private _actions: ActionProps[] = [
         {
@@ -43,7 +48,7 @@ export class Dashboard extends React.PureComponent<Props, {}> {
         const isSafe = forecast.safe !== 0;
         return (
             <>
-                <Appbar actions={this._actions} />
+                <Appbar action={this._action} title="Epidemia" actions={this._actions} />
                 <Level
                     tiles={[
                         { caption: "Turn", value: game.turns + 1 },
