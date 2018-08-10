@@ -3,7 +3,7 @@ import { Config } from "../core/types";
 import { ActionProps, Appbar } from "../theme/appbar";
 import { classNames, focusClass } from "../theme/css";
 import { FormField } from "../theme/form_field";
-import { CodeIcon, SaveIcon } from "../theme/icons";
+import { BackIcon, CodeIcon, SaveIcon } from "../theme/icons";
 import {
     AlignItems,
     BackgroundColor,
@@ -84,6 +84,11 @@ export class Settings extends React.PureComponent<Props, Config> {
 
     public state = this.props.config;
 
+    private _action: ActionProps = {
+        icon: BackIcon,
+        href: Routes.Dashboard,
+    };
+
     private _actions: ActionProps[] = [
         { icon: CodeIcon, href: Routes.Debug },
         {
@@ -100,7 +105,7 @@ export class Settings extends React.PureComponent<Props, Config> {
     public render() {
         return (
             <>
-                <Appbar actions={this._actions} />
+                <Appbar action={this._action} title="Settings" actions={this._actions} />
                 <main className={classNames(Padding.X1)}>
                     <FormField
                         label="Player Deck Size"

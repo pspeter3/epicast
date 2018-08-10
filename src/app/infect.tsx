@@ -3,7 +3,7 @@ import { gameForecast } from "../core/selectors";
 import { CityForecast, Game, Stack } from "../core/types";
 import { ActionProps, Appbar } from "../theme/appbar";
 import { classNames } from "../theme/css";
-import { SaveIcon } from "../theme/icons";
+import { BackIcon, SaveIcon } from "../theme/icons";
 import { Padding } from "../theme/tailwind";
 import { CityRow } from "./city_row";
 import { Routes } from "./routes";
@@ -17,6 +17,11 @@ export class Infect extends React.PureComponent<Props, Stack> {
     public static displayName = "Infect";
 
     public state = this._initialState();
+
+    private _action: ActionProps = {
+        icon: BackIcon,
+        href: Routes.Dashboard,
+    };
 
     private _actions: ActionProps[] = [
         {
@@ -38,7 +43,7 @@ export class Infect extends React.PureComponent<Props, Stack> {
     public render() {
         return (
             <>
-                <Appbar actions={this._actions} />
+                <Appbar action={this._action} title="Infect" actions={this._actions} />
                 <main className={classNames(Padding.X1)}>
                     {Object.keys(this.state).map(city => (
                         <CityRow

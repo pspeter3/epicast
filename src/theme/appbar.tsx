@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Routes } from "../app/routes";
 import { classNames, focusClass } from "./css";
 import {
     AlignItems,
@@ -9,6 +8,7 @@ import {
     Display,
     FontWeight,
     JustifyContent,
+    Leading,
     Outline,
     Padding,
     Pin,
@@ -27,6 +27,8 @@ export interface ActionProps {
 }
 
 export interface Props {
+    action: ActionProps;
+    title: string;
     actions: ActionProps[];
 }
 
@@ -51,20 +53,18 @@ export class Appbar extends React.PureComponent<Props, {}> {
         />
     );
 
-    public static Title: React.SFC<React.HTMLProps<HTMLAnchorElement>> = props => (
-        <a
+    public static Title: React.SFC<React.HTMLProps<HTMLHeadingElement>> = props => (
+        <h1
             {...props}
             className={classNames(
+                FontWeight.Medium,
+                Leading.Tight,
+                Padding.A3,
+                Sizing.H12,
                 TextColor.Black,
                 TextDecoration.NoUnderline,
                 TextSize.XLarge,
-                FontWeight.Medium,
                 Tracking.Wide,
-                Padding.A3,
-                Sizing.H12,
-                BorderRadius.Small,
-                focusClass(Outline.None),
-                focusClass(BackgroundColor.Dark),
                 props.className,
             )}
         />
@@ -89,19 +89,20 @@ export class Appbar extends React.PureComponent<Props, {}> {
     );
 
     public render() {
-        const { actions } = this.props;
+        const { action, title, actions } = this.props;
 
         return (
             <Appbar.Header>
-                <Appbar.Title href={Routes.Dashboard}>Epidemia</Appbar.Title>
                 <Appbar.Navigation>
-                    {actions.map(action => (
-                        <Appbar.Action
-                            key={action.href}
-                            href={action.href}
-                            onClick={action.onClick}
-                        >
-                            {action.icon}
+                    <Appbar.Action href={action.href} onClick={action.onClick}>
+                        {action.icon}
+                    </Appbar.Action>
+                    <Appbar.Title>{title}</Appbar.Title>
+                </Appbar.Navigation>
+                <Appbar.Navigation>
+                    {actions.map(item => (
+                        <Appbar.Action key={item.href} href={item.href} onClick={item.onClick}>
+                            {item.icon}
                         </Appbar.Action>
                     ))}
                 </Appbar.Navigation>
