@@ -1,4 +1,5 @@
 import * as React from "react";
+import { StandardConfig } from "../core/configs";
 import { Config } from "../core/types";
 import { ActionProps, Appbar } from "../theme/appbar";
 import { classNames, focusClass } from "../theme/css";
@@ -117,6 +118,9 @@ export class Settings extends React.PureComponent<Props, Config> {
                         value={this.state.epidemics}
                         onChange={this._onChangeEpidemics}
                     />
+                    <Settings.ButtonField onClick={this._onStandardConfig}>
+                        Standard Configuration
+                    </Settings.ButtonField>
                     <fieldset>
                         <Settings.Legend>Cities</Settings.Legend>
                         {Object.keys(this.state.cities).map(city => (
@@ -135,6 +139,11 @@ export class Settings extends React.PureComponent<Props, Config> {
             </>
         );
     }
+
+    private _onStandardConfig: React.MouseEventHandler<HTMLButtonElement> = evt => {
+        evt.preventDefault();
+        this.setState(StandardConfig);
+    };
 
     private _onChangeCards = (value: number) => {
         this.setState({
