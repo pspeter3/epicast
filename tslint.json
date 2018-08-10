@@ -13,6 +13,10 @@
             true,
             "never-prefix"
         ],
+        "object-literal-key-quotes": [
+            true,
+            "as-needed"
+        ],
         "object-literal-sort-keys": [
             true,
             "match-declaration-order"
