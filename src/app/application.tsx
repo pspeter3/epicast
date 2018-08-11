@@ -1,5 +1,4 @@
 import * as React from "react";
-import { infectionRate } from "../core/selectors";
 import { Config, Game, Stack, State } from "../core/types";
 import { configure, epidemic, infect, remove, undo, update } from "../core/updaters";
 import { DialogService, RouteService, StorageService } from "../util/services";
