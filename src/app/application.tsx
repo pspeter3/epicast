@@ -111,15 +111,6 @@ export class Application extends React.PureComponent<Props, State> {
 
     private _onInfect = (cities: Stack): boolean => {
         const game = Application._currentGame(this.state);
-        const rate = infectionRate(game);
-        const cards = size(cities);
-        if (cards !== 0 && cards !== infectionRate(game)) {
-            return this._alert(
-                `Cannot infect with ${cards} ${
-                    cards === 1 ? "city" : "cities"
-                }. Infection rate is ${rate}.`,
-            );
-        }
         this.setState(update(this.state, infect(game, cities)));
         return true;
     };
