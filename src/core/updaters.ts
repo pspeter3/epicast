@@ -13,7 +13,7 @@ export const configure = (config: Config): Game => {
     }
     return {
         player,
-        turns: 0,
+        turns: -1,
         epidemics: 0,
         discard: {},
         infection: [config.cities],
