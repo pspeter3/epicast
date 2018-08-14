@@ -1,0 +1,10 @@
+@import "./spacing";
+
+.form-field {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-field__label {
+    @include spacing-target();
+}
