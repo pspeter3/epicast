@@ -1,0 +1,46 @@
+@import "./sizing";
+@import "./spacing";
+@import "./typography";
+@import "./variables";
+
+.data-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.data-table__row {
+    @include sizing-row();
+    border-bottom: $border;
+}
+
+.data-table__row--danger {
+    background-color: $danger;
+}
+
+.data-table__row--warning {
+    background-color: $warning;
+}
+
+.data-table__header {
+    @include subtitle();
+    @include spacing-x();
+    text-align: inherit;
+    text-transform: capitalize;
+}
+
+.data-table__header--numeric {
+    text-align: right;
+}
+
+.data-table__header--selected {
+    color: $primary;
+}
+
+.data-table__cell {
+    @include spacing-x();
+}
+
+.data-table__cell--numeric {
+    font-family: $font-mono;
+    text-align: right;
+}
