@@ -28,54 +28,19 @@ export class Level extends React.PureComponent<Props, {}> {
     public static displayName = "Level";
 
     public static Section: React.SFC<React.HTMLProps<HTMLElement>> = props => (
-        <section
-            {...props}
-            className={classNames(Display.Flex, JustifyContent.Between, props.className)}
-        />
+        <section {...props} className={classNames("level", props.className)} />
     );
 
     public static Tile: React.SFC<React.HTMLProps<HTMLDivElement>> = props => (
-        <div
-            {...props}
-            className={classNames(
-                Display.Flex,
-                FlexDirection.Col,
-                JustifyContent.Around,
-                Sizing.H12,
-                Sizing.W24,
-                props.className,
-            )}
-        />
+        <div {...props} className={classNames("level__tile", props.className)} />
     );
 
     public static Caption: React.SFC<React.HTMLProps<HTMLSpanElement>> = props => (
-        <span
-            {...props}
-            className={classNames(
-                Sizing.WFull,
-                TextAlign.Center,
-                TextColor.Grey,
-                TextDecoration.Uppercase,
-                TextSize.XSmall,
-                Tracking.Wide,
-                props.className,
-            )}
-        />
+        <small {...props} className={classNames("level__caption", props.className)} />
     );
 
-    public static Value: React.SFC<React.HTMLProps<HTMLSpanElement>> = props => (
-        <span
-            {...props}
-            className={classNames(
-                FontFamily.Mono,
-                Sizing.WFull,
-                TextAlign.Center,
-                TextColor.Black,
-                TextSize.XLarge,
-                Tracking.Wide,
-                props.className,
-            )}
-        />
+    public static Value: React.SFC<React.HTMLProps<HTMLHeadingElement>> = props => (
+        <h2 {...props} className={classNames("level__value", props.className)} />
     );
 
     public render() {

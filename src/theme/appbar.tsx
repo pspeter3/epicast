@@ -17,23 +17,11 @@ export class Appbar extends React.PureComponent<Props, {}> {
     public static displayName = "Appbar";
 
     public static Header: React.SFC<React.HTMLProps<HTMLElement>> = props => (
-        <header
-            {...props}
-            className={classNames(
-                "appbar",
-                props.className,
-            )}
-        />
+        <header {...props} className={classNames("appbar", props.className)} />
     );
 
     public static Title: React.SFC<React.HTMLProps<HTMLHeadingElement>> = props => (
-        <h1
-            {...props}
-            className={classNames(
-                "appbar__title",
-                props.className,
-            )}
-        />
+        <h1 {...props} className={classNames("appbar__title", props.className)} />
     );
 
     public static Navigation: React.SFC<React.HTMLProps<HTMLElement>> = props => (
@@ -41,13 +29,7 @@ export class Appbar extends React.PureComponent<Props, {}> {
     );
 
     public static Action: React.SFC<React.HTMLProps<HTMLAnchorElement>> = props => (
-        <a
-            {...props}
-            className={classNames(
-                "appbar__action",
-                props.className,
-            )}
-        />
+        <a {...props} className={classNames("appbar__action", props.className)} />
     );
 
     public render() {
