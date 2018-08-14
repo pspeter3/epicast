@@ -15,7 +15,7 @@ export class DataTable<K extends string> extends React.PureComponent<Props<K>, S
     public static displayName = "DataTable";
 
     public static Table: React.SFC<React.HTMLProps<HTMLTableElement>> = props => (
-        <table {...props} className="data-table" />
+        <table {...props} className={classNames("data-table", props.className)} />
     );
 
     public static Row: React.SFC<React.HTMLProps<HTMLTableRowElement>> = props => (

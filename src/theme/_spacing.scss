@@ -1,8 +1,8 @@
 @import "./variables";
 
 @mixin spacing-x {
-    padding-left: $unit;
-    padding-right: $unit;
+    padding-left: 3 * $subunit;
+    padding-right: 3 * $subunit;
 }
 
 @mixin spacing-target {

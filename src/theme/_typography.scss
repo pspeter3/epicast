@@ -1,4 +1,9 @@
-@mixin subtitle {
+@mixin title {
+    font-size: $leading;
+    font-weight: bold;
+}
+
+@mixin heading {
     font-weight: 500;
     letter-spacing: 0.12;
 }

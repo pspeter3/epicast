@@ -22,7 +22,7 @@
 }
 
 .data-table__header {
-    @include subtitle();
+    @include heading();
     @include spacing-x();
     text-align: inherit;
     text-transform: capitalize;
