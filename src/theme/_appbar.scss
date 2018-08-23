@@ -49,20 +49,21 @@ $appbar__spacing: 8 * $unit;
     padding: $appbar__spacing $subunit 0 * $unit;
 }
 
-@supports(padding: unquote('max(0)')) {
-    .appbar, #root {
-        padding-left: unquote('max(#{$subunit}, env(safe-area-inset-left))');
-        padding-right: unquote('max(#{$subunit}, env(safe-area-inset-right))');
+@supports (padding: unquote("max(0)")) {
+    .appbar,
+    #root {
+        padding-left: unquote("max(#{$subunit}, env(safe-area-inset-left))");
+        padding-right: unquote("max(#{$subunit}, env(safe-area-inset-right))");
     }
 
     .appbar {
-        padding-top: unquote('max(#{$subunit}, env(safe-area-inset-top))');
+        padding-top: unquote("max(#{$subunit}, env(safe-area-inset-top))");
     }
 
     #root {
         // SCSS cannot handle calc and env so we save it as a CSS variable
         --notch: env(safe-area-inset-top);
-        padding-top: unquote('calc(#{$appbar__spacing} + var(--notch))');
-        padding-bottom: unquote('env(safe-area-inset-bottom)');
+        padding-top: unquote("calc(#{$appbar__spacing} + var(--notch))");
+        padding-bottom: unquote("env(safe-area-inset-bottom)");
     }
 }
