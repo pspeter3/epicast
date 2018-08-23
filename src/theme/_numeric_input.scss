@@ -40,6 +40,7 @@ $numeric-input__width: 6 * $unit;
     display: inline-flex;
     justify-content: center;
     width: $numeric-input__width;
+    transition: background-color $duration-simple $easing-standard, color $duration-simple $easing-standard;
 
     &:active,
     &:focus,

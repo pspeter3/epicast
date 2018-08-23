@@ -45,6 +45,7 @@ $picker__size: 5 * $unit;
     height: $picker__size;
     width: 100%;
     text-transform: uppercase;
+    transition: background-color $duration-simple $easing-standard, color $duration-simple $easing-standard;
 
     &:active,
     &:focus,
