@@ -5,6 +5,7 @@ import { ActionProps, Appbar } from "../theme/appbar";
 import { classNames, focusClass } from "../theme/css";
 import { FormField } from "../theme/form_field";
 import { BackIcon, CodeIcon, SaveIcon } from "../theme/icons";
+import { Main } from "../theme/main";
 import {
     AlignItems,
     BackgroundColor,
@@ -107,7 +108,7 @@ export class Settings extends React.PureComponent<Props, Config> {
         return (
             <>
                 <Appbar action={this._action} title="Settings" actions={this._actions} />
-                <main className={classNames(Padding.X1)}>
+                <Main>
                     <FormField
                         label="Player Deck Size"
                         value={this.state.cards}
@@ -135,7 +136,7 @@ export class Settings extends React.PureComponent<Props, Config> {
                             Add City
                         </Settings.ButtonField>
                     </fieldset>
-                </main>
+                </Main>
             </>
         );
     }
