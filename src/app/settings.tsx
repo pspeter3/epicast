@@ -67,9 +67,7 @@ export class Settings extends React.PureComponent<Props, Config> {
                                 onChange={this._onChange}
                             />
                         ))}
-                        <Button onClick={this._onAddCity}>
-                            Add City
-                        </Button>
+                        <Button onClick={this._onAddCity}>Add City</Button>
                     </Fieldset>
                 </>
             </>

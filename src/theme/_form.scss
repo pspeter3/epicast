@@ -34,7 +34,8 @@ $button_size: 5 * $unit;
     height: $button_size;
     justify-content: center;
     width: 100%;
-    transition: background-color $duration-simple $easing-standard, box-shadow $duration-simple $easing-standard;
+    transition: background-color $duration-simple $easing-standard,
+        box-shadow $duration-simple $easing-standard;
 
     &:active,
     &:focus,
