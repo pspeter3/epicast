@@ -24,6 +24,11 @@
     border-bottom-color: $warning-border;
 }
 
+.data-table__row--safe {
+    background-color: $safe;
+    border-bottom-color: $safe-border;
+}
+
 .data-table__header {
     @include heading();
     @include spacing-cell();

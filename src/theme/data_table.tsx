@@ -107,6 +107,9 @@ export class DataTable<K extends string> extends React.PureComponent<Props<K>, S
             if (value >= 0.5) {
                 return "data-table__row--warning";
             }
+            if (value === 0) {
+                return "data-table__row--safe";
+            }
         }
         return undefined;
     }
