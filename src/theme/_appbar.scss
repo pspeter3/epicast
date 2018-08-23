@@ -33,7 +33,8 @@
     @include spacing-target();
     border-radius: 50%;
     color: $white;
-    transition: background-color $duration-simple $easing-standard, color $duration-simple $easing-standard;
+    transition: background-color $duration-simple $easing-standard,
+        color $duration-simple $easing-standard;
 
     &:focus,
     &:hover {
