@@ -1,24 +1,5 @@
 import * as React from "react";
-import { classNames, focusClass } from "./css";
-import {
-    AlignItems,
-    BackgroundColor,
-    BorderRadius,
-    BoxShadow,
-    Display,
-    FontWeight,
-    JustifyContent,
-    Leading,
-    Outline,
-    Padding,
-    Pin,
-    Positioning,
-    Sizing,
-    TextColor,
-    TextDecoration,
-    TextSize,
-    Tracking,
-} from "./tailwind";
+import { classNames } from "./css";
 
 export interface ActionProps {
     icon: React.ReactElement<any>;
@@ -36,56 +17,19 @@ export class Appbar extends React.PureComponent<Props, {}> {
     public static displayName = "Appbar";
 
     public static Header: React.SFC<React.HTMLProps<HTMLElement>> = props => (
-        <header
-            {...props}
-            className={classNames(
-                Positioning.Fixed,
-                Pin.Top,
-                Pin.Horizontal,
-                Display.Flex,
-                AlignItems.Center,
-                JustifyContent.Between,
-                BoxShadow.Medium,
-                BackgroundColor.Base,
-                Padding.A1,
-                props.className,
-            )}
-        />
+        <header {...props} className={classNames("appbar", props.className)} />
     );
 
     public static Title: React.SFC<React.HTMLProps<HTMLHeadingElement>> = props => (
-        <h1
-            {...props}
-            className={classNames(
-                FontWeight.Medium,
-                Leading.Tight,
-                Padding.A3,
-                Sizing.H12,
-                TextColor.Black,
-                TextDecoration.NoUnderline,
-                TextSize.XLarge,
-                Tracking.Wide,
-                props.className,
-            )}
-        />
+        <h1 {...props} className={classNames("appbar__title", props.className)} />
     );
 
     public static Navigation: React.SFC<React.HTMLProps<HTMLElement>> = props => (
-        <nav {...props} className={classNames(Display.Flex, Sizing.H12, props.className)} />
+        <nav {...props} className={classNames("appbar__navigation", props.className)} />
     );
 
     public static Action: React.SFC<React.HTMLProps<HTMLAnchorElement>> = props => (
-        <a
-            {...props}
-            className={classNames(
-                TextColor.Black,
-                Padding.A3,
-                BorderRadius.Full,
-                focusClass(Outline.None),
-                focusClass(BackgroundColor.Dark),
-                props.className,
-            )}
-        />
+        <a {...props} className={classNames("appbar__action", props.className)} />
     );
 
     public render() {

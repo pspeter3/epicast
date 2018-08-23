@@ -1,0 +1,26 @@
+@import "./spacing";
+@import "./typography";
+
+.level {
+    @include spacing-x();
+    @include spacing-y();
+    display: flex;
+    justify-content: space-between;
+}
+
+.level__tile {
+    width: 12 * $unit;
+}
+
+.level__value {
+    @include subtitle();
+    font-family: $font-mono;
+    margin: 0;
+    text-align: center;
+}
+
+.level__caption {
+    @include caption();
+    display: block;
+    text-align: center;
+}

@@ -1,0 +1,50 @@
+@import "./elevation";
+@import "./ripple";
+@import "./spacing";
+@import "./typography";
+@import "./variables";
+
+$button_size: 5 * $unit;
+
+.fieldset {
+    @include spacing-none();
+    border: 0;
+}
+
+.legend {
+    @include control();
+    @include spacing-target();
+    color: $help;
+}
+
+.button {
+    @include spacing-control();
+}
+
+.button__control {
+    @include control();
+    @include elevation-small();
+    @include ripple();
+    align-items: center;
+    background-color: $white;
+    border-radius: $border-radius;
+    border: $subunit / 2 solid $primary;
+    color: $primary;
+    display: flex;
+    height: $button_size;
+    justify-content: center;
+    width: 100%;
+    transition: background-color $duration-simple $easing-standard,
+        box-shadow $duration-simple $easing-standard;
+
+    &:active,
+    &:focus,
+    &:hover {
+        outline: none;
+        background-color: $highlight;
+    }
+
+    &:active {
+        @include elevation-large();
+    }
+}

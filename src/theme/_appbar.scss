@@ -1,0 +1,69 @@
+@import "./animation";
+@import "./elevation";
+@import "./sizing";
+@import "./spacing";
+@import "./typography";
+@import "./variables";
+
+$appbar__spacing: 8 * $unit;
+
+.appbar {
+    @include elevation-medium();
+    background-color: $surface;
+    color: $white;
+    display: flex;
+    justify-content: space-between;
+    left: 0;
+    padding: $subunit;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.appbar__navigation {
+    @include sizing-row();
+    display: flex;
+}
+
+.appbar__title {
+    @include title();
+    @include spacing-target();
+    margin: 0;
+}
+
+.appbar__action {
+    @include spacing-target();
+    border-radius: 50%;
+    color: $white;
+    transition: background-color $duration-simple $easing-standard,
+        color $duration-simple $easing-standard;
+
+    &:focus,
+    &:hover {
+        background-color: $highlight;
+        color: $primary;
+    }
+}
+
+#root {
+    padding: $appbar__spacing $subunit 0 * $unit;
+}
+
+@supports (padding: unquote("max(0)")) {
+    .appbar,
+    #root {
+        padding-left: unquote("max(#{$subunit}, env(safe-area-inset-left))");
+        padding-right: unquote("max(#{$subunit}, env(safe-area-inset-right))");
+    }
+
+    .appbar {
+        padding-top: unquote("max(#{$subunit}, env(safe-area-inset-top))");
+    }
+
+    #root {
+        // SCSS cannot handle calc and env so we save it as a CSS variable
+        --notch: env(safe-area-inset-top);
+        padding-top: unquote("calc(#{$appbar__spacing} + var(--notch))");
+        padding-bottom: unquote("env(safe-area-inset-bottom)");
+    }
+}

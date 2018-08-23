@@ -1,0 +1,26 @@
+@mixin title {
+    font-size: 6 * $subunit;
+    font-weight: 600;
+}
+
+@mixin subtitle {
+    font-size: 5 * $subunit;
+    font-weight: 500;
+    letter-spacing: 0.16;
+}
+
+@mixin heading {
+    font-weight: 500;
+    letter-spacing: 0.12;
+}
+
+@mixin caption {
+    font-size: 3 * $subunit;
+    letter-spacing: 0.4;
+    text-transform: uppercase;
+}
+
+@mixin control {
+    @include caption();
+    font-weight: 500;
+}

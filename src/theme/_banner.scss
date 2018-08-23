@@ -1,0 +1,14 @@
+@import "./elevation";
+@import "./spacing";
+@import "./typography";
+@import "./variables";
+
+.banner {
+    @include elevation-small();
+    @include caption();
+    @include spacing-y();
+    background-color: $primary;
+    border-radius: $border-radius;
+    color: $white;
+    text-align: center;
+}

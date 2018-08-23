@@ -1,0 +1,8 @@
+@import "./spacing";
+@import "./variables";
+
+.repr {
+    @include spacing-cell();
+    color: $help;
+    font-family: $font-mono;
+}

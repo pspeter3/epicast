@@ -1,20 +1,5 @@
 import * as React from "react";
 import { classNames } from "./css";
-import {
-    BackgroundColor,
-    BorderSize,
-    BorderStyle,
-    FontFamily,
-    FontWeight,
-    Padding,
-    Sizing,
-    TableBorder,
-    TextAlign,
-    TextColor,
-    TextDecoration,
-    TextSize,
-    Tracking,
-} from "./tailwind";
 
 export interface Props<K extends string> {
     headers: Record<K, boolean>;
@@ -30,35 +15,19 @@ export class DataTable<K extends string> extends React.PureComponent<Props<K>, S
     public static displayName = "DataTable";
 
     public static Table: React.SFC<React.HTMLProps<HTMLTableElement>> = props => (
-        <table
-            {...props}
-            className={classNames(Sizing.WFull, TableBorder.Collapse, props.className)}
-        />
+        <table {...props} className={classNames("data-table", props.className)} />
     );
 
     public static Row: React.SFC<React.HTMLProps<HTMLTableRowElement>> = props => (
-        <tr
-            {...props}
-            className={classNames(Sizing.H12, BorderStyle.Solid, BorderSize.B1, props.className)}
-        />
+        <tr {...props} className={classNames("data-table__row", props.className)} />
     );
 
     public static Header: React.SFC<React.HTMLProps<HTMLTableHeaderCellElement>> = props => (
-        <th
-            {...props}
-            className={classNames(
-                TextSize.Small,
-                FontWeight.Medium,
-                Tracking.Wide,
-                TextDecoration.Capitalize,
-                Padding.X4,
-                props.className,
-            )}
-        />
+        <th {...props} className={classNames("data-table__header", props.className)} />
     );
 
     public static Cell: React.SFC<React.HTMLProps<HTMLTableCellElement>> = props => (
-        <td {...props} className={classNames(Padding.X4, props.className)} />
+        <td {...props} className={classNames("data-table__cell", props.className)} />
     );
 
     public state = {
@@ -78,8 +47,8 @@ export class DataTable<K extends string> extends React.PureComponent<Props<K>, S
                             <DataTable.Header
                                 key={key}
                                 className={classNames(
-                                    key === sort ? TextColor.Base : TextColor.Grey,
-                                    headers[key] ? TextAlign.Right : TextAlign.Left,
+                                    key === sort ? "data-table__header--selected" : undefined,
+                                    headers[key] ? "data-table__header--numeric" : undefined,
                                 )}
                                 onClick={() => this.setState({ sort: key })}
                             >
@@ -112,8 +81,7 @@ export class DataTable<K extends string> extends React.PureComponent<Props<K>, S
                                     <DataTable.Cell
                                         key={key}
                                         className={classNames(
-                                            headers[key] ? TextAlign.Right : TextAlign.Left,
-                                            headers[key] ? FontFamily.Mono : FontFamily.Sans,
+                                            headers[key] ? "data-table__cell--numeric" : undefined,
                                         )}
                                     >
                                         {headers[key]
@@ -128,19 +96,22 @@ export class DataTable<K extends string> extends React.PureComponent<Props<K>, S
         );
     }
 
-    private _background(record: Record<K, string | number>): string {
+    private _background(record: Record<K, string | number>): string | undefined {
         const { headers } = this.props;
         const { sort } = this.state;
         if (headers[sort]) {
             const value = record[sort] as number;
             if (value >= 1) {
-                return BackgroundColor.Danger;
+                return "data-table__row--danger";
             }
             if (value >= 0.5) {
-                return BackgroundColor.Warning;
+                return "data-table__row--warning";
+            }
+            if (value === 0) {
+                return "data-table__row--safe";
             }
         }
-        return BackgroundColor.White;
+        return undefined;
     }
 }
 

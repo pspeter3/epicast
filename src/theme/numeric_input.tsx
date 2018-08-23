@@ -1,21 +1,6 @@
 import * as React from "react";
-import { classNames, focusClass } from "./css";
+import { classNames } from "./css";
 import { MinusIcon, PlusIcon } from "./icons";
-import {
-    AlignItems,
-    BackgroundColor,
-    BorderRadius,
-    BorderSize,
-    BorderStyle,
-    Display,
-    FontFamily,
-    JustifyContent,
-    Margin,
-    Outline,
-    Sizing,
-    TextAlign,
-    TextColor,
-} from "./tailwind";
 
 export interface Props {
     value: number;
@@ -30,42 +15,17 @@ export class NumericInput extends React.PureComponent<Props, State> {
     public static displayName = "NumericInput";
 
     public static Container: React.SFC<React.HTMLProps<HTMLDivElement>> = props => (
-        <div
-            {...props}
-            className={classNames(Display.Flex, Margin.Y1, Margin.X3, props.className)}
-        />
+        <div {...props} className={classNames("numeric-input", props.className)} />
     );
 
     public static Stepper: React.SFC<React.HTMLProps<HTMLButtonElement>> = props => (
-        <button
-            {...props}
-            className={classNames(
-                TextColor.Base,
-                Display.InlineFlex,
-                AlignItems.Center,
-                JustifyContent.Center,
-                BorderSize.T1,
-                BorderSize.B1,
-                Sizing.W12,
-                focusClass(Outline.None),
-                focusClass(BackgroundColor.Lightest),
-                props.className,
-            )}
-        />
+        <button {...props} className={classNames("numeric-input__stepper", props.className)} />
     );
 
     public static Control: React.SFC<React.HTMLProps<HTMLInputElement>> = props => (
         <input
             {...props}
-            className={classNames(
-                FontFamily.Mono,
-                TextAlign.Center,
-                Sizing.W12,
-                Sizing.H10,
-                BorderStyle.Solid,
-                BorderSize.A1,
-                focusClass(Outline.None),
-            )}
+            className={classNames("numeric-input__control", props.className)}
             type="number"
         />
     );
@@ -78,7 +38,7 @@ export class NumericInput extends React.PureComponent<Props, State> {
         return (
             <NumericInput.Container>
                 <NumericInput.Stepper
-                    className={classNames(BorderSize.L1, BorderRadius.SmallLeft)}
+                    className="numeric-input__stepper--left"
                     onClick={this._onDecrement}
                 >
                     {MinusIcon}
@@ -88,7 +48,7 @@ export class NumericInput extends React.PureComponent<Props, State> {
                     onChange={this._onChange}
                 />
                 <NumericInput.Stepper
-                    className={classNames(BorderSize.R1, BorderRadius.SmallRight)}
+                    className="numeric-input__stepper--right"
                     onClick={this._onIncrement}
                 >
                     {PlusIcon}

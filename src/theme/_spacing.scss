@@ -1,0 +1,27 @@
+@import "./variables";
+
+@mixin spacing-x {
+    padding-left: 3 * $subunit;
+    padding-right: 3 * $subunit;
+}
+
+@mixin spacing-cell {
+    padding: 0 2 * $unit;
+}
+
+@mixin spacing-control {
+    margin: $subunit 3 * $subunit;
+}
+
+@mixin spacing-none {
+    margin: 0 * $unit;
+    padding: 0 * $unit;
+}
+
+@mixin spacing-target {
+    padding: 3 * $subunit;
+}
+
+@mixin spacing-y {
+    margin-bottom: $unit;
+}

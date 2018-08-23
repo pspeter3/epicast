@@ -1,0 +1,30 @@
+// Based on https://github.com/mladenplavsic/css-ripple-effect/blob/master/src/ripple.less
+@import "./animation";
+
+@mixin ripple {
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+
+    &:after {
+        background-image: radial-gradient(circle, $primary 16%, transparent 20%);
+        background-repeat: no-repeat;
+        bottom: 0;
+        content: "";
+        display: block;
+        left: 0;
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transform: scale(16, 16);
+        transition: transform 4 * $duration-simple, opacity 8 * $duration-simple;
+    }
+
+    &:active:after {
+        transform: scale(0, 0);
+        opacity: 0.24;
+        transition: 0s;
+    }
+}

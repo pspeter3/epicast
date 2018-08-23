@@ -7,7 +7,6 @@ import { DataTable } from "../theme/data_table";
 import { AlertIcon, BuoyIcon, CrosshairIcon, EditIcon, UndoIcon, XIcon } from "../theme/icons";
 import { Level } from "../theme/level";
 import { Picker } from "../theme/picker";
-import { Margin } from "../theme/tailwind";
 import { Routes } from "./routes";
 
 export interface Props {
@@ -55,7 +54,6 @@ export class Dashboard extends React.PureComponent<Props, {}> {
                         { caption: "Player Deck", value: forecast.remaining },
                         { caption: "Epidemic", value: forecast.epidemics, isPercent: true },
                     ]}
-                    className={Margin.B2}
                 />
                 {isSafe ? <Banner>No epidemics for at least {forecast.safe} turns</Banner> : null}
                 <DataTable<Headers>
@@ -68,7 +66,6 @@ export class Dashboard extends React.PureComponent<Props, {}> {
                     label="Epidemic"
                     options={epidemics}
                     disabled={isSafe}
-                    className={Margin.T6}
                     onChange={onEpidemic}
                 />
                 <Picker
