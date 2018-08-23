@@ -6,7 +6,6 @@
 .banner {
     @include elevation-small();
     @include caption();
-    @include spacing-banner();
     @include spacing-y();
     background-color: $primary;
     border-radius: $border-radius;

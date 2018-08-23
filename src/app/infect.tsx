@@ -2,9 +2,7 @@ import * as React from "react";
 import { gameForecast } from "../core/selectors";
 import { CityForecast, Game, Stack } from "../core/types";
 import { ActionProps, Appbar } from "../theme/appbar";
-import { classNames } from "../theme/css";
 import { BackIcon, SaveIcon } from "../theme/icons";
-import { Padding } from "../theme/tailwind";
 import { CityRow } from "./city_row";
 import { Routes } from "./routes";
 
@@ -44,7 +42,7 @@ export class Infect extends React.PureComponent<Props, Stack> {
         return (
             <>
                 <Appbar action={this._action} title="Infect" actions={this._actions} />
-                <main className={classNames(Padding.X1)}>
+                <>
                     {Object.keys(this.state).map(city => (
                         <CityRow
                             key={city}
@@ -53,7 +51,7 @@ export class Infect extends React.PureComponent<Props, Stack> {
                             onChange={this._onChange}
                         />
                     ))}
-                </main>
+                </>
             </>
         );
     }

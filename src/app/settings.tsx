@@ -107,7 +107,7 @@ export class Settings extends React.PureComponent<Props, Config> {
         return (
             <>
                 <Appbar action={this._action} title="Settings" actions={this._actions} />
-                <main className={classNames(Padding.X1)}>
+                <>
                     <FormField
                         label="Player Deck Size"
                         value={this.state.cards}
@@ -135,7 +135,7 @@ export class Settings extends React.PureComponent<Props, Config> {
                             Add City
                         </Settings.ButtonField>
                     </fieldset>
-                </main>
+                </>
             </>
         );
     }

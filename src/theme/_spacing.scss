@@ -9,11 +9,6 @@
     padding: 0 2 * $unit;
 }
 
-@mixin spacing-banner {
-    margin-left: $subunit;
-    margin-right: $subunit;
-}
-
 @mixin spacing-control {
     margin: $subunit 3 * $subunit;
 }
