@@ -35,8 +35,9 @@
     color: $white;
     transition: background-color $duration-simple $easing-standard;
 
+    &:focus,
     &:hover {
-        background-color: rgba($primary, 0.12);
+        background-color: $highlight;
         color: $primary;
     }
 }

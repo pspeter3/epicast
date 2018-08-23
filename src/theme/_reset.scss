@@ -18,6 +18,6 @@ body {
     color: $black;
     font-family: $font-sans;
     line-height: $leading;
-    margin: 0;
+    margin: 0 * $unit;
     text-align: left;
 }

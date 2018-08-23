@@ -1,0 +1,61 @@
+@import "./ripple";
+@import "./spacing";
+@import "./variables";
+
+$numeric-input__width: 6 * $unit;
+
+.numeric-input {
+    @include spacing-control();
+    display: flex;
+}
+
+.numeric-input__control {
+    @include spacing-none();
+    border: 0;
+    border-bottom: $border;
+    border-top: $border;
+    font-family: $font-mono;
+    font-size: inherit;
+    text-align: center;
+    width: $numeric-input__width;
+
+    &:focus {
+        outline: none;
+    }
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        @include spacing-none();
+        -webkit-appearance: none;
+    }
+}
+
+.numeric-input__stepper {
+    @include ripple();
+    @include spacing-none();
+    background-color: $white;
+    align-items: center;
+    border: $border;
+    color: $black;
+    display: inline-flex;
+    justify-content: center;
+    width: $numeric-input__width;
+
+    &:active,
+    &:focus,
+    &:hover {
+        outline: none;
+        background-color: $highlight;
+        color: $primary;
+    }
+}
+
+.numeric-input__stepper--left {
+    border-top-left-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+}
+
+.numeric-input__stepper--right {
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+}

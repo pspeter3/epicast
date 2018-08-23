@@ -14,6 +14,15 @@
     margin-right: $subunit;
 }
 
+@mixin spacing-control {
+    margin: $subunit 3 * $subunit;
+}
+
+@mixin spacing-none {
+    margin: 0 * $unit;
+    padding: 0 * $unit;
+}
+
 @mixin spacing-target {
     padding: 3 * $subunit;
 }
