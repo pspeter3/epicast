@@ -15,10 +15,12 @@
 
 .data-table__row--danger {
     background-color: $danger;
+    border-bottom-color: $danger-border;
 }
 
 .data-table__row--warning {
     background-color: $warning;
+    border-bottom-color: $warning-border;
 }
 
 .data-table__header {
