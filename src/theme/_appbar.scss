@@ -6,8 +6,8 @@
 @import "./variables";
 
 .appbar {
-    background-color: $primary;
-    box-shadow: $elevation-medium;
+    @include elevation-medium();
+    background-color: $surface;
     color: $white;
     display: flex;
     justify-content: space-between;

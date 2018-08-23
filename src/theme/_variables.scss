@@ -9,7 +9,9 @@ $black: $black-100;
 $primary: $lime-50;
 $danger: $red-10;
 $warning: $gold-10;
+$safe: $cerulean-10;
 $help: $cool-gray-50;
+$surface: $cool-gray-90;
 
 $subunit: 0.25rem;
 $unit: 0.5rem;
@@ -17,3 +19,4 @@ $unit: 0.5rem;
 $leading: 3 * $unit;
 
 $border: $subunit / 4 solid $cool-gray-10;
+$border-radius: $subunit / 2;

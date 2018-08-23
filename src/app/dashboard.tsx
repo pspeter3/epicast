@@ -55,7 +55,6 @@ export class Dashboard extends React.PureComponent<Props, {}> {
                         { caption: "Player Deck", value: forecast.remaining },
                         { caption: "Epidemic", value: forecast.epidemics, isPercent: true },
                     ]}
-                    className={Margin.B2}
                 />
                 {isSafe ? <Banner>No epidemics for at least {forecast.safe} turns</Banner> : null}
                 <DataTable<Headers>

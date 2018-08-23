@@ -5,6 +5,19 @@
     padding-right: 3 * $subunit;
 }
 
+@mixin spacing-cell {
+    padding: 0 2 * $unit;
+}
+
+@mixin spacing-banner {
+    margin-left: $subunit;
+    margin-right: $subunit;
+}
+
 @mixin spacing-target {
     padding: 3 * $subunit;
+}
+
+@mixin spacing-y {
+    margin-bottom: $unit;
 }

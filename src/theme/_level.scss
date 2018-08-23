@@ -3,6 +3,7 @@
 
 .level {
     @include spacing-x();
+    @include spacing-y();
     display: flex;
     justify-content: space-between;
 }

@@ -1,17 +1,5 @@
 import * as React from "react";
 import { classNames } from "./css";
-import {
-    Display,
-    FlexDirection,
-    FontFamily,
-    JustifyContent,
-    Sizing,
-    TextAlign,
-    TextColor,
-    TextDecoration,
-    TextSize,
-    Tracking,
-} from "./tailwind";
 
 export interface TileProps {
     caption: string;

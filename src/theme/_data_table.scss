@@ -23,7 +23,7 @@
 
 .data-table__header {
     @include heading();
-    @include spacing-x();
+    @include spacing-cell();
     text-align: inherit;
     text-transform: capitalize;
 }
@@ -37,7 +37,7 @@
 }
 
 .data-table__cell {
-    @include spacing-x();
+    @include spacing-cell();
 }
 
 .data-table__cell--numeric {
