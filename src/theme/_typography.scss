@@ -19,3 +19,8 @@
     letter-spacing: 0.4;
     text-transform: uppercase;
 }
+
+@mixin control {
+    @include caption();
+    font-weight: 500;
+}
