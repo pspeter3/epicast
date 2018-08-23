@@ -1,0 +1,64 @@
+@import "./spacing";
+@import "./typography";
+@import "./variables";
+
+$picker__size: 5 * $unit;
+
+.picker {
+    @include spacing-control();
+    display: flex;
+}
+
+.picker__prefix {
+    align-items: center;
+    border-bottom-left-radius: $border-radius;
+    border-bottom: $border;
+    border-left: $border;
+    border-top-left-radius: $border-radius;
+    border-top: $border;
+    color: $help;
+    display: flex;
+    height: $picker__size;
+    justify-content: center;
+    width: $picker__size;
+}
+
+.picker__prefix--disabled {
+    background-color: $disabled;
+    border-color: $disabled-border;
+}
+
+.picker__dropdown {
+    @include heading();
+    @include spacing-cell();
+
+    border-radius: 0 * $unit;
+
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: $white;
+    border-bottom-right-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+    border: $border;
+    color: $help;
+    font-size: inherit;
+    height: $picker__size;
+    width: 100%;
+    text-transform: uppercase;
+
+    &:active,
+    &:focus,
+    &:hover {
+        outline: none;
+
+        &:enabled {
+            background-color: $highlight;
+            color: $primary;
+        }
+    }
+
+    &:disabled {
+        background-color: $disabled;
+        border-color: $disabled-border;
+    }
+}
