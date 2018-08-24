@@ -84,7 +84,7 @@ describe("selectors", () => {
                 cities: [
                     {
                         name: PRIMARY,
-                        infections: hypergeometric(5, 3, 2, 2) + hypergeometric(5, 3, 2, 1),
+                        infections: hypergeometric(5, 3, 2, 2) * 2 + hypergeometric(5, 3, 2, 1),
                         epidemics:
                             3 / 5 +
                             (hypergeometric(8, 1, 1, 1) * 3) / 4 +
@@ -92,7 +92,7 @@ describe("selectors", () => {
                     },
                     {
                         name: SECONDARY,
-                        infections: hypergeometric(5, 2, 2, 2) + hypergeometric(5, 2, 2, 1),
+                        infections: hypergeometric(5, 2, 2, 2) * 2 + hypergeometric(5, 2, 2, 1),
                         epidemics:
                             2 / 5 +
                             (hypergeometric(8, 1, 1, 1) * 2) / 4 +
@@ -129,6 +129,40 @@ describe("selectors", () => {
             } as Forecast);
         });
 
+        it("should handle cities in the discard deck", () => {
+            expect(
+                gameForecast({
+                    player: [8],
+                    turns: 0,
+                    epidemics: 0,
+                    discard: {
+                        [SECONDARY]: 1,
+                    },
+                    infection: [
+                        {
+                            [PRIMARY]: 3,
+                        },
+                    ],
+                }),
+            ).toEqual({
+                remaining: 8,
+                safe: 0,
+                epidemics: hypergeometric(8, 1, 2, 1),
+                cities: [
+                    {
+                        name: PRIMARY,
+                        infections: 2,
+                        epidemics: hypergeometric(8, 1, 2, 1),
+                    },
+                    {
+                        name: SECONDARY,
+                        infections: 0,
+                        epidemics: 0,
+                    },
+                ],
+            } as Forecast);
+        });
+
         it("should handle multiple cities in the infection deck", () => {
             expect(
                 gameForecast({
@@ -150,12 +184,12 @@ describe("selectors", () => {
                 cities: [
                     {
                         name: PRIMARY,
-                        infections: hypergeometric(5, 3, 2, 2) + hypergeometric(5, 3, 2, 1),
+                        infections: hypergeometric(5, 3, 2, 2) * 2 + hypergeometric(5, 3, 2, 1),
                         epidemics: (hypergeometric(8, 1, 2, 1) * 3) / 5,
                     },
                     {
                         name: SECONDARY,
-                        infections: hypergeometric(5, 2, 2, 2) + hypergeometric(5, 2, 2, 1),
+                        infections: hypergeometric(5, 2, 2, 2) * 2 + hypergeometric(5, 2, 2, 1),
                         epidemics: (hypergeometric(8, 1, 2, 1) * 2) / 5,
                     },
                 ],
@@ -195,6 +229,23 @@ describe("selectors", () => {
                     },
                 ],
             } as Forecast);
+        });
+
+        it("should have the expected values match the infection rate", () => {
+            expect(
+                gameForecast({
+                    player: [8],
+                    turns: 0,
+                    epidemics: 0,
+                    discard: {},
+                    infection: [
+                        {
+                            [PRIMARY]: 1,
+                            [SECONDARY]: 2,
+                        },
+                    ],
+                }).cities.reduce((sum, city) => sum + city.infections, 0),
+            ).toEqual(2);
         });
     });
 });
