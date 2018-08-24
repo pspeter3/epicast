@@ -129,6 +129,40 @@ describe("selectors", () => {
             } as Forecast);
         });
 
+        it("should handle cities in the discard deck", () => {
+            expect(
+                gameForecast({
+                    player: [8],
+                    turns: 0,
+                    epidemics: 0,
+                    discard: {
+                        [SECONDARY]: 1,
+                    },
+                    infection: [
+                        {
+                            [PRIMARY]: 3,
+                        },
+                    ],
+                }),
+            ).toEqual({
+                remaining: 8,
+                safe: 0,
+                epidemics: hypergeometric(8, 1, 2, 1),
+                cities: [
+                    {
+                        name: PRIMARY,
+                        infections: 2,
+                        epidemics: hypergeometric(8, 1, 2, 1),
+                    },
+                    {
+                        name: SECONDARY,
+                        infections: 0,
+                        epidemics: 0,
+                    },
+                ],
+            } as Forecast);
+        });
+
         it("should handle multiple cities in the infection deck", () => {
             expect(
                 gameForecast({

@@ -88,10 +88,11 @@ export const gameForecast = (game: Game): Forecast => {
     const { safe, risk } = epidemicForecast(game);
     const rate = infectionRate(game);
     const cards = total(game.infection);
-    const deck = cards > rate ? game.infection : game.infection.concat([game.discard]);
+    const all = game.infection.concat([game.discard]);
+    const deck = cards > rate ? game.infection : all;
     const infections = expectedInfections(deck, rate);
     const epidemics = expectedEpidemics(deck, risk);
-    const cities = unique(deck).map(name => {
+    const cities = unique(all).map(name => {
         return {
             name,
             infections: value(infections, name),
