@@ -46,7 +46,7 @@ const expectedInfections = (deck: Deck, rate: number): Stack => {
                                   return union(ev, { [name]: ctx.rate });
                               }
                               for (let i = 1; i <= Math.min(options, ctx.rate); i++) {
-                                  val += hypergeometric(count, options, ctx.rate, i);
+                                  val += i * hypergeometric(count, options, ctx.rate, i);
                               }
                               return union(ev, { [name]: val });
                           },
