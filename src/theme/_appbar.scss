@@ -49,7 +49,7 @@ $appbar__spacing: 8 * $unit;
     padding: $appbar__spacing $subunit 0 * $unit;
 }
 
-@supports (padding: unquote("max(0)")) {
+@supports (padding: unquote("max(0px)")) {
     .appbar,
     #root {
         padding-left: unquote("max(#{$subunit}, env(safe-area-inset-left))");
