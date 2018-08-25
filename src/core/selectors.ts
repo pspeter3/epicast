@@ -6,7 +6,7 @@ import { CityForecast, Deck, Forecast, Game, Stack } from "./types";
 const INFECTION_SCHEDULE = [2, 2, 2, 3, 3, 4, 4, 5];
 
 export const infectionRate = (game: Game): number => {
-    return INFECTION_SCHEDULE[game.epidemics];
+    return game.turns === -1 ? 9 : INFECTION_SCHEDULE[game.epidemics];
 };
 
 export const epidemicForecast = (game: Game): { safe: number; risk: number[] } => {

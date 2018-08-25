@@ -18,6 +18,18 @@ describe("selectors", () => {
                 }),
             ).toBe(3);
         });
+
+        it("should handle initial infection", () => {
+            expect(
+                infectionRate({
+                    player: [7, 8],
+                    turns: -1,
+                    epidemics: 0,
+                    discard: {},
+                    infection: [],
+                }),
+            ).toBe(9);
+        });
     });
 
     describe("epidemicForecast", () => {
