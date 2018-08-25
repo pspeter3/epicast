@@ -43,11 +43,11 @@ export class Application extends React.PureComponent<Props, State> {
             );
         }
         const game = Application._currentGame(this.state);
-        switch (location) {
-            case Routes.Infect:
-                return <Infect game={game} onInfect={this._onInfect} />;
-            case Routes.Debug:
-                return <Debug state={this.state} />;
+        if (game.turns === -1 || location === Routes.Infect) {
+            return <Infect game={game} onInfect={this._onInfect} />;
+        }
+        if (location === Routes.Debug) {
+            return <Debug state={this.state} />;
         }
         return (
             <Dashboard
