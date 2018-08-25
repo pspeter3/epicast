@@ -1,4 +1,5 @@
 import * as React from "react";
+import { infectionRate } from "../core/selectors";
 import { Config, Game, Stack, State } from "../core/types";
 import { configure, epidemic, infect, remove, undo, update } from "../core/updaters";
 import { DialogService, RouteService, StorageService } from "../util/services";
@@ -110,6 +111,21 @@ export class Application extends React.PureComponent<Props, State> {
 
     private _onInfect = (cities: Stack): boolean => {
         const game = Application._currentGame(this.state);
+        const total = size(cities);
+        const count = Object.keys(cities).length;
+        const rate = infectionRate(game);
+        const messages: string[] = [
+            `Continue with ${total} ${total > 1 ? "infections" : "infection"} in ${count} ${
+                count > 1 ? "cities" : "city"
+            }?`,
+        ];
+        if (total !== rate) {
+            messages.push(`Warning: ${total} is not the current infection rate of ${rate}.`);
+        }
+        const response = this.props.services.dialog.confirm(messages.join("\n\n"));
+        if (!response) {
+            return false;
+        }
         this.setState(update(this.state, infect(game, cities)));
         return true;
     };
