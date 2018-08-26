@@ -25,6 +25,11 @@
 
 <body>
     <div id="root"></div>
+    <script>
+        if ("serviceworker" in navigator) {
+            navigator.serviceWorker.register("sw.js");
+        }
+    </script>
 </body>
 
 </html>
