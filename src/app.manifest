@@ -1,5 +1,6 @@
 {
     "background_color": "#5b8121",
+    "dir": "ltr",
     "display": "standalone",
     "icons": [
         {
@@ -8,7 +9,9 @@
             "sizes": "192x192"
         }
     ],
+    "lang": "en",
     "name": "Epidemia: Pandemic Forecaster",
+    "orientation": "portrait",
     "short_name": "Epidemia",
     "theme_color": "#272727"
 }
