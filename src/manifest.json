@@ -1,0 +1,14 @@
+{
+    "background_color": "#5b8121",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "life-buoy.d35e1c46.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        }
+    ],
+    "name": "Epidemia: Pandemic Forecaster",
+    "short_name": "Epidemia",
+    "theme_color": "#272727"
+}
