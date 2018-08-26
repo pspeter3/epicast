@@ -4,14 +4,21 @@
     "display": "standalone",
     "icons": [
         {
-            "src": "/epidemia/life-buoy.4f62e248.png",
+            "src": "/epidemia/logo_192.02d693d5.png",
             "type": "image/png",
             "sizes": "192x192"
+        },
+        {
+            "src": "/epidemia/logo_512.3ef7cff0.png",
+            "type": "image/png",
+            "sizes": "512x512"
         }
     ],
     "lang": "en",
     "name": "Epidemia: Pandemic Forecaster",
     "orientation": "portrait",
+    "scope": "/epidemia/",
     "short_name": "Epidemia",
+    "start_url": "/epidemia/#/",
     "theme_color": "#272727"
 }
