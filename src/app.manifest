@@ -4,7 +4,7 @@
     "display": "standalone",
     "icons": [
         {
-            "src": "life-buoy.d35e1c46.png",
+            "src": "/epidemia/life-buoy.4f62e248.png",
             "type": "image/png",
             "sizes": "192x192"
         }
