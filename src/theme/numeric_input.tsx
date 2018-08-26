@@ -40,6 +40,7 @@ export class NumericInput extends React.PureComponent<Props, State> {
                 <NumericInput.Stepper
                     className="numeric-input__stepper--left"
                     onClick={this._onDecrement}
+                    aria-label="Decrement"
                 >
                     {MinusIcon}
                 </NumericInput.Stepper>
@@ -50,6 +51,7 @@ export class NumericInput extends React.PureComponent<Props, State> {
                 <NumericInput.Stepper
                     className="numeric-input__stepper--right"
                     onClick={this._onIncrement}
+                    aria-label="Increment"
                 >
                     {PlusIcon}
                 </NumericInput.Stepper>
