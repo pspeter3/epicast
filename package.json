@@ -4,7 +4,7 @@
   "private": true,
   "description": "Pandemic Epidemic Forecaster",
   "scripts": {
-    "build": "parcel build src/index.html --public-url /epidemia/",
+    "build": "parcel build src/index.html --public-url /epidemia/ && workbox generateSW workbox-config.js",
     "coverage": "codecov --file=coverage/coverage-final.json",
     "fmt": "tslint --fix --force --project tsconfig.json && prettier --write 'src/**/*'",
     "lint": "tslint --project tsconfig.json",
@@ -27,7 +27,8 @@
   "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "tslib": "^1.9.3"
+    "tslib": "^1.9.3",
+    "workbox-cli": "^3.4.1"
   },
   "devDependencies": {
     "@types/enzyme": "^3.1.13",
