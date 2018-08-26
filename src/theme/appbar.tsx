@@ -4,6 +4,7 @@ import { classNames } from "./css";
 export interface ActionProps {
     icon: React.ReactElement<any>;
     href: string;
+    label: string;
     onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 }
 
@@ -38,14 +39,23 @@ export class Appbar extends React.PureComponent<Props, {}> {
         return (
             <Appbar.Header>
                 <Appbar.Navigation>
-                    <Appbar.Action href={action.href} onClick={action.onClick}>
+                    <Appbar.Action
+                        href={action.href}
+                        onClick={action.onClick}
+                        aria-label={action.label}
+                    >
                         {action.icon}
                     </Appbar.Action>
                     <Appbar.Title>{title}</Appbar.Title>
                 </Appbar.Navigation>
                 <Appbar.Navigation>
                     {actions.map(item => (
-                        <Appbar.Action key={item.href} href={item.href} onClick={item.onClick}>
+                        <Appbar.Action
+                            key={item.href}
+                            href={item.href}
+                            onClick={item.onClick}
+                            aria-label={action.label}
+                        >
                             {item.icon}
                         </Appbar.Action>
                     ))}
