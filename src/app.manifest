@@ -4,12 +4,12 @@
     "display": "standalone",
     "icons": [
         {
-            "src": "/epidemia/logo_192.02d693d5.png",
+            "src": "/epidemia/logo_192.bda0fab5.png",
             "type": "image/png",
             "sizes": "192x192"
         },
         {
-            "src": "/epidemia/logo_512.3ef7cff0.png",
+            "src": "/epidemia/logo_512.9a49dbcc.png",
             "type": "image/png",
             "sizes": "512x512"
         }
