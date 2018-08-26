@@ -3,6 +3,7 @@ import { classNames } from "./css";
 import { MinusIcon, PlusIcon } from "./icons";
 
 export interface Props {
+    label: string;
     value: number;
     onChange: (nextValue: number) => void;
 }
@@ -47,6 +48,7 @@ export class NumericInput extends React.PureComponent<Props, State> {
                 <NumericInput.Control
                     value={this.state.isEmpty ? "" : this.props.value}
                     onChange={this._onChange}
+                    name={this.props.label}
                 />
                 <NumericInput.Stepper
                     className="numeric-input__stepper--right"
