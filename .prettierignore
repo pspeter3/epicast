@@ -1,3 +1,4 @@
 src/*.html
 src/**/*.snap
 src/img/*.png
+src/*.manifest

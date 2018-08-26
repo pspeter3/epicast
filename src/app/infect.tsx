@@ -19,12 +19,14 @@ export class Infect extends React.PureComponent<Props, Stack> {
     private _action: ActionProps = {
         icon: BackIcon,
         href: Routes.Dashboard,
+        label: "Back",
     };
 
     private _actions: ActionProps[] = [
         {
             icon: SaveIcon,
             href: Routes.Dashboard,
+            label: "Save",
             onClick: evt => {
                 const stack = Object.keys(this.state).reduce(
                     (data, city) =>

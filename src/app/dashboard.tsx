@@ -24,19 +24,21 @@ export class Dashboard extends React.PureComponent<Props, {}> {
     private _action: ActionProps = {
         icon: BuoyIcon,
         href: Routes.Dashboard,
+        label: "Dashboard",
     };
 
     private _actions: ActionProps[] = [
         {
             icon: UndoIcon,
             href: Routes.Dashboard,
+            label: "Undo",
             onClick: evt => {
                 evt.preventDefault();
                 this.props.onUndo();
             },
         },
-        { icon: AlertIcon, href: Routes.Infect },
-        { icon: EditIcon, href: Routes.Settings },
+        { icon: AlertIcon, href: Routes.Infect, label: "Infect" },
+        { icon: EditIcon, href: Routes.Settings, label: "Edit Game" },
     ];
 
     public render() {

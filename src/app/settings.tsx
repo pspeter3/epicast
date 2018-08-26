@@ -26,13 +26,15 @@ export class Settings extends React.PureComponent<Props, Config> {
     private _action: ActionProps = {
         icon: BackIcon,
         href: Routes.Dashboard,
+        label: "Back",
     };
 
     private _actions: ActionProps[] = [
-        { icon: CodeIcon, href: Routes.Debug },
+        { icon: CodeIcon, href: Routes.Debug, label: "Debug" },
         {
             icon: SaveIcon,
             href: Routes.Dashboard,
+            label: "Save",
             onClick: evt => {
                 if (!this.props.onConfigure(this.state)) {
                     evt.preventDefault();

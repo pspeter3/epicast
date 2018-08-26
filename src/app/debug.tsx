@@ -7,7 +7,11 @@ import { Routes } from "./routes";
 
 export const Debug: React.SFC<{ state: State }> = ({ state }) => (
     <>
-        <Appbar action={{ icon: BackIcon, href: Routes.Settings }} title="Debug" actions={[]} />
+        <Appbar
+            action={{ icon: BackIcon, href: Routes.Settings, label: "Back" }}
+            title="Debug"
+            actions={[]}
+        />
         <Repr>{JSON.stringify(state, undefined, 2).replace(/[",]/g, "")}</Repr>
     </>
 );

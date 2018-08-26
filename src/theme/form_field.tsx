@@ -9,8 +9,10 @@ export interface Props {
 
 export const FormField: React.SFC<Props> = ({ label, value, onChange }) => (
     <div className="form-field">
-        <label className="form-field__label">{label}</label>
-        <NumericInput value={value} onChange={onChange} />
+        <label className="form-field__label" htmlFor={label}>
+            {label}
+        </label>
+        <NumericInput value={value} onChange={onChange} label={label} />
     </div>
 );
 

@@ -7,6 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="preload" as="style" onload="this.rel='stylesheet'" href="./index.scss">
+    <noscript>
+        <link rel="stylesheet" href="./index.scss">
+    </noscript>
     <script src="./index.tsx" async defer></script>
 
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -17,14 +20,20 @@
     <meta name="theme-color" content="#272727">
     <meta name="mobile-web-app-capable" content="yes">
     <link rel="manifest" href="./app.manifest">
-    <link rel="icon" sizes="192x192" href="./img/life-buoy.png">
-    <link rel="apple-touch-icon" href="./img/life-buoy.png">
+    <link rel="icon" sizes="192x192" href="./img/logo_192.png">
+    <link rel="icon" sizes="512x512" href="./img/logo_512.png">
+    <link rel="apple-touch-icon" href="./img/logo_192.png">
 
     <title>Epidemia</title>
 </head>
 
 <body>
-    <div id="root"></div>
+    <div id="root">
+        <noscript>
+            <h1><a href="https://github.com/pspeter3/epidemia">Epidemia</a></h1>
+            <p>JavaScript is required for this application.</p>
+        </noscript>
+    </div>
     <script>
         if (typeof navigator.serviceWorker !== "undefined") {
             navigator.serviceWorker.register("sw.js");
