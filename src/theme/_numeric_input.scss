@@ -11,6 +11,8 @@ $numeric-input__width: 6 * $unit;
 
 .numeric-input__control {
     @include spacing-none();
+    appearance: none;
+    -webkit-appearance: none;
     border: 0;
     border-bottom: $border;
     border-top: $border;
