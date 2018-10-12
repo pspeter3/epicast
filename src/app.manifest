@@ -4,12 +4,12 @@
     "display": "standalone",
     "icons": [
         {
-            "src": "./logo_192.c7771cb9.png",
+            "src": "./logo_192.2f3849df.png",
             "type": "image/png",
             "sizes": "192x192"
         },
         {
-            "src": "./logo_512.6db3878f.png",
+            "src": "./logo_512.cb07ae21.png",
             "type": "image/png",
             "sizes": "512x512"
         }
