@@ -45,6 +45,13 @@ $appbar__spacing: 8 * $unit;
     }
 }
 
+@media (hover: none) {
+    .appbar__action:hover {
+        background-color: transparent;
+        color: $white;
+    }
+}
+
 #root {
     padding: $appbar__spacing $subunit 0 * $unit;
 }
