@@ -74,14 +74,11 @@ export class Infect extends React.PureComponent<Props, Stack> {
                 }
                 return right.infections - left.infections;
             })
-            .reduce(
-                (stack, city) => {
-                    return {
-                        ...stack,
-                        [city.name]: 0,
-                    };
-                },
-                {} as Stack,
-            );
+            .reduce((stack, city) => {
+                return {
+                    ...stack,
+                    [city.name]: 0,
+                };
+            }, {} as Stack);
     }
 }

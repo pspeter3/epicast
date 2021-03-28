@@ -38,20 +38,17 @@ const expectedInfections = (deck: Deck, rate: number): Stack => {
             const base =
                 ctx.rate > count
                     ? stack
-                    : Object.keys(stack).reduce(
-                          (ev, name) => {
-                              let val = 0;
-                              const options = value(stack, name);
-                              if (options === count) {
-                                  return union(ev, { [name]: ctx.rate });
-                              }
-                              for (let i = 1; i <= Math.min(options, ctx.rate); i++) {
-                                  val += i * hypergeometric(count, options, ctx.rate, i);
-                              }
-                              return union(ev, { [name]: val });
-                          },
-                          {} as Stack,
-                      );
+                    : Object.keys(stack).reduce((ev, name) => {
+                          let val = 0;
+                          const options = value(stack, name);
+                          if (options === count) {
+                              return union(ev, { [name]: ctx.rate });
+                          }
+                          for (let i = 1; i <= Math.min(options, ctx.rate); i++) {
+                              val += i * hypergeometric(count, options, ctx.rate, i);
+                          }
+                          return union(ev, { [name]: val });
+                      }, {} as Stack);
             return { expected: union(ctx.expected, base), rate: ctx.rate - count };
         },
         { expected: {}, rate },
